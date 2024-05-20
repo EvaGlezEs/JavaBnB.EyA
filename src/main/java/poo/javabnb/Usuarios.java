@@ -8,7 +8,9 @@ package poo.javabnb;
  *
  * @author eva
  */
-public class Usuarios {
+public class Usuarios // abstract???
+
+{
     
     private String correo;
     private String clave;
@@ -48,4 +50,6 @@ public class Usuarios {
         this.clave = clave;
     }
 
+    
+    
 }

@@ -4,17 +4,28 @@
  */
 package poo.javabnb;
 
+import java.io.Serializable;
 /**
  *
  * @author eva
  */
-public class Clientes {
+public class Clientes implements Serializable {
     
     private String DNI;
     private String nombre;
     private String correo;
     private String clave;
     private String telefono;
+
+    //constructor
+    
+    public Clientes(String DNI, String nombre, String correo, String clave, String telefono) {
+        this.DNI = DNI;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.clave = clave;
+        this.telefono = telefono;
+    }
 
     public String getTelefono() {
         return telefono;
@@ -49,5 +60,12 @@ public class Clientes {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
+
+    @Override
+    public String toString() {
+        return "cliente{" + "DNI=" + DNI + ", nombre=" + nombre + ", correo=" + correo + ", clave" + clave + ", telefono" + telefono + '}';
+        
+    }
+
 
 }
