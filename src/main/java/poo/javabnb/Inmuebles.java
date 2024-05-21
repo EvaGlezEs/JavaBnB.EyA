@@ -24,9 +24,13 @@ public class Inmuebles {
     private int numBanos;
 
     private String tipoPropiedad;
+    
+    private float precioNoche;
+    
+
+    
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
-
 
     /**
      * Get the value of tipoPropiedad
@@ -55,6 +59,27 @@ public class Inmuebles {
     public boolean esApartamento() {
         return tipoPropiedad.equalsIgnoreCase(APARTAMENTO);
     }
+   
+    
+ 
+    /**
+     * Get the value of precioNoche
+     *
+     * @return the value of precioNoche
+     */
+    public float getPrecioNoche() {
+        return precioNoche;
+    }
+
+    /**
+     * Set the value of precioNoche
+     *
+     * @param precioNoche new value of precioNoche
+     */
+    public void setPrecioNoche(float precioNoche) {
+        this.precioNoche = precioNoche;
+    }
+
     
     
     
