@@ -14,6 +14,17 @@ public class Usuarios // abstract???
     
     private String correo;
     private String clave;
+    
+    
+    private static final String ADMIN_CORREO = "admin@javabnb.com";
+    private static final String ADMIN_CLAVE = "admin";
+
+    public Usuarios(String correo, String clave) {
+        this.correo = correo;
+        this.clave = clave;
+    }
+    
+    
 
     /**
      * Get the value of correo
@@ -49,7 +60,9 @@ public class Usuarios // abstract???
     public void setClave(String clave) {
         this.clave = clave;
     }
-
     
+    public boolean esAdministrador(){
+        return this.correo.equals(ADMIN_CORREO) && this.clave.equals(ADMIN_CLAVE);
+    }
     
 }

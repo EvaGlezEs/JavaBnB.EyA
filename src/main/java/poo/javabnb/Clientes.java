@@ -60,6 +60,7 @@ public class Clientes implements Serializable {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
+    
 
     @Override
     public String toString() {
