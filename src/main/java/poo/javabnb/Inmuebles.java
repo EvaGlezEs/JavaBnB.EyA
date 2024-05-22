@@ -4,6 +4,8 @@
  */
 package poo.javabnb;
 
+import java.util.List;
+
 /**
  *
  * @author eva
@@ -27,7 +29,7 @@ public class Inmuebles {
     
     private float precioNoche;
     
-
+    private int calificacion;
     
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
@@ -249,4 +251,32 @@ public class Inmuebles {
         this.titulo = titulo;
     }
 
+    public int getCalificacion() {
+        return calificacion;
+    }
+
+    public static void agregarResena(List<Integer> resenas, int resena) {
+        if (resena >= 0 && resena <= 5) {
+            resenas.add(resena);
+        } else {
+            System.out.println("Esta reseña no es válida: " + resena + ". La puntuación debe estar entre 0 y 5");
+        }
+    }
+          
+    //después se calcula la calificación, que es la media de las reseñas
+    public static double calificacion(List<Integer> resenas) {
+        if (resenas.isEmpty()) {
+            throw new IllegalArgumentException("La lista de reseñas no puede estar vacía");
+        }
+        
+        int suma = 0;
+        for (int resena : resenas) {
+            suma += resena;
+        }
+        
+        return (double) suma / resenas.size();
+        
+    }
+
+   
 }

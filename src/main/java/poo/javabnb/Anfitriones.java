@@ -6,6 +6,7 @@ package poo.javabnb;
 
 import java.io.Serializable;
 import java.time.LocalDate; //por la fecha de registro en la app del anfitrion
+import java.util.List;
 /**
  *
  * @author eva
@@ -13,36 +14,17 @@ import java.time.LocalDate; //por la fecha de registro en la app del anfitrion
 public class Anfitriones extends Clientes implements Serializable {
     
     private LocalDate fechaRegistro;
-    private boolean superanfitrion;
+    private int calificacion;
 
     //constructor
 
-    public Anfitriones(LocalDate fechaRegistro, boolean superanfitrion, String DNI, String nombre, String correo, String clave, String telefono) {
+    public Anfitriones(LocalDate fechaRegistro, int calificacion, String DNI, String nombre, String correo, String clave, String telefono) {
         super(DNI, nombre, correo, clave, telefono);
         this.fechaRegistro = fechaRegistro;
-        this.superanfitrion = superanfitrion;
+        this.calificacion = calificacion;
     }
+      
     
-
-   
-    /**
-     * Get the value of superanfitrion
-     *
-     * @return the value of superanfitrion
-     */
-    public boolean isSuperanfitrion() {
-        return superanfitrion;
-    }
-
-    /**
-     * Set the value of superanfitrion
-     *
-     * @param superanfitrion new value of superanfitrion
-     */
-    public void setSuperanfitrion(boolean superanfitrion) {
-        this.superanfitrion = superanfitrion;
-    }
-
     /**
      * Get the value of fechaRegistro
      *
@@ -61,11 +43,42 @@ public class Anfitriones extends Clientes implements Serializable {
         this.fechaRegistro = fechaRegistro;
     }
 
+    public int getCalificacion() {
+        return calificacion;
+    }
+
+    public static void agregarResena(List<Integer> resenas, int resena) {
+        if (resena >= 0 && resena <= 5) {
+            resenas.add(resena);
+        } else {
+            System.out.println("Esta reseña no es válida: " + resena + ". La puntuación debe estar entre 0 y 5");
+        }
+    }
+          
+    //después se calcula la calificación, que es la media de las reseñas
+    public static double calificacion(List<Integer> resenas) {
+        if (resenas.isEmpty()) {
+            throw new IllegalArgumentException("La lista de reseñas no puede estar vacía");
+        }
+        
+        int suma = 0;
+        for (int resena : resenas) {
+            suma += resena;
+        }
+        
+        return (double) suma / resenas.size();
+        
+    }
+    
+    public boolean esSuperAnfitrion(){
+        return this.calificacion > 4.0;
+    }
+    
+    
     @Override
     public String toString() {
         return "Anfitriones{"
                 + "fecha de registro=" + fechaRegistro 
-                + ", superanfitrion=" + superanfitrion
                 + ", DNI='" + getDNI() + '\''
                 + ", nombre='" + getNombre() + '\''
                 + ", correo='" + getCorreo() + '\''
