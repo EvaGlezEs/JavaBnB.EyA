@@ -11,6 +11,5 @@ package poo.javabnb;
 public class JavaBnB {
 
     public static void main(String[] args) {
-        
     }
 }
