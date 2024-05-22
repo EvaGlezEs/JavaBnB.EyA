@@ -58,7 +58,7 @@ public class TarjetaCredito {
     public void setNumero(String numero) {
         //vamos a verficar que el numero no es nulo, contiene exactamente 16 
         //digitos y con ("\\d+") comprobamos que solo tiene caracteres numericos
-        if (numero!= null && numero.length()==16 && numero .matches("\\d+")){
+        if (numero!= null && numero.length()==16 && numero.matches("\\d+")){
             this.numero = numero;
         } else {
             throw new IllegalArgumentException ("El numero de la terjeta debe tener exactamente 16 digitos que sean numericos");
