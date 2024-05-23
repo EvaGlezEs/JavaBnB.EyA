@@ -8,10 +8,7 @@ package poo.javabnb;
  *
  * @author eva
  */
-public class Usuarios // abstract???
-
-{
-    
+public class Usuarios {
     private String correo;
     private String clave;
     
@@ -62,7 +59,8 @@ public class Usuarios // abstract???
     }
     
     public boolean esAdministrador(){
-        return this.correo.equals(ADMIN_CORREO) && this.clave.equals(ADMIN_CLAVE);
+        return ADMIN_CORREO.equals(this.correo) && ADMIN_CLAVE.equals(this.clave);
     }
+    
     
 }
