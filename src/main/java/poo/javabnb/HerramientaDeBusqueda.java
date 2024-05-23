@@ -5,19 +5,19 @@
 package poo.javabnb;
 
 import java.util.ArrayList;
-
+import java.time.LocalDate;
 /**
  *
  * @author Alejandro
  */
-public class Ordenaciones {
+public class HerramientaDeBusqueda {
 
+    private String Ciudad;
+    private LocalDate FechaEntrada;
+    private LocalDate FechaSalida;
+    
     private ArrayList<Inmuebles> Inmuebles;
 
-    public Ordenaciones(ArrayList<Inmuebles> Inmuebles) {
-        Inmuebles = new ArrayList<>();
-    }
-    
     
 
     public static int[] OrdenacionMenorAMayor(int[] Inmuebles) {
