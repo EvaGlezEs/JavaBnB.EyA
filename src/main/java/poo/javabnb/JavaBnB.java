@@ -14,8 +14,17 @@ public class JavaBnB {
     private static ArrayList<Usuarios> usuarios = new ArrayList<>();
     private static Usuarios objper;
     
-    public static void setPersonas(ArrayList<Persona> p) {
-        personas = p;
+    //establece el arraylist de usuarios
+    public static void setUsuarios(ArrayList<Usuarios> u) {
+        usuarios = u;
+    }
+    
+    public void agregarUsuarios(Usuarios usuario){
+        usuarios.add(usuario);
+    }
+    
+    public ArrayList<Usuarios> getUsuarios(){
+        return usuarios;
     }
     
     
