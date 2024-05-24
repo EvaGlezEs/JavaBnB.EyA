@@ -27,9 +27,9 @@ public class Inmuebles {
 
     private String tipoPropiedad;
     
-    private float precioNoche;
+    private String precioNoche;
     
-    private int calificacion;
+    private String calificacion;
     
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
@@ -69,7 +69,7 @@ public class Inmuebles {
      *
      * @return the value of precioNoche
      */
-    public float getPrecioNoche() {
+    public String getPrecioNoche() {
         return precioNoche;
     }
 
@@ -78,7 +78,7 @@ public class Inmuebles {
      *
      * @param precioNoche new value of precioNoche
      */
-    public void setPrecioNoche(float precioNoche) {
+    public void setPrecioNoche(String precioNoche) {
         this.precioNoche = precioNoche;
     }
 
@@ -251,9 +251,15 @@ public class Inmuebles {
         this.titulo = titulo;
     }
 
-    public int getCalificacion() {
+    public String getCalificacion() {
         return calificacion;
     }
+
+    public void setCalificacion(String calificacion) {
+        this.calificacion = calificacion;
+    }
+    
+    
 
     public static void agregarResena(List<Integer> resenas, int resena) {
         if (resena >= 0 && resena <= 5) {
@@ -278,5 +284,5 @@ public class Inmuebles {
         
     }
 
-   
+  
 }
