@@ -40,14 +40,6 @@ public class RegistroCliParti extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        txtDNI = new javax.swing.JTextField();
-        txtCorreo = new javax.swing.JTextField();
-        txtClave = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
-        txtNombreTarjetaCredito = new javax.swing.JTextField();
-        txtNumeroTarjetaCredito = new javax.swing.JTextField();
-        FormattedTxtFechaCaducidadTarjeta = new javax.swing.JFormattedTextField();
         RadioButtonVIP = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,7 +50,7 @@ public class RegistroCliParti extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 204, 153));
         jLabel1.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
         jLabel1.setText("REGISTRO CLIENTE PARTICULAR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         buttonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         buttonRegistrar.setText("Registrar");
@@ -117,28 +109,6 @@ public class RegistroCliParti extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel11.setText("¿Es usted un cliente VIP?");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 180, 20));
-        jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 180, 20));
-
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 180, 20));
-        jPanel1.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, 20));
-
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 180, 20));
-        jPanel1.add(txtNombreTarjetaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 200, 20));
-        jPanel1.add(txtNumeroTarjetaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 200, 20));
-
-        FormattedTxtFechaCaducidadTarjeta.setToolTipText("");
-        jPanel1.add(FormattedTxtFechaCaducidadTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 200, 20));
 
         RadioButtonVIP.setFont(new java.awt.Font("Avenir", 0, 10)); // NOI18N
         RadioButtonVIP.setText("Si, soy cliente VIP");
@@ -165,6 +135,10 @@ public class RegistroCliParti extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void RadioButtonVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonVIPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadioButtonVIPActionPerformed
+
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCancelarActionPerformed
@@ -172,18 +146,6 @@ public class RegistroCliParti extends javax.swing.JFrame {
     private void buttonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegistrarActionPerformed
 
     }//GEN-LAST:event_buttonRegistrarActionPerformed
-
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
-
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
-
-    private void RadioButtonVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonVIPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RadioButtonVIPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,7 +183,6 @@ public class RegistroCliParti extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField FormattedTxtFechaCaducidadTarjeta;
     private javax.swing.JRadioButton RadioButtonVIP;
     private javax.swing.JButton buttonCancelar;
     private javax.swing.JButton buttonRegistrar;
@@ -237,12 +198,5 @@ public class RegistroCliParti extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtClave;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDNI;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombreTarjetaCredito;
-    private javax.swing.JTextField txtNumeroTarjetaCredito;
-    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

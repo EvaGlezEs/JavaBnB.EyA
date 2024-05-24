@@ -35,70 +35,71 @@ public class ModifiDatosAnfitriones extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtModDNI = new javax.swing.JTextField();
-        txtModNombre = new javax.swing.JTextField();
-        txtModCorreo = new javax.swing.JTextField();
-        txtModClave = new javax.swing.JTextField();
-        txtModTelefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        formattedTxtModFechaRegistro = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        buttonModificar = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
         comboBoxModCalificacion = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextFieldModDNI = new javax.swing.JTextField();
+        jTextFieldModNombre = new javax.swing.JTextField();
+        jTextFieldModTelefono = new javax.swing.JTextField();
+        jTextFieldModCorreo = new javax.swing.JTextField();
+        jPasswordFieldModClave = new javax.swing.JPasswordField();
+        jFormattedTextFieldModFechaRegistro = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 220, 186));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
         jLabel1.setText("MODIFICACIÓN DATOS ANFITRIONES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 33, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
         jLabel2.setText("DNI");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 71, 37, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 37, -1));
 
         jLabel3.setText("Nombre");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 112, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
         jLabel4.setText("Correo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 158, 37, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 60, 20));
 
         jLabel5.setText("Clave");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 204, 37, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 37, -1));
 
         jLabel6.setText("Teléfono");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 250, -1, -1));
-        jPanel1.add(txtModDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 71, -1));
-        jPanel1.add(txtModNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 109, 71, -1));
-        jPanel1.add(txtModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 155, 71, -1));
-
-        txtModClave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtModClaveActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtModClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 201, 71, -1));
-        jPanel1.add(txtModTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 247, 71, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
         jLabel7.setText("Fecha de Registro");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 297, -1, -1));
-
-        formattedTxtModFechaRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formattedTxtModFechaRegistroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(formattedTxtModFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 294, 126, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
         jLabel8.setText("Calificación");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 344, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
 
-        buttonModificar.setText("Modificar");
-        jPanel1.add(buttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 394, -1, -1));
+        jButtonModificar.setText("Modificar");
+        jPanel1.add(jButtonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 100, 30));
 
         comboBoxModCalificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-        jPanel1.add(comboBoxModCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 341, -1, -1));
+        jPanel1.add(comboBoxModCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        jLabel10.setText("En esta ventana, si lo desea puede modificar sus datos ");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        jPanel1.add(jTextFieldModDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 150, 20));
+
+        jTextFieldModNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldModNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldModNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, 20));
+        jPanel1.add(jTextFieldModTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 150, 20));
+        jPanel1.add(jTextFieldModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 150, 20));
+        jPanel1.add(jPasswordFieldModClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 150, 20));
+        jPanel1.add(jFormattedTextFieldModFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 170, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,13 +119,9 @@ public class ModifiDatosAnfitriones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtModClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModClaveActionPerformed
+    private void jTextFieldModNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtModClaveActionPerformed
-
-    private void formattedTxtModFechaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formattedTxtModFechaRegistroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formattedTxtModFechaRegistroActionPerformed
+    }//GEN-LAST:event_jTextFieldModNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,10 +162,11 @@ public class ModifiDatosAnfitriones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton buttonModificar;
     private javax.swing.JComboBox<String> comboBoxModCalificacion;
-    private javax.swing.JFormattedTextField formattedTxtModFechaRegistro;
+    private javax.swing.JButton jButtonModificar;
+    private javax.swing.JFormattedTextField jFormattedTextFieldModFechaRegistro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -176,11 +174,12 @@ public class ModifiDatosAnfitriones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtModClave;
-    private javax.swing.JTextField txtModCorreo;
-    private javax.swing.JTextField txtModDNI;
-    private javax.swing.JTextField txtModNombre;
-    private javax.swing.JTextField txtModTelefono;
+    private javax.swing.JPasswordField jPasswordFieldModClave;
+    private javax.swing.JTextField jTextFieldModCorreo;
+    private javax.swing.JTextField jTextFieldModDNI;
+    private javax.swing.JTextField jTextFieldModNombre;
+    private javax.swing.JTextField jTextFieldModTelefono;
     // End of variables declaration//GEN-END:variables
 }
