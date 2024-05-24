@@ -108,7 +108,7 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdministrarInmuebleActionPerformed
 
     private void jButtonReservasInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservasInmuebleActionPerformed
-        ReservasInmuebles newframe = new ReservasInmuebles();
+        ReservasInmueblesAnfi newframe = new ReservasInmueblesAnfi();
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButtonReservasInmuebleActionPerformed

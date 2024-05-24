@@ -8,12 +8,12 @@ package interfaces;
  *
  * @author Alejandro
  */
-public class ReservasInmuebles extends javax.swing.JFrame {
+public class ReservasInmueblesAnfi extends javax.swing.JFrame {
 
     /**
      * Creates new form ReservasInmuebles
      */
-    public ReservasInmuebles() {
+    public ReservasInmueblesAnfi() {
         initComponents();
     }
 
@@ -84,20 +84,21 @@ public class ReservasInmuebles extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReservasInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservasInmueblesAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReservasInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservasInmueblesAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReservasInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservasInmueblesAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReservasInmuebles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservasInmueblesAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReservasInmuebles().setVisible(true);
+                new ReservasInmueblesAnfi().setVisible(true);
             }
         });
     }
