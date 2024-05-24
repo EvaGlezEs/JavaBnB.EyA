@@ -54,12 +54,27 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
         jPanel1.add(jButtonRegistrarInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 149, -1, -1));
 
         jButtonAdministrarInmueble.setText("Administrar Inmuebles");
+        jButtonAdministrarInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdministrarInmuebleActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonAdministrarInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 149, -1, -1));
 
         jButtonReservasInmueble.setText("Reservas Inmuebles");
+        jButtonReservasInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReservasInmuebleActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonReservasInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 247, -1, -1));
 
         jButtonDatosPersonales.setText(" Datos personales");
+        jButtonDatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDatosPersonalesActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 247, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -75,8 +90,28 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarInmuebleActionPerformed
-        // TODO add your handling code here:
+        DatosInmu newframe = new DatosInmu();
+        newframe.setVisible(true); //para que aparezca la nueva ventana 
+        this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButtonRegistrarInmuebleActionPerformed
+
+    private void jButtonDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDatosPersonalesActionPerformed
+        ModifiDatosAnfitriones newframe = new ModifiDatosAnfitriones();
+        newframe.setVisible(true); //para que aparezca la nueva ventana 
+        this.dispose(); //para que se cierre la ventana actual
+    }//GEN-LAST:event_jButtonDatosPersonalesActionPerformed
+
+    private void jButtonAdministrarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministrarInmuebleActionPerformed
+        AdministrarInmuAnfi newframe = new AdministrarInmuAnfi();
+        newframe.setVisible(true); //para que aparezca la nueva ventana 
+        this.dispose(); //para que se cierre la ventana actual
+    }//GEN-LAST:event_jButtonAdministrarInmuebleActionPerformed
+
+    private void jButtonReservasInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservasInmuebleActionPerformed
+        ReservasInmuebles newframe = new ReservasInmuebles();
+        newframe.setVisible(true); //para que aparezca la nueva ventana 
+        this.dispose(); //para que se cierre la ventana actual
+    }//GEN-LAST:event_jButtonReservasInmuebleActionPerformed
 
     /**
      * @param args the command line arguments

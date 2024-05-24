@@ -141,4 +141,13 @@ public class UtilInmuebles {
 
         return objinmu;
     }
+     public static boolean registrarInmueble(Inmuebles objinmu) {
+        if (!inmuebles.contains(objinmu)) {
+            inmuebles.add(objinmu);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

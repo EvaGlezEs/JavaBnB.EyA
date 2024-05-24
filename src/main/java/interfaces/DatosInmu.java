@@ -56,6 +56,7 @@ public class DatosInmu extends javax.swing.JFrame {
         jComboBoxTipoPropiedad = new javax.swing.JComboBox<>();
         jTextFieldPrecioNoche = new javax.swing.JTextField();
         jComboBoxCalificacion = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,27 +128,55 @@ public class DatosInmu extends javax.swing.JFrame {
         jPanel1.add(jTextFieldNumBanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 439, 71, -1));
 
         jComboBoxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento" }));
+        jComboBoxTipoPropiedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoPropiedadActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 512, -1, -1));
         jPanel1.add(jTextFieldPrecioNoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 77, -1));
 
         jComboBoxCalificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-        jPanel1.add(jComboBoxCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 594, -1, -1));
+        jComboBoxCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCalificacionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 590, -1, -1));
+
+        jButton2.setText("Volver");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 670, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxTipoPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoPropiedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTipoPropiedadActionPerformed
+
+    private void jComboBoxCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCalificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCalificacionActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +215,7 @@ public class DatosInmu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JComboBox<String> jComboBoxCalificacion;
     private javax.swing.JComboBox<String> jComboBoxTipoPropiedad;
