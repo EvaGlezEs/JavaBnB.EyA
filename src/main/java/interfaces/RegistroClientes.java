@@ -62,8 +62,6 @@ public class RegistroClientes extends javax.swing.JFrame {
         jTextFieldVar2 = new javax.swing.JTextField();
         jFormattedTextFieldVar3 = new javax.swing.JFormattedTextField();
         jButtonVolver = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBoxTipoClientes = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,8 +70,8 @@ public class RegistroClientes extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 153));
         jLabel1.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
-        jLabel1.setText("REGISTRO DE CLIENTES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jLabel1.setText("REGISTRO CLIENTE PARTICULAR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
         jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
@@ -189,18 +187,6 @@ public class RegistroClientes extends javax.swing.JFrame {
         jButtonVolver.setText("Volver");
         jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 90, 30));
 
-        jLabel11.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        jLabel11.setText("¿Cómo quiere registarse? ");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
-
-        jComboBoxTipoClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente particular", "Anfitrión" }));
-        jComboBoxTipoClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoClientesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBoxTipoClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -261,10 +247,6 @@ public class RegistroClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldVar3ActionPerformed
 
-    private void jComboBoxTipoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoClientesActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -311,11 +293,9 @@ public class RegistroClientes extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JComboBox<String> jComboBoxTipoClientes;
     private javax.swing.JFormattedTextField jFormattedTextFieldVar3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

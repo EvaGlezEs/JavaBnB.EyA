@@ -167,7 +167,7 @@ public class UtilInmuebles {
      /** Carga los datos de Inmuebles del fichero */
     public static void cargarDatos() {
         try {
-            //Lectura de los objetos de tipo persona
+            //Lectura de los objetos de tipo inmuebles
             FileInputStream istreamInmu = new FileInputStream("copiasegInmu.dat");
             ObjectInputStream oisInmu = new ObjectInputStream(istreamInmu);
             inmuebles = (ArrayList) oisInmu.readObject();
@@ -187,14 +187,14 @@ public class UtilInmuebles {
             //Si hay datos los guardamos...
             if (!inmuebles.isEmpty()) {
                 /****** Serialización de los objetos ******/
-                //Serialización de las personas
+                //Serialización de los inmuebles
                 FileOutputStream ostreamInmu = new FileOutputStream("copiasegInmu.dat");
                 ObjectOutputStream oosInmu = new ObjectOutputStream(ostreamInmu);
-                //guardamos el array de personas
+                //guardamos el array de inmuebles
                 oosInmu.writeObject(inmuebles);
                 ostreamInmu.close();
             } else {
-                System.out.println("Error: No hay datos...");
+                System.out.println("Error: No hay datos");
             }
 
         } catch (IOException ioe) {
@@ -208,41 +208,35 @@ public class UtilInmuebles {
      * @param per
      * @throws java.io.IOException */
     public static void generaFicha(Inmuebles per) throws IOException {
-        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(per.getDni() + ".txt")));
-        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");        
-        String fn = per.getFechaNac().format(formatoCorto);
+        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(per.getTitulo() + ".txt")));
 
-        salida.println("-------------------------------- Ficha Persona --------------------------------");
+        salida.println("-------------------------------- Ficha Inmueble --------------------------------");
         salida.println("\n");
         salida.println("Titulo: " + per.getTitulo());
         salida.println("\n");
-        salida.println("Nombre: " + per.getNombre());
+        salida.println("Nombre: " + per.getCalle());
         salida.println("\n");
-        salida.println("Nombre: " + per.getNombre());
+        salida.println("Numero: " + per.getNumero());
         salida.println("\n");
-        salida.println("Nombre: " + per.getNombre());
+        salida.println("Código Postal: " + per.getCodigoPostal());
         salida.println("\n");
-        salida.println("Nombre: " + per.getNombre());
+        salida.println("Ciudad: " + per.getCiudad());
         salida.println("\n");
-        salida.println("Nombre: " + per.getNombre());
+        salida.println("Número de Huespedes: " + per.getNumHuespedes());
         salida.println("\n");
-        salida.println("Fecha de nacimiento: " + fn);
+        salida.println("Número de Habitaciones: " + per.getNumHabitaciones());
         salida.println("\n");
-        salida.println("Dirección: " + per.getDireccion());
+        salida.println("Número de Camas: " + per.getNumCamas());
         salida.println("\n");
-        salida.println("Tfno: " + per.getTfno());
+        salida.println("Número de Baños: " + per.getNumBanos());
         salida.println("\n");
-        if (per.getClass().getSimpleName().equals("Alumno")) {
-            Alumno alu = (Alumno) per;
-            salida.println("*** Alumno ***");
-            salida.println("Titulación: " + alu.getTitulacion());
-            salida.println("Asignaturas: " + alu.getAsignaturas());
-        } else {
-            Profesor pro = (Profesor) per;
-            salida.println("*** Profesor ***");
-            salida.println("Departamento: " + pro.getDepartamento());
-            salida.println("Sueldo: " + pro.getSueldo());
-        }
+        salida.println("Tipo de propiedad: " + per.getTipoPropiedad());
+        salida.println("\n");
+        salida.println("Precio por noche: " + per.getPrecioNoche());
+        salida.println("\n");
+        salida.println("Calificación: " + per.getCalificacion());
+        salida.println("\n");
+        salida.println("Servicios: " + per.getServicios());
         salida.println("\n");
         salida.println("-------------------------------------------------------------------------------");
         salida.close();

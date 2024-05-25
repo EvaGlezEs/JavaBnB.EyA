@@ -8,12 +8,12 @@ package interfaces;
  *
  * @author eva
  */
-public class BORRARRegistroAnfitrion extends javax.swing.JFrame {
+public class RegistroAnfi extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistroAnfitrion
      */
-    public BORRARRegistroAnfitrion() {
+    public RegistroAnfi() {
         initComponents();
     }
 
@@ -51,8 +51,8 @@ public class BORRARRegistroAnfitrion extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
-        jLabel1.setText("REGISTRO ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jLabel1.setText("REGISTRO ANFITRION");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");
@@ -145,21 +145,23 @@ public class BORRARRegistroAnfitrion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BORRARRegistroAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BORRARRegistroAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BORRARRegistroAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BORRARRegistroAnfitrion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BORRARRegistroAnfitrion().setVisible(true);
+                new RegistroAnfi().setVisible(true);
             }
         });
     }
