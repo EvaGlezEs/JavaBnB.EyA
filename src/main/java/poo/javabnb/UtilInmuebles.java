@@ -61,7 +61,7 @@ public class UtilInmuebles {
         }
     }
     
-    /** Modifica los datos de un inmueble
+    /** Modifica los datos de una persona
      * @param Inmu
      * @param i_titulo
      * @param i_calle
