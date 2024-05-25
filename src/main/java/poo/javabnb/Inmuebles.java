@@ -20,10 +20,10 @@ public class Inmuebles {
     private String ciudad;
     
     
-    private int numHuespedes;
-    private int numHabitaciones;
-    private int numCamas;
-    private int numBanos;
+    private String numHuespedes;
+    private String numHabitaciones;
+    private String numCamas;
+    private String  numBanos;
 
     private String tipoPropiedad;
     
@@ -92,7 +92,7 @@ public class Inmuebles {
      *
      * @return the value of numBanos
      */
-    public int getNumBanos() {
+    public String  getNumBanos() {
         return numBanos;
     }
 
@@ -101,7 +101,7 @@ public class Inmuebles {
      *
      * @param numBanos new value of numBanos
      */
-    public void setNumBanos(int numBanos) {
+    public void setNumBanos(String  numBanos) {
         this.numBanos = numBanos;
     }
 
@@ -111,7 +111,7 @@ public class Inmuebles {
      *
      * @return the value of numCamas
      */
-    public int getNumCamas() {
+    public String  getNumCamas() {
         return numCamas;
     }
 
@@ -120,7 +120,7 @@ public class Inmuebles {
      *
      * @param numCamas new value of numCamas
      */
-    public void setNumCamas(int numCamas) {
+    public void setNumCamas(String numCamas) {
         this.numCamas = numCamas;
     }
 
@@ -129,7 +129,7 @@ public class Inmuebles {
      *
      * @return the value of numHabitaciones
      */
-    public int getNumHabitaciones() {
+    public String  getNumHabitaciones() {
         return numHabitaciones;
     }
 
@@ -138,7 +138,7 @@ public class Inmuebles {
      *
      * @param numHabitaciones new value of numHabitaciones
      */
-    public void setNumHabitaciones(int numHabitaciones) {
+    public void setNumHabitaciones(String  numHabitaciones) {
         this.numHabitaciones = numHabitaciones;
     }
 
@@ -147,7 +147,7 @@ public class Inmuebles {
      *
      * @return the value of numHuespedes
      */
-    public int getNumHuespedes() {
+    public String  getNumHuespedes() {
         return numHuespedes;
     }
 
@@ -156,7 +156,7 @@ public class Inmuebles {
      *
      * @param numHuespedes new value of numHuespedes
      */
-    public void setNumHuespedes(int numHuespedes) {
+    public void setNumHuespedes(String  numHuespedes) {
         this.numHuespedes = numHuespedes;
     }
 

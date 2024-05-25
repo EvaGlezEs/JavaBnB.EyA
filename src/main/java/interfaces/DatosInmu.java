@@ -51,7 +51,7 @@ public class DatosInmu extends javax.swing.JFrame {
         return jTextFieldCodigoPostal.getText();
     }
 
-    public void setJTextFieldcCodigoPostal(String txt) {
+    public void setJTextFieldCodigoPostal(String txt) {
         this.jTextFieldCodigoPostal.setText(txt);
     }
 
@@ -95,19 +95,30 @@ public class DatosInmu extends javax.swing.JFrame {
     public void setJTextFieldNumBanos(String txt) {
         this.jTextFieldNumBanos.setText(txt);
     }
+    
+    public String getComboBoxTipoPropiedad(){
+        return jComboBoxTipoPropiedad.getActionCommand();
+    }
+    
+    public String setComboBoxTipoPropiedad(){
+        return jComboBoxTipoPropiedad.setActionCommand(aCommand);
+    }
+    
 
 
    
 
     //borra el contenido del panel
     public void borrar() {
-        LocalDate ld =LocalDate.of(1970, Month.JANUARY, 01);
-        Instant instant = ld.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date dia = Date.from(instant);
-        setJTextFieldDni("");
-        setJTextFieldNom("");
-        setjSpinnerFecha(dia);
-        setJTextFieldDir("");
+        setJTextFieldTitulo("");
+        setJTextFieldCalle("");
+        setJTextFieldNumero("");
+        setJTextFieldCodigoPostal("");
+        setJTextFieldCiudad("");
+        setJTextFieldNumHuespedes("");
+        setJTextFieldNumHabitaciones("");
+        setJTextFieldNumCamas("");
+        setJTextFieldNumBanos("");
         setjFormattedTextFieldTfno(0);
         setJTextFieldVar1("");
         setJTextFieldVar2("");
@@ -122,6 +133,10 @@ public class DatosInmu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -154,7 +169,6 @@ public class DatosInmu extends javax.swing.JFrame {
         jComboBoxCalificacion = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,7 +216,7 @@ public class DatosInmu extends javax.swing.JFrame {
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 594, -1, -1));
 
         jButtonCrear.setText("Crear inmueble");
-        jPanel1.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 672, -1, -1));
+        jPanel1.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 780, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel14.setText("Dirección");
@@ -248,23 +262,25 @@ public class DatosInmu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 670, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 780, -1, -1));
 
         jLabel17.setText("Servicios");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 630, -1, -1));
-
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 630, -1, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 630, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -319,6 +335,10 @@ public class DatosInmu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JComboBox<String> jComboBoxCalificacion;
@@ -341,7 +361,6 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCalle;
     private javax.swing.JTextField jTextFieldCiudad;
     private javax.swing.JTextField jTextFieldCodigoPostal;
