@@ -13,17 +13,16 @@ import java.util.List;
 public class Inmuebles {
     
     private String titulo;
-
+    
     private String calle;
     private String numero;
     private String codigoPostal;
     private String ciudad;
     
-    
     private String numHuespedes;
     private String numHabitaciones;
     private String numCamas;
-    private String  numBanos;
+    private String numBanos;
 
     private String tipoPropiedad;
     
@@ -51,8 +50,6 @@ public class Inmuebles {
         this.calificacion = calificacion;
         this.servicios = servicios;
     }
-    
-    
 
     /**
      * Get the value of tipoPropiedad
@@ -178,79 +175,39 @@ public class Inmuebles {
         this.numHuespedes = numHuespedes;
     }
 
-
-    /**
-     * Get the value of ciudad
-     *
-     * @return the value of ciudad
-     */
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    /**
-     * Set the value of ciudad
-     *
-     * @param ciudad new value of ciudad
-     */
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    /**
-     * Get the value of codigoPostal
-     *
-     * @return the value of codigoPostal
-     */
-    public String getCodigoPostal() {
-        return codigoPostal;
-    }
-
-    /**
-     * Set the value of codigoPostal
-     *
-     * @param codigoPostal new value of codigoPostal
-     */
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
-    }
-
-    /**
-     * Get the value of numero
-     *
-     * @return the value of numero
-     */
-    public String getNumero() {
-        return numero;
-    }
-
-    /**
-     * Set the value of numero
-     *
-     * @param numero new value of numero
-     */
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    /**
-     * Get the value of calle
-     *
-     * @return the value of calle
-     */
     public String getCalle() {
         return calle;
     }
 
-    /**
-     * Set the value of calle
-     *
-     * @param calle new value of calle
-     */
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    
     
     
     /**
