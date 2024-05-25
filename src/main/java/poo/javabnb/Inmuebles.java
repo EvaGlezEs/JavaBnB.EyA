@@ -36,6 +36,24 @@ public class Inmuebles {
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
+    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, String precioNoche, String calificacion, String servicios) {
+        this.titulo = titulo;
+        this.calle = calle;
+        this.numero = numero;
+        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
+        this.numHuespedes = numHuespedes;
+        this.numHabitaciones = numHabitaciones;
+        this.numCamas = numCamas;
+        this.numBanos = numBanos;
+        this.tipoPropiedad = tipoPropiedad;
+        this.precioNoche = precioNoche;
+        this.calificacion = calificacion;
+        this.servicios = servicios;
+    }
+    
+    
+
     /**
      * Get the value of tipoPropiedad
      *

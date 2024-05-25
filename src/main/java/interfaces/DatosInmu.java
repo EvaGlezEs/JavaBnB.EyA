@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneId;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import poo.javabnb.Inmuebles;
+import poo.javabnb.UtilInmuebles;
 
 /**
  *
@@ -23,105 +26,58 @@ public class DatosInmu extends javax.swing.JFrame {
     public DatosInmu() {
         initComponents();
     }
-    
-     //metodos para devolver y presentar el contenido de los campos del formulario
+
+    //metodos para devolver y presentar el contenido de los campos del formulario
     public String getJTextFieldTitulo() {
         return jTextFieldTitulo.getText();
-    }
-
-    public void setJTextFieldTitulo(String txt) {
-        this.jTextFieldTitulo.setText(txt);
     }
 
     public String getJTextFieldCalle() {
         return jTextFieldCalle.getText();
     }
 
-    public void setJTextFieldCalle(String txt) {
-        this.jTextFieldCalle.setText(txt);
-    }
     public String getJTextFieldNumero() {
         return jTextFieldNumero.getText();
     }
 
-    public void setJTextFieldNumero(String txt) {
-        this.jTextFieldNumero.setText(txt);
-    }
     public String getJTextFieldCodigoPostal() {
         return jTextFieldCodigoPostal.getText();
     }
-
-    public void setJTextFieldCodigoPostal(String txt) {
-        this.jTextFieldCodigoPostal.setText(txt);
-    }
-
 
     public String getJTextFieldCiudad() {
         return jTextFieldCiudad.getText();
     }
 
-    public void setJTextFieldCiudad(String txt) {
-        this.jTextFieldCiudad.setText(txt);
-    }
-
-
     public String getJTextFieldNumHuespedes() {
         return jTextFieldNumHuespedes.getText();
-    }
-
-    public void setJTextFieldNumHuespedes(String txt) {
-        this.jTextFieldNumHuespedes.setText(txt);
     }
 
     public String getJTextFieldNumHabitaciones() {
         return jTextFieldNumHabitaciones.getText();
     }
 
-    public void setJTextFieldNumHabitaciones(String txt) {
-        this.jTextFieldNumHabitaciones.setText(txt);
-    }
-     public String getJTextFieldNumCamas() {
+    public String getJTextFieldNumCamas() {
         return jTextFieldNumCamas.getText();
     }
 
-    public void setJTextFieldNumCamas(String txt) {
-        this.jTextFieldNumCamas.setText(txt);
-    }
-    
     public String getJTextFieldNumBanos() {
         return jTextFieldNumBanos.getText();
     }
 
-    public void setJTextFieldNumBanos(String txt) {
-        this.jTextFieldNumBanos.setText(txt);
+    public String getComboBoxTipoPropiedad() {
+        return String.valueOf(jComboBoxTipoPropiedad.getSelectedItem());
     }
-    
-    public String getComboBoxTipoPropiedad(){
-        return jComboBoxTipoPropiedad.getActionCommand();
+
+    public String getJTextFieldPrecioNoche() {
+        return jTextFieldPrecioNoche.getText();
     }
-    
-    public String setComboBoxTipoPropiedad(){
-        return jComboBoxTipoPropiedad.setActionCommand(aCommand);
+
+    public String getComboBoxCalificacion() {
+        return String.valueOf(jComboBoxCalificacion.getSelectedItem());
     }
-    
 
-
-   
-
-    //borra el contenido del panel
-    public void borrar() {
-        setJTextFieldTitulo("");
-        setJTextFieldCalle("");
-        setJTextFieldNumero("");
-        setJTextFieldCodigoPostal("");
-        setJTextFieldCiudad("");
-        setJTextFieldNumHuespedes("");
-        setJTextFieldNumHabitaciones("");
-        setJTextFieldNumCamas("");
-        setJTextFieldNumBanos("");
-        setjFormattedTextFieldTfno(0);
-        setJTextFieldVar1("");
-        setJTextFieldVar2("");
+    public String getJTextFieldServicios() {
+        return jTextFieldServicios.getText();
     }
 
     /**
@@ -151,7 +107,7 @@ public class DatosInmu extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButtonCrear = new javax.swing.JButton();
+        jButtonCrearInmueble = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -164,11 +120,12 @@ public class DatosInmu extends javax.swing.JFrame {
         jTextFieldNumHabitaciones = new javax.swing.JTextField();
         jTextFieldNumCamas = new javax.swing.JTextField();
         jTextFieldNumBanos = new javax.swing.JTextField();
-        jComboBoxTipoPropiedad = new javax.swing.JComboBox<>();
         jTextFieldPrecioNoche = new javax.swing.JTextField();
         jComboBoxCalificacion = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
+        jTextFieldServicios = new javax.swing.JTextField();
+        jComboBoxTipoPropiedad = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -215,8 +172,13 @@ public class DatosInmu extends javax.swing.JFrame {
         jLabel13.setText("Calificación");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 594, -1, -1));
 
-        jButtonCrear.setText("Crear inmueble");
-        jPanel1.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 780, -1, -1));
+        jButtonCrearInmueble.setText("Crear inmueble");
+        jButtonCrearInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCrearInmuebleActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonCrearInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 700, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel14.setText("Dirección");
@@ -238,14 +200,6 @@ public class DatosInmu extends javax.swing.JFrame {
         jPanel1.add(jTextFieldNumHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 357, 71, -1));
         jPanel1.add(jTextFieldNumCamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 398, 71, -1));
         jPanel1.add(jTextFieldNumBanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 439, 71, -1));
-
-        jComboBoxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento" }));
-        jComboBoxTipoPropiedad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoPropiedadActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 512, -1, -1));
         jPanel1.add(jTextFieldPrecioNoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 77, -1));
 
         jComboBoxCalificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
@@ -262,10 +216,20 @@ public class DatosInmu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 780, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 700, -1, -1));
 
         jLabel17.setText("Servicios");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 630, -1, -1));
+
+        jTextFieldServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldServiciosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 630, 100, -1));
+
+        jComboBoxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento", " " }));
+        jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -278,17 +242,13 @@ public class DatosInmu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBoxTipoPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoPropiedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoPropiedadActionPerformed
 
     private void jComboBoxCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCalificacionActionPerformed
         // TODO add your handling code here:
@@ -297,6 +257,38 @@ public class DatosInmu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextFieldServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldServiciosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldServiciosActionPerformed
+
+    private void jButtonCrearInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearInmuebleActionPerformed
+        try {
+        String titulo = getJTextFieldTitulo();
+        String calle = getJTextFieldCalle();
+        String numero = getJTextFieldNumero();
+        String codigoPostal = getJTextFieldCodigoPostal();
+        String ciudad = getJTextFieldCiudad();
+        String numHuespedes = getJTextFieldNumHuespedes();
+        String numHabitaciones = getJTextFieldNumHabitaciones();
+        String numCamas = getJTextFieldNumCamas();
+        String numBanos = getJTextFieldNumBanos();
+        String tipoPropiedad = getComboBoxTipoPropiedad();
+        String precioNoche = getJTextFieldPrecioNoche();
+        String calificacion = getComboBoxCalificacion();
+        String servicios = getJTextFieldServicios();
+
+        Inmuebles inmueble = new Inmuebles(titulo, calle, numero, codigoPostal, ciudad, numHuespedes, numHabitaciones, numCamas, numBanos, tipoPropiedad, precioNoche, calificacion, servicios);
+        if(UtilInmuebles.registrarInmueble(inmueble)){
+            JOptionPane.showMessageDialog(this, "Inmueble registrado en la app", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar el inmueble en la app", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Excepción al registrar el inmueble", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,7 +332,7 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonCrear;
+    private javax.swing.JButton jButtonCrearInmueble;
     private javax.swing.JComboBox<String> jComboBoxCalificacion;
     private javax.swing.JComboBox<String> jComboBoxTipoPropiedad;
     private javax.swing.JLabel jLabel1;
@@ -370,6 +362,7 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumHuespedes;
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldPrecioNoche;
+    private javax.swing.JTextField jTextFieldServicios;
     private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables
 }

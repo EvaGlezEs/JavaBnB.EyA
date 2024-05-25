@@ -4,7 +4,16 @@
  */
 package poo.javabnb;
 
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -67,7 +76,7 @@ public class UtilInmuebles {
      * @param i_PrecioNoche
      * @param i_servicios
      * @return boolean */
-    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, int i_numHuesp, int i_numHabi, int i_numCamas, int i_numBanos, String i_tipoPro, String i_PrecioNoche, String i_servicios) {
+    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, String i_numHuesp, String i_numHabi, String i_numCamas, String i_numBanos, String i_tipoPro, String i_PrecioNoche, String i_servicios) {
         if (Inmu == null || !inmuebles.contains(Inmu)) {
             return false;
         }
@@ -133,7 +142,7 @@ public class UtilInmuebles {
         };
         //Ordenamos el array
         Collections.sort(inmuebles, CalificacionPerComp);
-        //creamos una persona con el dni a buscar
+        //creamos una persona con el precio a buscar
         Inmuebles p = new Inmuebles();
         p.setCalificacion(calificacion);
         int pos = Collections.binarySearch(inmuebles, p, CalificacionPerComp);
@@ -153,5 +162,89 @@ public class UtilInmuebles {
             return false;
         }
 
+    }
+     
+     /** Carga los datos de Inmuebles del fichero */
+    public static void cargarDatos() {
+        try {
+            //Lectura de los objetos de tipo persona
+            FileInputStream istreamInmu = new FileInputStream("copiasegInmu.dat");
+            ObjectInputStream oisInmu = new ObjectInputStream(istreamInmu);
+            inmuebles = (ArrayList) oisInmu.readObject();
+            istreamInmu.close();
+        } catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }//fin cargarDatos
+
+    /** Guarda los datos de Inmuebles en el fichero */
+    public static void guardarDatos() {
+        try {
+            //Si hay datos los guardamos...
+            if (!inmuebles.isEmpty()) {
+                /****** Serialización de los objetos ******/
+                //Serialización de las personas
+                FileOutputStream ostreamInmu = new FileOutputStream("copiasegInmu.dat");
+                ObjectOutputStream oosInmu = new ObjectOutputStream(ostreamInmu);
+                //guardamos el array de personas
+                oosInmu.writeObject(inmuebles);
+                ostreamInmu.close();
+            } else {
+                System.out.println("Error: No hay datos...");
+            }
+
+        } catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }//fin guardarDatos
+
+    /** Crea un fichero de texto con los datos de un Inmueble
+     * @param per
+     * @throws java.io.IOException */
+    public static void generaFicha(Inmuebles per) throws IOException {
+        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(per.getDni() + ".txt")));
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");        
+        String fn = per.getFechaNac().format(formatoCorto);
+
+        salida.println("-------------------------------- Ficha Persona --------------------------------");
+        salida.println("\n");
+        salida.println("Titulo: " + per.getTitulo());
+        salida.println("\n");
+        salida.println("Nombre: " + per.getNombre());
+        salida.println("\n");
+        salida.println("Nombre: " + per.getNombre());
+        salida.println("\n");
+        salida.println("Nombre: " + per.getNombre());
+        salida.println("\n");
+        salida.println("Nombre: " + per.getNombre());
+        salida.println("\n");
+        salida.println("Nombre: " + per.getNombre());
+        salida.println("\n");
+        salida.println("Fecha de nacimiento: " + fn);
+        salida.println("\n");
+        salida.println("Dirección: " + per.getDireccion());
+        salida.println("\n");
+        salida.println("Tfno: " + per.getTfno());
+        salida.println("\n");
+        if (per.getClass().getSimpleName().equals("Alumno")) {
+            Alumno alu = (Alumno) per;
+            salida.println("*** Alumno ***");
+            salida.println("Titulación: " + alu.getTitulacion());
+            salida.println("Asignaturas: " + alu.getAsignaturas());
+        } else {
+            Profesor pro = (Profesor) per;
+            salida.println("*** Profesor ***");
+            salida.println("Departamento: " + pro.getDepartamento());
+            salida.println("Sueldo: " + pro.getSueldo());
+        }
+        salida.println("\n");
+        salida.println("-------------------------------------------------------------------------------");
+        salida.close();
     }
 }
