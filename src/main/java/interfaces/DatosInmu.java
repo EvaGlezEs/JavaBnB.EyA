@@ -4,6 +4,13 @@
  */
 package interfaces;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.ZoneId;
+import java.util.Date;
+
 /**
  *
  * @author Alejandro
@@ -15,6 +22,95 @@ public class DatosInmu extends javax.swing.JFrame {
      */
     public DatosInmu() {
         initComponents();
+    }
+    
+     //metodos para devolver y presentar el contenido de los campos del formulario
+    public String getJTextFieldTitulo() {
+        return jTextFieldTitulo.getText();
+    }
+
+    public void setJTextFieldTitulo(String txt) {
+        this.jTextFieldTitulo.setText(txt);
+    }
+
+    public String getJTextFieldCalle() {
+        return jTextFieldCalle.getText();
+    }
+
+    public void setJTextFieldCalle(String txt) {
+        this.jTextFieldCalle.setText(txt);
+    }
+    public String getJTextFieldNumero() {
+        return jTextFieldNumero.getText();
+    }
+
+    public void setJTextFieldNumero(String txt) {
+        this.jTextFieldNumero.setText(txt);
+    }
+    public String getJTextFieldCodigoPostal() {
+        return jTextFieldCodigoPostal.getText();
+    }
+
+    public void setJTextFieldcCodigoPostal(String txt) {
+        this.jTextFieldCodigoPostal.setText(txt);
+    }
+
+
+    public String getJTextFieldCiudad() {
+        return jTextFieldCiudad.getText();
+    }
+
+    public void setJTextFieldCiudad(String txt) {
+        this.jTextFieldCiudad.setText(txt);
+    }
+
+
+    public String getJTextFieldNumHuespedes() {
+        return jTextFieldNumHuespedes.getText();
+    }
+
+    public void setJTextFieldNumHuespedes(String txt) {
+        this.jTextFieldNumHuespedes.setText(txt);
+    }
+
+    public String getJTextFieldNumHabitaciones() {
+        return jTextFieldNumHabitaciones.getText();
+    }
+
+    public void setJTextFieldNumHabitaciones(String txt) {
+        this.jTextFieldNumHabitaciones.setText(txt);
+    }
+     public String getJTextFieldNumCamas() {
+        return jTextFieldNumCamas.getText();
+    }
+
+    public void setJTextFieldNumCamas(String txt) {
+        this.jTextFieldNumCamas.setText(txt);
+    }
+    
+    public String getJTextFieldNumBanos() {
+        return jTextFieldNumBanos.getText();
+    }
+
+    public void setJTextFieldNumBanos(String txt) {
+        this.jTextFieldNumBanos.setText(txt);
+    }
+
+
+   
+
+    //borra el contenido del panel
+    public void borrar() {
+        LocalDate ld =LocalDate.of(1970, Month.JANUARY, 01);
+        Instant instant = ld.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        Date dia = Date.from(instant);
+        setJTextFieldDni("");
+        setJTextFieldNom("");
+        setjSpinnerFecha(dia);
+        setJTextFieldDir("");
+        setjFormattedTextFieldTfno(0);
+        setJTextFieldVar1("");
+        setJTextFieldVar2("");
     }
 
     /**

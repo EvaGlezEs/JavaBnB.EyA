@@ -65,8 +65,9 @@ public class UtilInmuebles {
      * @param i_numBanos
      * @param i_tipoPro
      * @param i_PrecioNoche
+     * @param i_servicios
      * @return boolean */
-    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, int i_numHuesp, int i_numHabi, int i_numCamas, int i_numBanos, String i_tipoPro, String i_PrecioNoche) {
+    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, int i_numHuesp, int i_numHabi, int i_numCamas, int i_numBanos, String i_tipoPro, String i_PrecioNoche, String i_servicios) {
         if (Inmu == null || !inmuebles.contains(Inmu)) {
             return false;
         }
@@ -81,6 +82,7 @@ public class UtilInmuebles {
         Inmu.setNumBanos(i_numBanos);
         Inmu.setTipoPropiedad(i_tipoPro);
         Inmu.setPrecioNoche(i_PrecioNoche);
+        Inmu.setServicios(i_servicios);
        
         return true;
     }

@@ -9,58 +9,48 @@ import java.io.Serializable;
  *
  * @author eva
  */
-public class Clientes implements Serializable {
+public class Clientes extends Usuarios implements Serializable {
     
     private String DNI;
     private String nombre;
-    private String correo;
-    private String clave;
     private String telefono;
 
     //constructor
-    
-    public Clientes(String DNI, String nombre, String correo, String clave, String telefono) {
+
+    public Clientes(String DNI, String nombre, String telefono, String correo, String clave) {
+        super(correo, clave);
         this.DNI = DNI;
         this.nombre = nombre;
-        this.correo = correo;
-        this.clave = clave;
         this.telefono = telefono;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-    public String getClave() {
-        return clave;
-    }
-    public String getCorreo() {
-        return correo;
-    }
-    public String getNombre() {
-        return nombre;
-    }
     public String getDNI() {
         return DNI;
-    }
-    
-    
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
     
+    
+
+
 
     @Override
     public String toString() {

@@ -130,7 +130,7 @@ public class EntradaApp extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        RegistroCliParti newframe = new RegistroCliParti();
+        ResgistroCliParti newframe = new ResgistroCliParti();
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButton1ActionPerformed

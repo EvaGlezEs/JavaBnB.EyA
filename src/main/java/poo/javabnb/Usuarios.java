@@ -9,8 +9,8 @@ package poo.javabnb;
  * @author eva
  */
 public class Usuarios {
-    private String correo;
-    private String clave;
+    public String correo;
+    public String clave;
     
     
     private static final String ADMIN_CORREO = "admin@javabnb.com";
