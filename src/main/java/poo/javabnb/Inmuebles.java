@@ -31,6 +31,8 @@ public class Inmuebles {
     
     private String calificacion;
     
+    private String servicios;
+    
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
@@ -258,6 +260,16 @@ public class Inmuebles {
     public void setCalificacion(String calificacion) {
         this.calificacion = calificacion;
     }
+
+    public String getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(String servicios) {
+        this.servicios = servicios;
+    }
+    
+    
     
     
 
@@ -282,6 +294,13 @@ public class Inmuebles {
         
         return (double) suma / resenas.size();
         
+        
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Inmuebles{" + "titulo=" + titulo + ", calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", numHuespedes=" + numHuespedes + ", numHabitaciones=" + numHabitaciones + ", numCamas=" + numCamas + ", numBanos=" + numBanos + ", tipoPropiedad=" + tipoPropiedad + ", precioNoche=" + precioNoche + ", calificacion=" + calificacion + ", servicios=" + servicios + '}';
     }
 
   

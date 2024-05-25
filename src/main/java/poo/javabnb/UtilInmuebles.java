@@ -18,6 +18,8 @@ public class UtilInmuebles {
     private static ArrayList<Inmuebles> inmuebles = new ArrayList<>();
     private static Inmuebles objinmu;
     
+   
+    
     public static void setInmuebles(ArrayList<Inmuebles> i) {
         inmuebles = i;
     }
