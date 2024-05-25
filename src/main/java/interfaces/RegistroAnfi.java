@@ -50,9 +50,9 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 219, 183));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
-        jLabel1.setText("REGISTRO ANFITRION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
+        jLabel1.setText("REGISTRO ANFITRIÓN");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");

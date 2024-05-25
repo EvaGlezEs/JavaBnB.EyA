@@ -56,7 +56,7 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 214, 173));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
         jLabel1.setText("MODIFICACIÓN DATOS CLIENTES PARTICULARES");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 

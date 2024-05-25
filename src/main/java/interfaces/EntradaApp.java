@@ -39,9 +39,10 @@ public class EntradaApp extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButtonCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButtonIniciarSesion = new javax.swing.JButton();
+        jButtonRegistrarse = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
 
@@ -54,13 +55,13 @@ public class EntradaApp extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 212, 170));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Lao MN", 1, 28)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Lao MN", 1, 30)); // NOI18N
         jLabel3.setText("¡Bienvenido a JavaBnB!");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
         jLabel4.setText("¿No tienes una cuenta?");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
 
         jButtonCerrar.setText("X");
         jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,37 +72,31 @@ public class EntradaApp extends javax.swing.JFrame {
         jPanel1.add(jButtonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField1.setText("Iniciar Sesión");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
-
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField2.setText("Registrarse");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
         jLabel2.setText("Ya tengo una cuenta:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 120, -1));
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 490));
+        jButtonIniciarSesion.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jButtonIniciarSesion.setText("Iniciar sesión ");
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 170, 40));
+
+        jButtonRegistrarse.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jButtonRegistrarse.setText("Registrarse");
+        jPanel1.add(jButtonRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 150, 40));
+
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,13 +113,11 @@ public class EntradaApp extends javax.swing.JFrame {
     UtilClientes.guardarDatos();
     }//GEN-LAST:event_jButtonCerrarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        IniciarSesionComo iniciarSesionComo = IniciarSesionComo ();
+        iniciarSesionComo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
 
  
@@ -169,12 +162,13 @@ public class EntradaApp extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonCerrar;
+    private javax.swing.JButton jButtonIniciarSesion;
+    private javax.swing.JButton jButtonRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

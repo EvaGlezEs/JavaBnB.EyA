@@ -53,7 +53,7 @@ public class ModifiDatosAnfitriones extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 220, 186));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
         jLabel1.setText("MODIFICACIÓN DATOS ANFITRIONES");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 

@@ -50,7 +50,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Avenir" size="18" style="0"/>
+              <Font name="Avenir" size="18" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="MODIFICACI&#xd3;N DATOS CLIENTES PARTICULARES"/>
           </Properties>

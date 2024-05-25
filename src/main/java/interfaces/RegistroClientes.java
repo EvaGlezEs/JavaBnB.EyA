@@ -69,9 +69,9 @@ public class RegistroClientes extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 153));
-        jLabel1.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
         jLabel1.setText("REGISTRO CLIENTE PARTICULAR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
