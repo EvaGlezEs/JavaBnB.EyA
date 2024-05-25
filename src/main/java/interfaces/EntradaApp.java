@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import poo.javabnb.UtilClientes;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ public class EntradaApp extends javax.swing.JFrame {
      * Creates new form EntradaApp
      */
     public EntradaApp() {
+        UtilClientes.cargarDatos();
         initComponents();
     }
 
@@ -41,6 +43,7 @@ public class EntradaApp extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButtonCerrar = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
 
@@ -110,6 +113,14 @@ public class EntradaApp extends javax.swing.JFrame {
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 229, 138, 35));
 
+        jButtonCerrar.setText("X");
+        jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,36 +139,40 @@ public class EntradaApp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        ResgistroCliParti newframe = new ResgistroCliParti();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        RegistroClientes newframe = new RegistroClientes();
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        RegistroAnfitrion newframe = new RegistroAnfitrion();
+        RegistroClientes newframe = new RegistroClientes();
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        InicioSesionAdministrador newframe = new InicioSesionAdministrador();
+        InicioSesionUsuarios newframe = new InicioSesionUsuarios();
         newframe.setVisible(true); //para que aparezca la nueva ventana
         this.dispose();// para que se cierre la ventana actual en la que nos encontramos
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        InicioSesionCliParti newframe = new InicioSesionCliParti();
+        InicioSesionUsuarios newframe = new InicioSesionUsuarios();
         newframe.setVisible(true);//para que aparezca la nueva ventana 
         this.dispose();//para que se cierre la ventana actual en la que nos encontramos
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        InicioSesionAnfitrion newframe = new InicioSesionAnfitrion();
-        newframe.setVisible(true);//para que aparezca la nueva ventana 
-        this.dispose();//para que se cierre la ventana actual en la que nos encontramos
+       InicioSesionUsuarios newframe = new InicioSesionUsuarios();
+       newframe.setVisible(true); //para que aparezca la nueva ventana
+       this.dispose();// para que se cierre la ventana actual en la que nos encontramos
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
+    UtilClientes.guardarDatos();
+    }//GEN-LAST:event_jButtonCerrarActionPerformed
 
 
  
@@ -206,6 +221,7 @@ public class EntradaApp extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonCerrar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
