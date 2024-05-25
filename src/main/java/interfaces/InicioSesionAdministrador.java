@@ -48,25 +48,72 @@ public class InicioSesionAdministrador extends javax.swing.JFrame {
 
         jLabel2.setText("Correo");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 20));
+
+        jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCorreoActionPerformed(evt);
+            }
+        });
         jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 220, 20));
 
         jLabel3.setText("Clave");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        jPasswordFieldClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldClaveActionPerformed(evt);
+            }
+        });
         jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 220, 20));
 
         jButtonIniciarSesion.setText("Iniciar sesión");
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
+    
+    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
+
+    private void jPasswordFieldClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldClaveActionPerformed
+
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
