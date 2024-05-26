@@ -128,16 +128,16 @@ public class UtilClientes {
         salida.println("\n");
         salida.println("Teléfono: " + cli.getTelefono());
         salida.println("\n");
-        if (cli.getClass().getSimpleName().equals("Particular")) {
-            ClientesParticulares parti = (ClientesParticulares) cli;
+        if (cli.getClass().getSimpleName().equals("Cliente particular")) {
+            ClientesParticulares clientesParticulares = (ClientesParticulares) cli;
             salida.println("*** Particular ***");
-            salida.println("Tarjeta de credito: " + "Nombre del titular:" + cli.getNombreTitular() + "Número tarjeta:" + cli.getNumero()+ "Fecha de caducidad:" + cli.getFechaCaducidad());
-            salida.println("VIP: " + cli.getVIP());
+            salida.println("Tarjeta de credito: " + "Nombre del titular:" + tarjetaCredito.getNombreTitular() + "Número tarjeta:" + tarjetaCredito.getNumero()+ "Fecha de caducidad:" + tarjetaCredito.getFechaCaducidad().format(formatoCorto));
+            salida.println("VIP: " + clientesParticulares.getVIP());
         } else {
-            Anfitriones anfi = (Anfitriones) anfi;
+            Anfitriones anfitriones = (Anfitriones) cli;
             salida.println("*** Anfitrion ***");
-            salida.println("Fecha de registro: " + anfi.getFechaRegistro());
-            salida.println("Superanfitrión: " + anfi.getCalificacion());
+            salida.println("Fecha de registro: " + anfitriones.getFechaRegistro());
+            salida.println("Superanfitrión: " + anfitriones.getCalificacion());
         }
         salida.println("\n");
         salida.println("-------------------------------------------------------------------------------");
