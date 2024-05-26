@@ -27,7 +27,7 @@ public class Inmuebles {
 
     private String tipoPropiedad;
     
-    private String precioNoche;
+    private double precioNoche;
     
     private String calificacion;
     
@@ -36,7 +36,7 @@ public class Inmuebles {
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
-    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, String precioNoche, String calificacion, String servicios) {
+    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, String calificacion, String servicios) {
         this.titulo = titulo;
         this.calle = calle;
         this.numero = numero;
@@ -51,8 +51,11 @@ public class Inmuebles {
         this.calificacion = calificacion;
         this.servicios = servicios;
     }
-    
-    
+
+  
+    public Inmuebles(){
+        
+    }
 
     /**
      * Get the value of tipoPropiedad
@@ -89,7 +92,7 @@ public class Inmuebles {
      *
      * @return the value of precioNoche
      */
-    public String getPrecioNoche() {
+    public double getPrecioNoche() {
         return precioNoche;
     }
 
@@ -98,7 +101,7 @@ public class Inmuebles {
      *
      * @param precioNoche new value of precioNoche
      */
-    public void setPrecioNoche(String precioNoche) {
+    public void setPrecioNoche(double precioNoche) {
         this.precioNoche = precioNoche;
     }
 

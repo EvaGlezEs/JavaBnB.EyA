@@ -68,8 +68,8 @@ public class DatosInmu extends javax.swing.JFrame {
         return String.valueOf(jComboBoxTipoPropiedad.getSelectedItem());
     }
 
-    public String getJTextFieldPrecioNoche() {
-        return jTextFieldPrecioNoche.getText();
+    public String getJFormattedTextFieldPrecioNkche() {
+        return jFormattedTextFieldPrecioNkche.getText();
     }
 
     public String getComboBoxCalificacion() {
@@ -120,12 +120,12 @@ public class DatosInmu extends javax.swing.JFrame {
         jTextFieldNumHabitaciones = new javax.swing.JTextField();
         jTextFieldNumCamas = new javax.swing.JTextField();
         jTextFieldNumBanos = new javax.swing.JTextField();
-        jTextFieldPrecioNoche = new javax.swing.JTextField();
         jComboBoxCalificacion = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jTextFieldServicios = new javax.swing.JTextField();
         jComboBoxTipoPropiedad = new javax.swing.JComboBox<>();
+        jFormattedTextFieldPrecioNkche = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,7 +200,6 @@ public class DatosInmu extends javax.swing.JFrame {
         jPanel1.add(jTextFieldNumHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 357, 71, -1));
         jPanel1.add(jTextFieldNumCamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 398, 71, -1));
         jPanel1.add(jTextFieldNumBanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 439, 71, -1));
-        jPanel1.add(jTextFieldPrecioNoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 77, -1));
 
         jComboBoxCalificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         jComboBoxCalificacion.addActionListener(new java.awt.event.ActionListener() {
@@ -230,6 +229,9 @@ public class DatosInmu extends javax.swing.JFrame {
 
         jComboBoxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento", " " }));
         jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
+
+        jFormattedTextFieldPrecioNkche.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        jPanel1.add(jFormattedTextFieldPrecioNkche, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,7 +276,7 @@ public class DatosInmu extends javax.swing.JFrame {
         String numCamas = getJTextFieldNumCamas();
         String numBanos = getJTextFieldNumBanos();
         String tipoPropiedad = getComboBoxTipoPropiedad();
-        String precioNoche = getJTextFieldPrecioNoche();
+        double precioNoche = Double.parseDouble(getJFormattedTextFieldPrecioNkche());
         String calificacion = getComboBoxCalificacion();
         String servicios = getJTextFieldServicios();
 
@@ -335,6 +337,7 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCrearInmueble;
     private javax.swing.JComboBox<String> jComboBoxCalificacion;
     private javax.swing.JComboBox<String> jComboBoxTipoPropiedad;
+    private javax.swing.JFormattedTextField jFormattedTextFieldPrecioNkche;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -361,7 +364,6 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumHabitaciones;
     private javax.swing.JTextField jTextFieldNumHuespedes;
     private javax.swing.JTextField jTextFieldNumero;
-    private javax.swing.JTextField jTextFieldPrecioNoche;
     private javax.swing.JTextField jTextFieldServicios;
     private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables

@@ -41,7 +41,7 @@ public class UtilInmuebles {
             public int compare(Object o1, Object o2) {
                 Inmuebles p1 = (Inmuebles) o1;
                 Inmuebles p2 = (Inmuebles) o2;
-                return p1.getPrecioNoche().compareTo(p2.getPrecioNoche());
+                return Double.compare(p1.getPrecioNoche(), p2.getPrecioNoche());
             }
         };
         //Ordenamos el array
@@ -76,7 +76,7 @@ public class UtilInmuebles {
      * @param i_PrecioNoche
      * @param i_servicios
      * @return boolean */
-    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, String i_numHuesp, String i_numHabi, String i_numCamas, String i_numBanos, String i_tipoPro, String i_PrecioNoche, String i_servicios) {
+    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, String i_numHuesp, String i_numHabi, String i_numCamas, String i_numBanos, String i_tipoPro, double i_PrecioNoche, String i_servicios) {
         if (Inmu == null || !inmuebles.contains(Inmu)) {
             return false;
         }
@@ -108,12 +108,12 @@ public class UtilInmuebles {
             public int compare(Object o1, Object o2) {
                 Inmuebles p1 = (Inmuebles) o1;
                 Inmuebles p2 = (Inmuebles) o2;
-                return p1.getCalificacion().compareTo(p2.getCalificacion());
+                return Double.compare(p1.getPrecioNoche(), p2.getPrecioNoche());
             }
         };
         //Ordenamos el array
         Collections.sort(inmuebles, PrecioNochePerComp);
-        //creamos una persona con el dni a buscar
+        //creamos un inmueble con el precio a buscar
         Inmuebles p = new Inmuebles();
         p.setCalificacion(precioNoche);
         int pos = Collections.binarySearch(inmuebles, p, PrecioNochePerComp);
@@ -142,7 +142,7 @@ public class UtilInmuebles {
         };
         //Ordenamos el array
         Collections.sort(inmuebles, CalificacionPerComp);
-        //creamos una persona con el precio a buscar
+        //creamos una persona con la calificacion a buscar
         Inmuebles p = new Inmuebles();
         p.setCalificacion(calificacion);
         int pos = Collections.binarySearch(inmuebles, p, CalificacionPerComp);
