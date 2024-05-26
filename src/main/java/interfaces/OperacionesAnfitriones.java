@@ -3,20 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-
+import poo.javabnb.Clientes;
 /**
  *
  * @author Alejandro
  */
 public class OperacionesAnfitriones extends javax.swing.JFrame {
 
+    private Clientes cli;
     /**
      * Creates new form OperacionesAnfitriones
+     * @param cli
      */
-    public OperacionesAnfitriones() {
+    public OperacionesAnfitriones(Clientes cli){
+        this.cli = cli;
         initComponents();
     }
 
+    public OperacionesAnfitriones() {
+        initComponents();
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

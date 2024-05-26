@@ -95,7 +95,35 @@ public class UtilClientes {
         return objcli;
     }
     
-     
+    public static Clientes consultaClientesPorCorreoYClave(String correo, String clave) {
+        //Comparador para ordenar las personas por su dni
+        Comparator CliCorreo = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Clientes p1 = (Clientes) o1;
+                Clientes p2 = (Clientes) o2;
+                return p1.getCorreo().compareTo(p2.getCorreo());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(clientes, CliCorreo);
+        //creamos una persona con el dni a buscar
+        Clientes cli = new Clientes();
+        cli.setCorreo(correo);
+        int pos = Collections.binarySearch(clientes, cli, CliCorreo);
+        if (pos >= 0) {
+            objcli = clientes.get(pos);
+            if (objcli.getClave() != clave){
+                objcli = null;
+            }
+        } else {
+            objcli = null;
+        }
+
+        return objcli;
+    }
+ 
     
     
     

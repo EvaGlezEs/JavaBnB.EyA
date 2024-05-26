@@ -121,10 +121,9 @@ public class IniciarSesionAnfi extends javax.swing.JFrame {
             String correo = getJTextFieldCorreo();
             String clave = getJTextFieldClave();
             
-            Clientes cli = UtilClientes.consultaClientesPorCorreo(correo);
-            Clientes cli1 = UtilClientes.consultaClientesPorClave(clave);
-            if (cli != null && cli1 != null){
-                OperacionesAnfitriones operacionesanfi = new OperacionesAnfitriones();
+            Clientes cli = UtilClientes.consultaClientesPorCorreoYClave(correo,clave);
+            if (cli != null){
+                OperacionesAnfitriones operacionesanfi = new OperacionesAnfitriones(cli);
                 operacionesanfi.setVisible(true);
                 this.dispose();
             } else {

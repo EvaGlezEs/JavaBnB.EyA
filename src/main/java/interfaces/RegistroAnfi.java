@@ -146,25 +146,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-    try {
-        String DNI = getJTextFieldDNI();
-        String nombre = getJTextFieldNombre();
-        String correo = getJTextFieldCorreo();
-        String clave = getJPasswordFieldClave();
-        String telefono = getJTextFielTelefono(); 
-        LocalDate fechaRegistro = getJFormattedTextFieldFechaRegistro();
-        
-        cli = new Anfitrion (DNI, nombre, correo, clave, telefono, fechaRegistro);
-        
-        if (UtilClientes.altaClientes(cli)) {
-            JOptionPane.showMessageDialog(this, "Anfitrión dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al dar de alta al anfitrión.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Excepción al dar de alta al anfitrión.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-    }
-    }
+   
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed

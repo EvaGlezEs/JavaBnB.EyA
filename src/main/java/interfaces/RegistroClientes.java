@@ -277,7 +277,7 @@ public class RegistroClientes extends javax.swing.JFrame {
         String numero = getJTextFieldNumero();
         String fechaCaducidad = getJFormattedTextFieldFechaCaducidad();
         
-        cli = new ClientesParticulares (DNI, nombre, correo, clave, telefono, nombreTitular, numero, fechaCaducidad); 
+        Clientes cli = new ClientesParticulares (DNI, nombre, correo, clave, telefono, nombreTitular, numero, fechaCaducidad); 
         
         if(UtilClientes.altaClientes(cli)){
             JOptionPane.showMessageDialog(this, "Cliente particular registrado en la app", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -287,9 +287,9 @@ public class RegistroClientes extends javax.swing.JFrame {
         
         } catch(Exception e){
             JOptionPane.showMessageDialog(this, "Excepción al registrar cliente particular", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-        
     }
+        
+    
     
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
@@ -359,7 +359,4 @@ public class RegistroClientes extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 
-
-
-}
 
