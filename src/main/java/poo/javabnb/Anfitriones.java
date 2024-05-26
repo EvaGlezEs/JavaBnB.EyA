@@ -89,6 +89,10 @@ public class Anfitriones extends Clientes implements Serializable {
                 + ", telefono='" + getTelefono() + '\''
                 + '}';
     }
+
+    void setCalificacion(String var2) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     

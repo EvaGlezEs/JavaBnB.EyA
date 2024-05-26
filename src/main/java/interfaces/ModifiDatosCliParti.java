@@ -80,10 +80,10 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         jLabel8.setText("Nombre del Titular");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
 
         jLabel9.setText("Fecha de Caducidad");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
         jLabel10.setText("Número");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
@@ -128,8 +128,8 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, 20));
         jPanel1.add(jPasswordFieldModClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, -1));
-        jPanel1.add(jTextFieldModNombreTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 190, 20));
-        jPanel1.add(jFormattedTextFieldFechaCaducidadTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 190, 20));
+        jPanel1.add(jTextFieldModNombreTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 190, 20));
+        jPanel1.add(jFormattedTextFieldFechaCaducidadTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 190, 20));
 
         jTextFieldNumeroTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

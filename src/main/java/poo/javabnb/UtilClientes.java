@@ -177,6 +177,45 @@ public class UtilClientes {
     }//fin guardarDatos
 
     
+    /** Modifica los datos de un cliente
+     * @param cli
+     * @param c_DNI
+     * @param c_nombre
+     * @param c_correo
+     * @param c_clave
+     * @param c_telefono
+     * @param var1
+     * @param var2
+     * @param var3
+     * @param var4
+     * @return boolean */
+    public static boolean modificaClientes(Clientes cli, String c_DNI, String c_nombre, String c_correo, String c_clave, String c_telefono, LocalDate var1, String var2, String var3, Boolean var4) {
+        if (cli == null || !clientes.contains(cli)) {
+            return false;
+        }
+        cli.setDNI(c_DNI);
+        cli.setNombre(c_nombre);
+        cli.setCorreo(c_correo);
+        cli.setClave(c_clave);
+        cli.setTelefono(c_telefono);
+        String tipo = cli.getClass().getSimpleName();
+        if (tipo.equals("Clientes Particulares")) {
+            ClientesParticulares parti = (ClientesParticulares) cli;
+            parti.setFechaCaducidad(var1);
+            parti.setNombreTitular(var2);
+            parti.setNumero(var3);
+            parti.setVIP(var4);
+        } else {
+            Anfitriones anfi = (Anfitriones) cli;
+            anfi.setFechaRegistro(var1);
+            anfi.setCalificacion(var2);
+        }
+        return true;
+    }
+
+
+    
+
     
     
     
