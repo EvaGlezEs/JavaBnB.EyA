@@ -26,11 +26,13 @@ public class UtilClientes {
 
     private static ArrayList<Clientes> clientes = new ArrayList<>();
     private static Clientes objcli;
+   
 
     /** Establece el ArrayList de clientes
      * @param c */
     public static void setClientes (ArrayList<Clientes> c) {
         clientes = c;
+        
 }
 
     /**@return Devuelve el ArrayList de clientes */
@@ -60,6 +62,68 @@ public class UtilClientes {
         } else {
             return false;
         }
+    }
+   
+    /** Consulta los datos de una persona por su dni
+     * @param correo
+     * @return objper */
+    public static Clientes consultaClientesPorCorreo(String correo) {
+        //Comparador para ordenar las personas por su dni
+        Comparator DniCliCorreo = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Clientes p1 = (Clientes) o1;
+                Clientes p2 = (Clientes) o2;
+                return p1.getCorreo().compareTo(p2.getCorreo());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(clientes, DniCliCorreo);
+        //creamos una persona con el dni a buscar
+        Anfitriones anfi = new Anfitriones();
+        anfi.setCorreo(correo);
+        int pos = Collections.binarySearch(clientes, anfi, DniCliCorreo);
+        if (pos >= 0) {
+            objcli = clientes.get(pos);
+        } else {
+            objcli = null;
+        }
+
+        return objcli;
+    }
+    
+     
+    
+    
+    
+     /** Consulta los datos de una persona por su dni
+     * @param clave
+     * @return objper */
+    public static Clientes consultaClientesPorClave(String clave) {
+        //Comparador para ordenar las personas por su dni
+        Comparator DniCliClave = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Clientes p1 = (Clientes) o1;
+                Clientes p2 = (Clientes) o2;
+                return p1.getClave().compareTo(p2.getClave());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(clientes, DniCliClave);
+        //creamos una persona con el dni a buscar
+        Clientes cli1 = new Clientes();
+        cli1.setCorreo(clave);
+        int pos = Collections.binarySearch(clientes, cli1, DniCliClave);
+        if (pos >= 0) {
+            objcli = clientes.get(pos);
+        } else {
+            objcli = null;
+        }
+
+        return objcli;
     }
     
     

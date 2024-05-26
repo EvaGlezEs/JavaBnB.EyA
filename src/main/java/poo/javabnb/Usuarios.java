@@ -21,8 +21,9 @@ public class Usuarios {
         this.clave = clave;
     }
     
-    
-
+    public Usuarios(){
+        
+    }
     /**
      * Get the value of correo
      *

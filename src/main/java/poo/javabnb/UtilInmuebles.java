@@ -31,6 +31,7 @@ public class UtilInmuebles {
     
     public static void setInmuebles(ArrayList<Inmuebles> i) {
         inmuebles = i;
+        
     }
     
     public static ArrayList<Inmuebles> getPrecio() {

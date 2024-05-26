@@ -25,6 +25,13 @@ public class Clientes extends Usuarios implements Serializable {
         this.telefono = telefono;
     }
 
+    public Clientes() {
+    }
+
+   
+    
+    
+
     public String getDNI() {
         return DNI;
     }

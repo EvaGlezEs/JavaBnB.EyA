@@ -23,6 +23,9 @@ public class Anfitriones extends Clientes implements Serializable {
         this.fechaRegistro = fechaRegistro;
         this.calificacion = calificacion;
     }
+
+    public Anfitriones() {
+    }
       
     
     /**

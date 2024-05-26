@@ -4,6 +4,10 @@
  */
 package interfaces;
 
+import javax.swing.JOptionPane;
+import poo.javabnb.Clientes;
+import poo.javabnb.UtilClientes;
+
 /**
  *
  * @author Alejandro
@@ -15,6 +19,14 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
      */
     public IniciarSesionCliParti() {
         initComponents();
+    }
+    
+     public String getJTextFieldCorreo() {
+        return jTextFieldCorreo.getText();
+    }
+
+    public String getJTextFieldClave() {
+        return jTextFieldClave.getText();
     }
 
     /**
@@ -34,7 +46,6 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
         jTextFieldClave = new javax.swing.JTextField();
         jButtonIniciarSesion = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +70,11 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
 
         jButtonIniciarSesion.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonIniciarSesion.setText("Iniciar sesión");
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
@@ -68,11 +84,7 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 80, -1));
-
-        jButtonCancelar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jButtonCancelar.setText("Cancelar");
-        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
+        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,8 +105,28 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
     IniciarSesionComo iniciarSesionComo = new IniciarSesionComo ();
     iniciarSesionComo.setVisible(true);
-    this.dispose();;
+    this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        try{
+            
+            String correo = getJTextFieldCorreo();
+            String clave = getJTextFieldClave();
+            
+            Clientes cli = UtilClientes.consultaClientesPorCorreo(correo);
+            Clientes cli1 = UtilClientes.consultaClientesPorClave(clave);
+            if (cli != null && cli1 != null){
+                OperacionesAnfitriones operacionesanfi = new OperacionesAnfitriones();
+                operacionesanfi.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "No hay ninguna cuenta con este correo y/o clave", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Excepción al iniciar sesión", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,7 +164,6 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonIniciarSesion;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
