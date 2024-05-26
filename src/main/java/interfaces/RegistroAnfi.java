@@ -4,6 +4,15 @@
  */
 package interfaces;
 
+import poo.javabnb.Anfitriones;
+import poo.javabnb.UtilClientes;
+import java.time.LocalDate;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author eva
@@ -17,6 +26,30 @@ public class RegistroAnfi extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String getJTextFieldDNI() {
+        return jTextFieldDNI.getText();
+    }
+    
+    public String getJTextFieldNombre() {
+      return jTextFieldNombre.getText();
+    }
+    
+    public String getJTextFieldCorreo() {
+        return jTextFieldCorreo.getText();
+    }
+    
+    public String getJPasswordFieldClave() {
+        return jPasswordFieldClave.getText();
+    }
+
+    public String getJTextFielTelefono() {
+        return jTextFieldTelefono.getText();
+    }
+    
+    public String getJFormattedTextFieldFechaRegistro() {
+        return jFormattedTextFieldFechaRegistro.getText();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,8 +67,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonRegistrar = new javax.swing.JButton();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldDNI = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
@@ -78,28 +110,25 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jLabel7.setText("Fecha de hoy (día en el que se está usted registrando)");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jButton1.setText("Registrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
-
-        jButton2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, -1, -1));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
         jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 160, 20));
         jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 160, 20));
         jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 150, 20));
         jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 180, 20));
         jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 180, 20));
+
+        jFormattedTextFieldFechaRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldFechaRegistroActionPerformed(evt);
+            }
+        });
         jPanel1.add(jFormattedTextFieldFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 210, 20));
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
@@ -109,26 +138,44 @@ public class RegistroAnfi extends javax.swing.JFrame {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, -1));
+        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+    try {
+        String DNI = getJTextFieldDNI();
+        String nombre = getJTextFieldNombre();
+        String correo = getJTextFieldCorreo();
+        String clave = getJPasswordFieldClave();
+        String telefono = getJTextFielTelefono(); 
+        LocalDate fechaRegistro = getJFormattedTextFieldFechaRegistro();
+        
+        cli = new Anfitrion (DNI, nombre, correo, clave, telefono, fechaRegistro);
+        
+        if (UtilClientes.altaClientes(cli)) {
+            JOptionPane.showMessageDialog(this, "Anfitrión dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al dar de alta al anfitrión.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Excepción al dar de alta al anfitrión.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+    }
+    }
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
      RegistrarseComo registrarseComo = new RegistrarseComo ();
      registrarseComo.setVisible(true);
      this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jFormattedTextFieldFechaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldFechaRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldFechaRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,8 +216,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JFormattedTextField jFormattedTextFieldFechaRegistro;
     private javax.swing.JLabel jLabel1;

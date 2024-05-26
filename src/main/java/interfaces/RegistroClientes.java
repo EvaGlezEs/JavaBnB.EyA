@@ -4,7 +4,7 @@
  */
 package interfaces;
 
-import poo.javabnb.Anfitriones;
+
 import poo.javabnb.Clientes;
 import poo.javabnb.ClientesParticulares;
 import poo.javabnb.UtilClientes;
@@ -235,7 +235,7 @@ public class RegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jFormattedTextFieldFechaCaducidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldFechaCaducidadActionPerformed
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_jFormattedTextFieldFechaCaducidadActionPerformed
 
     private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
@@ -277,9 +277,9 @@ public class RegistroClientes extends javax.swing.JFrame {
         String numero = getJTextFieldNumero();
         String fechaCaducidad = getJFormattedTextFieldFechaCaducidad();
         
-        cli = new ClienteParticular (DNI, nombre, correo, clave, telefono, nombreTitular, numero,fechaCaducidad); 
+        cli = new ClientesParticulares (DNI, nombre, correo, clave, telefono, nombreTitular, numero, fechaCaducidad); 
         
-        if(UtilClientes.altaClientes(clientes)){
+        if(UtilClientes.altaClientes(cli)){
             JOptionPane.showMessageDialog(this, "Cliente particular registrado en la app", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar cliente particular en la app", "Mensaje", JOptionPane.ERROR_MESSAGE);
@@ -333,7 +333,7 @@ public class RegistroClientes extends javax.swing.JFrame {
                 new RegistroClientes().setVisible(true);
             }
         });
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrar;
@@ -358,6 +358,8 @@ public class RegistroClientes extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
-}
+
+
+
 }
 

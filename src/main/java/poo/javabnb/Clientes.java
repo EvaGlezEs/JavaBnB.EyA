@@ -28,8 +28,6 @@ public class Clientes extends Usuarios implements Serializable {
     public Clientes() {
     }
 
-   
-    
     
 
     public String getDNI() {
@@ -57,14 +55,31 @@ public class Clientes extends Usuarios implements Serializable {
     }
     
     
-
-
-
     @Override
     public String toString() {
         return "cliente{" + "DNI=" + DNI + ", nombre=" + nombre + ", correo=" + correo + ", clave" + clave + ", telefono" + telefono + '}';
         
     }
 
+    
+    public int compareTo(Clientes c) {
+        return this.correo.compareTo(c.getCorreo());
+    }
+     
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Clientes other = (Clientes) obj;
+        if ((this.correo == null) ? (other.correo != null) : !this.correo.equals(other.correo)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

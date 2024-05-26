@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,18 +38,19 @@ public class UtilClientes {
 
     /**@return Devuelve el ArrayList de clientes */
     public static ArrayList<Clientes> getClientes() {
-        //Comparador para ordenar las personas por su correo
-        Comparator NomCliComp = new Comparator() {
+        
+//Comparador para ordenar las personas por su c
+        Comparator CorreoCliComp = new Comparator() {
 
             @Override
             public int compare(Object o1, Object o2) {
                 Clientes c1 = (Clientes) o1;
                 Clientes c2 = (Clientes) o2;
-                return c1.getNombre().compareTo(c2.getNombre());
+                return c1.getCorreo().compareTo(c2.getCorreo());
             }
         };
         //Ordenamos el array
-        Collections.sort(clientes, NomCliComp);
+        Collections.sort(clientes, CorreoCliComp);
         return clientes;
     }
 
@@ -64,7 +66,7 @@ public class UtilClientes {
         }
     }
    
-    /** Consulta los datos de una persona por su dni
+    /** Consulta los datos de una persona por su correo
      * @param correo
      * @return objper */
     public static Clientes consultaClientesPorCorreo(String correo) {
@@ -73,9 +75,9 @@ public class UtilClientes {
 
             @Override
             public int compare(Object o1, Object o2) {
-                Clientes p1 = (Clientes) o1;
-                Clientes p2 = (Clientes) o2;
-                return p1.getCorreo().compareTo(p2.getCorreo());
+                Clientes c1 = (Clientes) o1;
+                Clientes c2 = (Clientes) o2;
+                return c1.getCorreo().compareTo(c2.getCorreo());
             }
         };
         //Ordenamos el array
@@ -167,7 +169,41 @@ public class UtilClientes {
         }
     }//fin guardarDatos
 
+    
+    
+    
+    /** Modifica los datos de un cliente
+     * @param cli
+     * @param c_DNI
+     * @param c_nombre
+     * @param c_correo
+     * @param c_clave
+     * @param c_telefono
+     * @param var1
+     * @param var2
+     * @return boolean */
+    public static boolean modificaPersona(Persona per, String p_nombre, LocalDate p_fecnac, String p_direccion, long p_tfno, String var1, String var2) {
+        if (per == null || !personas.contains(per)) {
+            return false;
+        }
+        per.setNombre(p_nombre);
+        per.setFechaNac(p_fecnac);
+        per.setDireccion(p_direccion);
+        per.setTfno(p_tfno);
+        String tipo = per.getClass().getSimpleName();
+        if (tipo.equals("Alumno")) {
+            Alumno alu = (Alumno) per;
+            alu.setTitulacion(var1);
+            alu.setAsignaturas(var2);
+        } else {
+            Profesor pro = (Profesor) per;
+            pro.setDepartamento(var1);
+            pro.setSueldo(Double.parseDouble(var2));
+        }
+        return true;
+    }
 
+    
     /** Crea un fichero de texto con los datos de un cliente (o particular o anfitrión)
      * @param cli
      * @throws java.io.IOException */
