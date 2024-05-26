@@ -147,6 +147,7 @@ public class Registro extends javax.swing.JFrame {
         etiVar3 = new javax.swing.JLabel();
         jTextFieldVar3 = new javax.swing.JTextField();
         jSpinnerVar1 = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,7 +157,7 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
         jLabel1.setText("REGISTRO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");
@@ -212,7 +213,7 @@ public class Registro extends javax.swing.JFrame {
                 jComboBoxTipoActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
 
         etiVar2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         etiVar2.setText("Nombre del titular de la tarjeta");
@@ -225,6 +226,10 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, 20));
         jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 170, 20));
         jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 170, -1));
+
+        jLabel7.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        jLabel7.setText("Selecione como desea registrarse");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
@@ -333,6 +338,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JSpinner jSpinnerVar1;
