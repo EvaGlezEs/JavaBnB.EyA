@@ -200,36 +200,7 @@ public class UtilClientes {
     
     
     
-    /** Modifica los datos de un cliente
-     * @param cli
-     * @param c_DNI
-     * @param c_nombre
-     * @param c_correo
-     * @param c_clave
-     * @param c_telefono
-     * @param var1
-     * @param var2
-     * @return boolean */
-    public static boolean modificaPersona(Persona per, String p_nombre, LocalDate p_fecnac, String p_direccion, long p_tfno, String var1, String var2) {
-        if (per == null || !personas.contains(per)) {
-            return false;
-        }
-        per.setNombre(p_nombre);
-        per.setFechaNac(p_fecnac);
-        per.setDireccion(p_direccion);
-        per.setTfno(p_tfno);
-        String tipo = per.getClass().getSimpleName();
-        if (tipo.equals("Alumno")) {
-            Alumno alu = (Alumno) per;
-            alu.setTitulacion(var1);
-            alu.setAsignaturas(var2);
-        } else {
-            Profesor pro = (Profesor) per;
-            pro.setDepartamento(var1);
-            pro.setSueldo(Double.parseDouble(var2));
-        }
-        return true;
-    }
+    
 
     
     /** Crea un fichero de texto con los datos de un cliente (o particular o anfitrión)
