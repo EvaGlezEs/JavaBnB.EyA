@@ -30,9 +30,9 @@ public class RegistrarseComo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jButtonClienteParticular = new javax.swing.JButton();
         jButtonAnfitrion = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,22 +51,32 @@ public class RegistrarseComo extends javax.swing.JFrame {
         jLabel3.setText("¿Quiero que reserven mis inmuebles?");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
 
-        jTextField3.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jTextField3.setText("Volver");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 50, -1));
-
         jButtonClienteParticular.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButtonClienteParticular.setText("Cliente particular");
+        jButtonClienteParticular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClienteParticularActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonClienteParticular, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 140, 40));
 
         jButtonAnfitrion.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButtonAnfitrion.setText("Anfitrión");
+        jButtonAnfitrion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnfitrionActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 120, 40));
+
+        jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,9 +92,23 @@ public class RegistrarseComo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    private void jButtonClienteParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteParticularActionPerformed
+      RegistroClientes registroClientes = new RegistroClientes();
+      registroClientes.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButtonClienteParticularActionPerformed
+
+    private void jButtonAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnfitrionActionPerformed
+      RegistroAnfi registroAnfi = new RegistroAnfi();
+      registroAnfi.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButtonAnfitrionActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+      EntradaApp  entradaApp = new EntradaApp();
+      entradaApp.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,10 +149,10 @@ public class RegistrarseComo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnfitrion;
     private javax.swing.JButton jButtonClienteParticular;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

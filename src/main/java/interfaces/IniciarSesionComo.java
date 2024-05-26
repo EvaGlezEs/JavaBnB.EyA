@@ -44,18 +44,38 @@ public class IniciarSesionComo extends javax.swing.JFrame {
 
         jButtonAdministrador.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButtonAdministrador.setText("Administrador");
+        jButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdministradorActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 130, 30));
 
         jButtonClienteParticular.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButtonClienteParticular.setText("Cliente particular");
+        jButtonClienteParticular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClienteParticularActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonClienteParticular, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 150, 30));
 
         jButton1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton1.setText("Anfitrión ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 90, 30));
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,6 +93,30 @@ public class IniciarSesionComo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministradorActionPerformed
+     IniciarSesionAdmin  iniciarSesionAdmin = new IniciarSesionAdmin();
+     iniciarSesionAdmin.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_jButtonAdministradorActionPerformed
+
+    private void jButtonClienteParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteParticularActionPerformed
+     IniciarSesionCliParti  iniciarSesionCliParti = new IniciarSesionCliParti();
+     iniciarSesionCliParti.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_jButtonClienteParticularActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     IniciarSesionAnfi  iniciarSesionAnfi = new IniciarSesionAnfi();
+     iniciarSesionAnfi.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+     EntradaApp  entradaApp = new EntradaApp();
+     entradaApp.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
