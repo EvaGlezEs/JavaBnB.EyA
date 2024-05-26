@@ -113,8 +113,7 @@ public class UtilClientes {
         PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(cli.getDNI() + ".txt"))); 
         //con la siguiente línea formateamos la fecha de registro a la aplicación de los anfitriones
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");        
-        String fr = cli.getFechaRegistro().format(formatoCorto);
-        String fc = cli.getFechaCaducidad().format(formatoCorto);
+    
 
         salida.println("-------------------------------- Ficha Cliente --------------------------------");
         salida.println("\n");
@@ -128,15 +127,16 @@ public class UtilClientes {
         salida.println("\n");
         salida.println("Teléfono: " + cli.getTelefono());
         salida.println("\n");
-        if (cli.getClass().getSimpleName().equals("Cliente particular")) {
+        if (cli.getClass().getSimpleName().equals("Clientes particulares")) {
             ClientesParticulares clientesParticulares = (ClientesParticulares) cli;
+            TarjetaCredito tarjetaCredito = clientesParticulares.getTarjetaCredito();
             salida.println("*** Particular ***");
-            salida.println("Tarjeta de credito: " + "Nombre del titular:" + tarjetaCredito.getNombreTitular() + "Número tarjeta:" + tarjetaCredito.getNumero()+ "Fecha de caducidad:" + tarjetaCredito.getFechaCaducidad().format(formatoCorto));
+            salida.println("Tarjeta de credito: " + "Nombre del titular: " + tarjetaCredito.getNombreTitular() + " Número tarjeta: " + tarjetaCredito.getNumero() + " Fecha de caducidad: " + tarjetaCredito.getFechaCaducidad().format(formatoCorto));
             salida.println("VIP: " + clientesParticulares.getVIP());
         } else {
             Anfitriones anfitriones = (Anfitriones) cli;
-            salida.println("*** Anfitrion ***");
-            salida.println("Fecha de registro: " + anfitriones.getFechaRegistro());
+            salida.println("*** Anfitrión ***");
+            salida.println("Fecha de registro: " + anfitriones.getFechaRegistro().format(formatoCorto));
             salida.println("Superanfitrión: " + anfitriones.getCalificacion());
         }
         salida.println("\n");

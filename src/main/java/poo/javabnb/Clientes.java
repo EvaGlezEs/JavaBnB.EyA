@@ -14,6 +14,7 @@ public class Clientes extends Usuarios implements Serializable {
     private String DNI;
     private String nombre;
     private String telefono;
+    
 
     //constructor
 
