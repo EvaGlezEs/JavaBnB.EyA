@@ -34,13 +34,8 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         this.jTextFieldCalle.setText(txt);
     }
 
-    public String getJTextFieldNumero() {
-        return jTextFieldNumero.getText();
-    }
 
-    public void setJTextFieldNumero(String txt) {
-        this.jTextFieldNumero.setText(txt);
-    }
+ 
 
     public String getJTextFieldCodigoPostal() {
         return jTextFieldCodigoPostal.getText();
@@ -82,61 +77,7 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         this.jTextFieldNumCamas.setText(txt);
     }
 
-    public String getJTextFieldNumBanos() {
-        return jTextFieldNumBanos.getText();
-    }
-
-    public void setJTextFieldNumBanos(String txt) {
-        this.jTextFieldNumBanos.setText(txt);
-    }
-
-    public String getComboBoxTipoPropiedad() {
-        return String.valueOf(jComboBoxTipoPropiedad.getSelectedItem());
-    }
-
-    public void setComboBoxTipoPropiedad(String item) {
-        jComboBoxTipoPropiedad.setSelectedItem(item);
-    }
-
-    public String getJTextFieldPrecioNoche() {
-        return jTextFieldPrecioNoche.getText();
-    }
-
-    public void setJTextFieldPrecioNoche(String txt) {
-        this.jTextFieldPrecioNoche.setText(txt);
-    }
-
-    public String getComboBoxCalificacion() {
-        return String.valueOf(jComboBoxCalificacion.getSelectedItem());
-    }
-
-    public void setComboBoxCalificacion(String item) {
-        jComboBoxCalificacion.setSelectedItem(item);
-    }
-
-    public String getJTextFieldServicios() {
-        return jTextFieldServicios.getText();
-    }
-
-    public void setJTextFieldServicios(String txt) {
-        this.jTextFieldServicios.setText(txt);
-    }
-
-    //borra el contenido del panel
-    public void borrar() {
-        setJTextFieldTitulo("");
-        setJTextFieldCalle("");
-        setJTextFieldNumero("");
-        setJTextFieldCodigoPostal("");
-        setJTextFieldCiudad("");
-        setJTextFieldNumHuespedes("");
-        setJTextFieldNumHabitaciones("");
-        setJTextFieldNumCamas("");
-        setJTextFieldNumBanos("");
-        setJTextFieldPrecioNoche("");
-        setJTextFieldNumBanos("");
-        setJTextFieldServicios("");
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

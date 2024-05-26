@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alejandro
@@ -17,6 +19,14 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String getJTextFieldCorreo() {
+        return jTextFieldCorreo.getText();
+    }
+
+    public String getJTextFieldClave() {
+        return jTextFieldClave.getText();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,8 +38,8 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldCorreo = new javax.swing.JTextField();
+        jTextFieldClave = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButtonIniciarSesion = new javax.swing.JButton();
@@ -44,14 +54,14 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
         jLabel1.setText("INICIO DE SESIÓN DE ADMINISTRADORES");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 230, 20));
+        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 230, 20));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextFieldClaveActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 230, 20));
+        jPanel1.add(jTextFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 230, 20));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel2.setText("Correo");
@@ -63,6 +73,11 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
 
         jButtonIniciarSesion.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonIniciarSesion.setText("Iniciar sesión ");
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 30));
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
@@ -92,15 +107,33 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextFieldClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldClaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextFieldClaveActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-    IniciarSesionComo iniciarSesionComo = new IniciarSesionComo ();
-    iniciarSesionComo.setVisible(true);
-    this.dispose();
+        IniciarSesionComo iniciarSesionComo = new IniciarSesionComo();
+        iniciarSesionComo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        try {
+            String correo = getJTextFieldCorreo();
+            String clave = getJTextFieldClave();
+
+            if (correo == "admin@javabnb.com" && clave == "admin") {
+                OperacionesAdministrador operacionesadministrador = new OperacionesAdministrador();
+                operacionesadministrador.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al iniciar sesion como administrador", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            } 
+
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción al iniciar sesion como adminitrador", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,7 +179,7 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextFieldClave;
+    private javax.swing.JTextField jTextFieldCorreo;
     // End of variables declaration//GEN-END:variables
 }
