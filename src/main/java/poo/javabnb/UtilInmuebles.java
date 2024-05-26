@@ -33,7 +33,7 @@ public class UtilInmuebles {
         inmuebles = i;
     }
     
-    public static ArrayList<Inmuebles> getInmuebles() {
+    public static ArrayList<Inmuebles> getPrecio() {
         //Comparador para ordenar los inmuebles por su precio
         Comparator PrecioPerComp = new Comparator() {
 
@@ -48,6 +48,22 @@ public class UtilInmuebles {
         Collections.sort(inmuebles, PrecioPerComp);
         return inmuebles;
     }
+    public static ArrayList<Inmuebles> getCalificacion() {
+        //Comparador para ordenar los inmuebles por su precio
+        Comparator PrecioPerComp = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Inmuebles p1 = (Inmuebles) o1;
+                Inmuebles p2 = (Inmuebles) o2;
+                return Double.compare(p1.getCalificacion(), p2.getCalificacion());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(inmuebles, PrecioPerComp);
+        return inmuebles;
+    }
+    
     
     /** Da de baja un inmueble
      * @param objinmu
@@ -97,63 +113,9 @@ public class UtilInmuebles {
     }
     
     
-    /** Consulta los datos de un inmueble por su calificacion
-     * @param precioNoche
-     * @return objinmu */
-    public static Inmuebles consultaInmueblePorPrecio(String precioNoche) {
-        //Comparador para ordenar los immuebles por su calificacion
-        Comparator PrecioNochePerComp = new Comparator() {
-
-            @Override
-            public int compare(Object o1, Object o2) {
-                Inmuebles p1 = (Inmuebles) o1;
-                Inmuebles p2 = (Inmuebles) o2;
-                return Double.compare(p1.getPrecioNoche(), p2.getPrecioNoche());
-            }
-        };
-        //Ordenamos el array
-        Collections.sort(inmuebles, PrecioNochePerComp);
-        //creamos un inmueble con el precio a buscar
-        Inmuebles p = new Inmuebles();
-        p.setCalificacion(precioNoche);
-        int pos = Collections.binarySearch(inmuebles, p, PrecioNochePerComp);
-        if (pos >= 0) {
-            objinmu = inmuebles.get(pos);
-        } else {
-            objinmu = null;
-        }
-
-        return objinmu;
-    }
     
-    /** Consulta los datos de un inmueble por su calificacion
-     * @param calificacion
-     * @return objinmu */
-    public static Inmuebles consultaInmueblePorCalificacion(String calificacion) {
-        //Comparador para ordenar los immuebles por su calificacion
-        Comparator CalificacionPerComp = new Comparator() {
-
-            @Override
-            public int compare(Object o1, Object o2) {
-                Inmuebles p1 = (Inmuebles) o1;
-                Inmuebles p2 = (Inmuebles) o2;
-                return p1.getCalificacion().compareTo(p2.getCalificacion());
-            }
-        };
-        //Ordenamos el array
-        Collections.sort(inmuebles, CalificacionPerComp);
-        //creamos una persona con la calificacion a buscar
-        Inmuebles p = new Inmuebles();
-        p.setCalificacion(calificacion);
-        int pos = Collections.binarySearch(inmuebles, p, CalificacionPerComp);
-        if (pos >= 0) {
-            objinmu = inmuebles.get(pos);
-        } else {
-            objinmu = null;
-        }
-
-        return objinmu;
-    }
+    
+    
      public static boolean registrarInmueble(Inmuebles objinmu) {
         if (!inmuebles.contains(objinmu)) {
             inmuebles.add(objinmu);

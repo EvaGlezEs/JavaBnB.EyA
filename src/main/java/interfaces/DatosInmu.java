@@ -277,7 +277,7 @@ public class DatosInmu extends javax.swing.JFrame {
         String numBanos = getJTextFieldNumBanos();
         String tipoPropiedad = getComboBoxTipoPropiedad();
         double precioNoche = Double.parseDouble(getJFormattedTextFieldPrecioNkche());
-        String calificacion = getComboBoxCalificacion();
+        double calificacion = Double.parseDouble(getComboBoxCalificacion());
         String servicios = getJTextFieldServicios();
 
         Inmuebles inmueble = new Inmuebles(titulo, calle, numero, codigoPostal, ciudad, numHuespedes, numHabitaciones, numCamas, numBanos, tipoPropiedad, precioNoche, calificacion, servicios);

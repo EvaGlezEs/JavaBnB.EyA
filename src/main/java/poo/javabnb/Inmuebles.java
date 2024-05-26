@@ -29,14 +29,14 @@ public class Inmuebles {
     
     private double precioNoche;
     
-    private String calificacion;
+    private double calificacion;
     
     private String servicios;
     
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
-    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, String calificacion, String servicios) {
+    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios) {
         this.titulo = titulo;
         this.calle = calle;
         this.numero = numero;
@@ -274,11 +274,11 @@ public class Inmuebles {
         this.titulo = titulo;
     }
 
-    public String getCalificacion() {
+    public double getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(String calificacion) {
+    public void setCalificacion(double calificacion) {
         this.calificacion = calificacion;
     }
 
