@@ -55,6 +55,8 @@ public class Clientes extends Usuarios implements Serializable {
     }
     
     
+    
+    
     @Override
     public String toString() {
         return "cliente{" + "DNI=" + DNI + ", nombre=" + nombre + ", correo=" + correo + ", clave" + clave + ", telefono" + telefono + '}';

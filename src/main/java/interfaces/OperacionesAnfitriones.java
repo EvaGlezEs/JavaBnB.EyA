@@ -98,7 +98,7 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarInmuebleActionPerformed
-        DatosInmu newframe = new DatosInmu();
+        DatosInmu newframe = new DatosInmu(cli);
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButtonRegistrarInmuebleActionPerformed

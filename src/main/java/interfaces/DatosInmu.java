@@ -13,16 +13,23 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import poo.javabnb.Inmuebles;
 import poo.javabnb.UtilInmuebles;
+import poo.javabnb.Clientes;
 
 /**
  *
  * @author Alejandro
  */
 public class DatosInmu extends javax.swing.JFrame {
-
+    
+    private Clientes cli;
     /**
      * Creates new form DatosInmuebles
+     * @param cli
      */
+    public DatosInmu(Clientes cli) {
+        initComponents();
+    }
+    
     public DatosInmu() {
         initComponents();
     }
@@ -285,7 +292,7 @@ public class DatosInmu extends javax.swing.JFrame {
         double calificacion = Double.parseDouble(getComboBoxCalificacion());
         String servicios = getJTextFieldServicios();
 
-        Inmuebles inmueble = new Inmuebles(titulo, calle, numero, codigoPostal, ciudad, numHuespedes, numHabitaciones, numCamas, numBanos, tipoPropiedad, precioNoche, calificacion, servicios);
+        Inmuebles inmueble = new Inmuebles(titulo, calle, numero, codigoPostal, ciudad, numHuespedes, numHabitaciones, numCamas, numBanos, tipoPropiedad, precioNoche, calificacion, servicios,cli.getCorreo());
         if(UtilInmuebles.registrarInmueble(inmueble)){
             JOptionPane.showMessageDialog(this, "Inmueble registrado en la app", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         } else {
