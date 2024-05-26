@@ -95,6 +95,15 @@ public class UtilClientes {
         return objcli;
     }
     
+    
+ 
+    
+    
+    
+     /** Consulta los datos de una persona por su dni
+     * @param clave
+     * @param correo
+     * @return objper */
     public static Clientes consultaClientesPorCorreoYClave(String correo, String clave) {
         //Comparador para ordenar las personas por su dni
         Comparator CliCorreo = new Comparator() {
@@ -123,38 +132,8 @@ public class UtilClientes {
 
         return objcli;
     }
- 
-    
-    
-    
-     /** Consulta los datos de una persona por su dni
-     * @param clave
-     * @return objper */
-    public static Clientes consultaClientesPorClave(String clave) {
-        //Comparador para ordenar las personas por su dni
-        Comparator DniCliClave = new Comparator() {
 
-            @Override
-            public int compare(Object o1, Object o2) {
-                Clientes p1 = (Clientes) o1;
-                Clientes p2 = (Clientes) o2;
-                return p1.getClave().compareTo(p2.getClave());
-            }
-        };
-        //Ordenamos el array
-        Collections.sort(clientes, DniCliClave);
-        //creamos una persona con el dni a buscar
-        Clientes cli1 = new Clientes();
-        cli1.setCorreo(clave);
-        int pos = Collections.binarySearch(clientes, cli1, DniCliClave);
-        if (pos >= 0) {
-            objcli = clientes.get(pos);
-        } else {
-            objcli = null;
-        }
 
-        return objcli;
-    }
     
     
     /** Carga los datos de los clientes del fichero */

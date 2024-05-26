@@ -3,18 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-
+import poo.javabnb.Clientes;
 /**
  *
  * @author Alejandro
  */
 public class OperacionesCliParti extends javax.swing.JFrame {
 
+    private Clientes cli;
     /**
      * Creates new form OperacionesCliParti
+     * @param cli
      */
-    public OperacionesCliParti() {
+    public OperacionesCliParti(Clientes cli) {
         initComponents();
+    }
+    
+    public OperacionesCliParti(){
+        
     }
 
     /**
