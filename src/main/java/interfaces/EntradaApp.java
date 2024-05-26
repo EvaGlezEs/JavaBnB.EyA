@@ -125,8 +125,8 @@ public class EntradaApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
-       RegistrarseComo registrarseComo = new RegistrarseComo ();
-       registrarseComo.setVisible(true);
+       Registro registro = new Registro ();
+       registro.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 

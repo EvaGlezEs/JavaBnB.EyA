@@ -4,6 +4,11 @@
  */
 package interfaces;
 
+import poo.javabnb.Clientes;
+import poo.javabnb.ClientesParticulares;
+import poo.javabnb.Anfitriones;
+import poo.javabnb.UtilClientes;
+
 /**
  *
  * @author Alejandro
@@ -89,7 +94,7 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
         jbuttonModificar.setText("Modificar");
-        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 473, 100, 30));
+        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 100, 30));
 
         jLabel11.setText("¿Es usted un cliente VIP?");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 160, -1));

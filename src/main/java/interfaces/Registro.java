@@ -20,15 +20,15 @@ import poo.javabnb.UtilClientes;
  *
  * @author eva
  */
-public class RegistroAnfi extends javax.swing.JFrame {
+public class Registro extends javax.swing.JFrame {
  
     
     private Clientes cli = null;
-    private Object tipo;
+   
     /**
      * Creates new form RegistroAnfitrion
      */
-    public RegistroAnfi() {
+    public Registro() {
         initComponents();
         jComboBoxTipo.setSelectedIndex(0);
     }
@@ -147,7 +147,6 @@ public class RegistroAnfi extends javax.swing.JFrame {
         etiVar3 = new javax.swing.JLabel();
         jTextFieldVar3 = new javax.swing.JTextField();
         jSpinnerVar1 = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,24 +155,24 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
-        jLabel1.setText("REGISTRO ANFITRIÓN");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        jLabel1.setText("REGISTRO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel3.setText("DNI");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel4.setText("Correo ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel5.setText("Clave");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel6.setText("Teléfono ");
@@ -181,7 +180,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
 
         etiVar1.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         etiVar1.setText("Fecha de hoy (día en el que se está usted registrando)");
-        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
+        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
 
         jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
@@ -190,12 +189,12 @@ public class RegistroAnfi extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 160, 20));
-        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 160, 20));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 160, 20));
+        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 160, 20));
         jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 150, 20));
-        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 180, 20));
-        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 180, 20));
+        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 180, 20));
+        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 180, 20));
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonVolver.setText("Volver");
@@ -204,7 +203,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
+        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, -1, -1));
 
         jComboBoxTipo.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente particular", "Anfitrión" }));
@@ -215,24 +214,19 @@ public class RegistroAnfi extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
-        etiVar2.setText("nombre");
-        jPanel1.add(etiVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
-
-        jTextFieldVar2.setText("jTextField1");
-        jPanel1.add(jTextFieldVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+        etiVar2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        etiVar2.setText("Nombre del titular de la tarjeta");
+        jPanel1.add(etiVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
+        jPanel1.add(jTextFieldVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 150, 20));
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 20));
 
-        etiVar3.setText("numero");
-        jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, 20));
-
-        jTextFieldVar3.setText("jTextField1");
-        jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 190, 40));
+        etiVar3.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        etiVar3.setText("Número tarjeta");
+        jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, 20));
+        jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 170, 20));
+        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 170, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
-
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,7 +241,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
         LocalDate var1 = getjSpinnerVar1();
         String var2 = getJTextFieldVar2();
         String var3 = getJTextFieldVar3();
-        if (tipo.equals("Cliente Particular")) {
+        if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
             cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3);
         } else {
             cli = new Anfitriones(DNI, nombre,telefono, correo, clave, var1);
@@ -271,13 +265,15 @@ public class RegistroAnfi extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
-        tipo = (String) jComboBoxTipo.getSelectedItem();
-    if (tipo.equals("Cliente Particular")) {
+        
+    if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
         setEtiVar1("Fecha de caducidad de la tarjeta");
         setEtiVar2("Nombre titular de la tarjeta");
         setEtiVar3("número de tarjeta");
-    } else {
+    } else { 
         setEtiVar1("Fecha de registro en la aplicación");
+        setEtiVar2(" ");
+        setEtiVar3(" ");
     }
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
@@ -298,14 +294,18 @@ public class RegistroAnfi extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroAnfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -314,7 +314,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistroAnfi().setVisible(true);
+                new Registro().setVisible(true);
             }
         });
     }
@@ -333,7 +333,6 @@ public class RegistroAnfi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JSpinner jSpinnerVar1;

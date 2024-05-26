@@ -97,7 +97,7 @@ public class RegistrarseComo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClienteParticularActionPerformed
 
     private void jButtonAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnfitrionActionPerformed
-      RegistroAnfi registroAnfi = new RegistroAnfi();
+      Registro registroAnfi = new Registro();
       registroAnfi.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_jButtonAnfitrionActionPerformed
