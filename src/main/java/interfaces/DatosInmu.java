@@ -231,6 +231,11 @@ public class DatosInmu extends javax.swing.JFrame {
         jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
 
         jFormattedTextFieldPrecioNkche.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        jFormattedTextFieldPrecioNkche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldPrecioNkcheActionPerformed(evt);
+            }
+        });
         jPanel1.add(jFormattedTextFieldPrecioNkche, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -291,6 +296,10 @@ public class DatosInmu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Excepción al registrar el inmueble", "Mensaje", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCrearInmuebleActionPerformed
+
+    private void jFormattedTextFieldPrecioNkcheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPrecioNkcheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldPrecioNkcheActionPerformed
 
     /**
      * @param args the command line arguments
