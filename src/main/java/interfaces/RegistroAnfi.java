@@ -227,7 +227,7 @@ public class RegistroAnfi extends javax.swing.JFrame {
 
         jTextFieldVar3.setText("jTextField1");
         jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 190, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
