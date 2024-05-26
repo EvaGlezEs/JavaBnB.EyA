@@ -30,7 +30,8 @@ public class ClientesParticulares extends Clientes implements Serializable {
         this.VIP = VIP;
         this.tarjetaCredito = tarjetaCredito;
     }
-
+    
+    
     /**
      * Get the value of tarjetaCredito
      *

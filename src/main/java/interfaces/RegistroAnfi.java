@@ -4,51 +4,117 @@
  */
 package interfaces;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
+import poo.javabnb.Clientes;
+import poo.javabnb.ClientesParticulares;
 import poo.javabnb.Anfitriones;
 import poo.javabnb.UtilClientes;
-import java.time.LocalDate;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 /**
  *
  * @author eva
  */
 public class RegistroAnfi extends javax.swing.JFrame {
-
+ 
+    
+    private Clientes cli = null;
+    private Object tipo;
     /**
      * Creates new form RegistroAnfitrion
      */
     public RegistroAnfi() {
         initComponents();
+        jComboBoxTipo.setSelectedIndex(0);
     }
-
+    
+    //metodos para devolver y mostrar el contenido de los campos del registro
     public String getJTextFieldDNI() {
         return jTextFieldDNI.getText();
     }
-    
+
+    public void setJTextFieldDNI(String txt) {
+        this.jTextFieldDNI.setText(txt);
+    }
+
     public String getJTextFieldNombre() {
-      return jTextFieldNombre.getText();
+        return jTextFieldNombre.getText();
+    }
+
+    public void setJTextFieldNombre(String txt) {
+        this.jTextFieldNombre.setText(txt);
     }
     
     public String getJTextFieldCorreo() {
         return jTextFieldCorreo.getText();
     }
-    
-    public String getJPasswordFieldClave() {
+
+    public void setJTextFieldCorreo(String txt) {
+        this.jTextFieldCorreo.setText(txt);
+    }
+
+    public String getjPasswordFieldClave() {
         return jPasswordFieldClave.getText();
     }
 
-    public String getJTextFielTelefono() {
+    public void setJPasswordFieldClave(String txt) {
+        this.jPasswordFieldClave.setText(txt);
+    }
+
+    public String getJTextFieldTelefono() {
         return jTextFieldTelefono.getText();
     }
-    
-    public String getJFormattedTextFieldFechaRegistro() {
-        return jFormattedTextFieldFechaRegistro.getText();
+
+    public void setJTextFieldTelefono(String txt) {
+        this.jTextFieldTelefono.setText(txt);
     }
+
+     public LocalDate getjSpinnerVar1() {
+        Date fecha = (Date) jSpinnerVar1.getValue();
+        Instant instant = Instant.ofEpochMilli(fecha.getTime());
+        LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+        return localDate;
+    }
+
+    public void setjSpinnerVar1(Date d) {
+        this.jSpinnerVar1.setValue(d);
+    }
+    
+     public String getJTextFieldVar2() {
+        return jTextFieldVar2.getText();
+    }
+
+    public void setJTextFieldVar2(String txt) {
+        this.jTextFieldVar2.setText(txt);
+    }
+   
+    public String getJTextFieldVar3() {
+        return jTextFieldVar3.getText();
+    }
+
+    public void setJTextFieldVar3(String txt) {
+        this.jTextFieldVar3.setText(txt);
+    }
+  
+    
+    //metodos para cambiar las etiquetas variables
+    public void setEtiVar1(String txt) {
+        this.etiVar1.setText(txt);
+    }
+
+    public void setEtiVar2(String txt) {
+        this.etiVar2.setText(txt);
+    } 
+    
+     public void setEtiVar3(String txt) {
+        this.etiVar3.setText(txt);
+    } 
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,15 +132,22 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        etiVar1 = new javax.swing.JLabel();
         jButtonRegistrar = new javax.swing.JButton();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldDNI = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
         jTextFieldCorreo = new javax.swing.JTextField();
         jPasswordFieldClave = new javax.swing.JPasswordField();
-        jFormattedTextFieldFechaRegistro = new javax.swing.JFormattedTextField();
         jButtonVolver = new javax.swing.JButton();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
+        etiVar2 = new javax.swing.JLabel();
+        jTextFieldVar2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        etiVar3 = new javax.swing.JLabel();
+        jTextFieldVar3 = new javax.swing.JTextField();
+        jSpinnerVar1 = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,9 +179,9 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jLabel6.setText("Teléfono ");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jLabel7.setText("Fecha de hoy (día en el que se está usted registrando)");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
+        etiVar1.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        etiVar1.setText("Fecha de hoy (día en el que se está usted registrando)");
+        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
         jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
@@ -124,13 +197,6 @@ public class RegistroAnfi extends javax.swing.JFrame {
         jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 180, 20));
         jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 180, 20));
 
-        jFormattedTextFieldFechaRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldFechaRegistroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jFormattedTextFieldFechaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 210, 20));
-
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -140,13 +206,62 @@ public class RegistroAnfi extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
 
+        jComboBoxTipo.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente particular", "Anfitrión" }));
+        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+
+        etiVar2.setText("nombre");
+        jPanel1.add(etiVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+
+        jTextFieldVar2.setText("jTextField1");
+        jPanel1.add(jTextFieldVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 20));
+
+        etiVar3.setText("numero");
+        jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, 20));
+
+        jTextFieldVar3.setText("jTextField1");
+        jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
+
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-   
+     try {
+        String DNI = getJTextFieldDNI();
+        String nombre = getJTextFieldNombre();
+        String correo = getJTextFieldCorreo();
+        String clave = getjPasswordFieldClave();
+        String telefono = getJTextFieldTelefono();
+        LocalDate var1 = getjSpinnerVar1();
+        String var2 = getJTextFieldVar2();
+        String var3 = getJTextFieldVar3();
+        if (tipo.equals("Cliente Particular")) {
+            cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3);
+        } else {
+            cli = new Anfitriones(DNI, nombre,telefono, correo, clave, var1);
+        }
+        
+    //se inserta en el array
+        if (UtilClientes.altaClientes(cli)) {
+            JOptionPane.showMessageDialog(this, "Cliente dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -155,9 +270,16 @@ public class RegistroAnfi extends javax.swing.JFrame {
      this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
-    private void jFormattedTextFieldFechaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldFechaRegistroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldFechaRegistroActionPerformed
+    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
+        tipo = (String) jComboBoxTipo.getSelectedItem();
+    if (tipo.equals("Cliente Particular")) {
+        setEtiVar1("Fecha de caducidad de la tarjeta");
+        setEtiVar2("Nombre titular de la tarjeta");
+        setEtiVar3("número de tarjeta");
+    } else {
+        setEtiVar1("Fecha de registro en la aplicación");
+    }
+    }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,21 +320,28 @@ public class RegistroAnfi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel etiVar1;
+    private javax.swing.JLabel etiVar2;
+    private javax.swing.JLabel etiVar3;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JFormattedTextField jFormattedTextFieldFechaRegistro;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
+    private javax.swing.JSpinner jSpinnerVar1;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldVar2;
+    private javax.swing.JTextField jTextFieldVar3;
     // End of variables declaration//GEN-END:variables
 }
