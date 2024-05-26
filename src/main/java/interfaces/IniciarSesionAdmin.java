@@ -54,14 +54,14 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
         jLabel1.setText("INICIO DE SESIÓN DE ADMINISTRADORES");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 230, 20));
+        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 230, 30));
 
         jTextFieldClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldClaveActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 230, 20));
+        jPanel1.add(jTextFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel2.setText("Correo");
@@ -122,7 +122,7 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
             String correo = getJTextFieldCorreo();
             String clave = getJTextFieldClave();
 
-            if (correo == "admin@javabnb.com" && clave == "admin") {
+            if (correo.equals("admin@javabnb.com") && clave.equals("admin")) {
                 OperacionesAdministrador operacionesadministrador = new OperacionesAdministrador();
                 operacionesadministrador.setVisible(true);
                 this.dispose();
