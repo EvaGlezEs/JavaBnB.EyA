@@ -125,7 +125,9 @@ public class RegistroAnfi extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-        // TODO add your handling code here:
+     RegistrarseComo registrarseComo = new RegistrarseComo ();
+     registrarseComo.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**

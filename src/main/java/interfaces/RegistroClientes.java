@@ -28,7 +28,6 @@ public class RegistroClientes extends javax.swing.JFrame {
         initComponents();
         principal.setVisible(false);
         this.setVisible(true);
-        jComboBoxTipoClientes.setSelectedIndex(0);
     }
 
     /**
@@ -185,6 +184,11 @@ public class RegistroClientes extends javax.swing.JFrame {
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,11 +216,7 @@ public class RegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        try {
-            String DNI = DNI.getJTextFieldDNI();
-            String nombre = nombre.jTextFieldNombreAction();
-            
-        }
+       
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTextFieldDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDNIActionPerformed
@@ -246,6 +246,12 @@ public class RegistroClientes extends javax.swing.JFrame {
     private void jFormattedTextFieldVar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldVar3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldVar3ActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+    RegistrarseComo registrarseComo = new RegistrarseComo ();
+    registrarseComo.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments

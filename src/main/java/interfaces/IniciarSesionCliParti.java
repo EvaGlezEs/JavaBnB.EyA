@@ -63,6 +63,11 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 80, -1));
 
         jButtonCancelar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
@@ -84,6 +89,12 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+    IniciarSesionComo iniciarSesionComo = new IniciarSesionComo ();
+    iniciarSesionComo.setVisible(true);
+    this.dispose();;
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
