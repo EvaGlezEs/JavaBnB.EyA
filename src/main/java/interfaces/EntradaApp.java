@@ -88,6 +88,11 @@ public class EntradaApp extends javax.swing.JFrame {
 
         jButtonRegistrarse.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
         jButtonRegistrarse.setText("Registrarse");
+        jButtonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarseActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 150, 40));
 
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 470));
@@ -114,10 +119,16 @@ public class EntradaApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCerrarActionPerformed
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
-        IniciarSesionComo iniciarSesionComo = IniciarSesionComo ();
-        iniciarSesionComo.setVisible(true);
-        this.dispose();
+       IniciarSesionComo iniciarSesionComo = new IniciarSesionComo ();
+       iniciarSesionComo.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
+
+    private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
+       RegistrarseComo registrarseComo = new RegistrarseComo ();
+       registrarseComo.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
 
  
