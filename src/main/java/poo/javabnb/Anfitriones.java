@@ -14,7 +14,7 @@ import java.util.List;
 public class Anfitriones extends Clientes implements Serializable {
     
     private LocalDate fechaRegistro;
-    private int calificacion;
+    public int calificacion;
 
     //constructor
 
@@ -92,7 +92,7 @@ public class Anfitriones extends Clientes implements Serializable {
                 + '}';
     }
 
-    void setCalificacion(int var2) {
+    public void setCalificacion(int var2) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

@@ -130,7 +130,7 @@ public class EntradaApp extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
-
+   
  
 
 

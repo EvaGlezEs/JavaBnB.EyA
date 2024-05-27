@@ -278,10 +278,10 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
         etiVar4.setText("jLabel8");
-        jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, 30));
+        jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, 30));
 
         etiVar5.setText("jLabel9");
-        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
+        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 

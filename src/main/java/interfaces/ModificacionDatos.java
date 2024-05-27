@@ -8,31 +8,39 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import poo.javabnb.Anfitriones;
 import poo.javabnb.Clientes;
 import poo.javabnb.ClientesParticulares;
-import poo.javabnb.Anfitriones;
-import poo.javabnb.UtilClientes;
 
 /**
  *
- * @author Alejandro
+ * @author eva
  */
-public class ModifiDatosCliParti extends javax.swing.JFrame {
-
+public class ModificacionDatos extends javax.swing.JFrame {
+    private static ArrayList<Clientes> clientes = new ArrayList<>();
+    private static Clientes objcli;
+   
+    
     /**
-     * Creates new form DatosCliParti2
+     * Creates new form ModificacionDatos
      */
-    public ModifiDatosCliParti(ArrayList<Clientes> clientes) {
+    public ModificacionDatos() {
         initComponents();
     }
-
     
-     //metodos para devolver y mostrar el contenido de los campos del registro
+    //metodos para devolver y mostrar el contenido de los campos del registro
     public String getJTextFieldDNI() {
         return jTextFieldDNI.getText();
     }
+
 
     public void setJTextFieldDNI(String txt) {
         this.jTextFieldDNI.setText(txt);
@@ -105,7 +113,19 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         this.jRadioButtonVar4.setText(txt);
     }
     
-    //metodos para cambiar las etiquetas variables
+    public int getjComboBoxVar5() {
+    // Convierte el texto de jComboBoxVar5 a un int
+    return Integer.parseInt(jComboBoxVar5.getSelectedItem().toString());
+    }
+
+    public void setjComboBoxVar5(int num) {
+    // Convierte el número a texto y lo establece en jComboBoxVar5
+    this.jComboBoxVar5.setSelectedItem(String.valueOf(num));
+    }
+    
+    
+    
+     //metodos para cambiar las etiquetas variables
     public void setEtiVar1(String txt) {
         this.etiVar1.setText(txt);
     }
@@ -122,7 +142,9 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         this.etiVar4.setText(txt);
     } 
     
-
+    public void setEtiVar5(String txt) {
+        this.etiVar5.setText(txt);
+    }
     
     
     /**
@@ -143,7 +165,6 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         etiVar2 = new javax.swing.JLabel();
-        etiVar1 = new javax.swing.JLabel();
         etiVar3 = new javax.swing.JLabel();
         jbuttonModificar = new javax.swing.JButton();
         etiVar4 = new javax.swing.JLabel();
@@ -157,6 +178,10 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jTextFieldVar2 = new javax.swing.JTextField();
         jTextFieldVar3 = new javax.swing.JTextField();
         jSpinnerVar1 = new javax.swing.JSpinner();
+        etiVar5 = new javax.swing.JLabel();
+        jComboBoxVar5 = new javax.swing.JComboBox<>();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
+        etiVar1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,18 +210,20 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Tarjeta de Crédito");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
 
         etiVar2.setText("Nombre del Titular");
         jPanel1.add(etiVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
-
-        etiVar1.setText("Fecha de Caducidad");
-        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
         etiVar3.setText("Número");
         jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
         jbuttonModificar.setText("Modificar");
+        jbuttonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, 100, 30));
 
         etiVar4.setText("¿Es usted un cliente VIP?");
@@ -256,54 +283,166 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 190, 20));
+
+        jSpinnerVar1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jSpinnerVar1PropertyChange(evt);
+            }
+        });
         jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
+
+        etiVar5.setText("¿Cuál es su calificación? obtenida de las reseñas de sus inmuebles ");
+        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
+
+        jComboBoxVar5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5 (soy superanfitrión)" }));
+        jPanel1.add(jComboBoxVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, -1, -1));
+
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente particular", "Anfitrión" }));
+        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+
+        etiVar1.setText("Fecha caducidad ");
+        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 110, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 836, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbuttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonModificarActionPerformed
+    
+        String DNI = jTextFieldDNI.getText();
+        String nombre = jTextFieldNombre.getText();
+        String telefono = jTextFieldTelefono.getText();
+        String correo = jTextFieldCorreo.getText();
+        String clave = jPasswordFieldClave.getText();
+        LocalDate var1 = LocalDate.parse(jSpinnerVar1.getValue().toString(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String var2 = jTextFieldVar2.getText();
+        String var3 = jTextFieldVar3.getText();
+        Boolean var4 = jRadioButtonVar4.isSelected();
+        String selectedItem = (String) jComboBoxVar5.getSelectedItem();
+        int var5 = Integer.parseInt(selectedItem);
+
+      
+    }//GEN-LAST:event_jbuttonModificarActionPerformed
+
+    public ModificacionDatos(Clientes cli, JTextField jTextFieldDNI, JTextField jTextFieldNombre, JTextField jTextFieldTelefono,JTextField jTextFieldCorreo, JPasswordField jPasswordFieldClave, JSpinner jSpinnerVar1 , JTextField jTextFieldVar2, JTextField jTextFieldVar3,JRadioButton jRadioButtonVar4, JComboBox<String> jComboBoxVar5) {
+        this.jComboBoxVar5 = jComboBoxVar5;
+        this.jPasswordFieldClave = jPasswordFieldClave;
+        this.jRadioButtonVar4 = jRadioButtonVar4;
+        this.jSpinnerVar1 = jSpinnerVar1;
+        this.jTextFieldCorreo = jTextFieldCorreo;
+        this.jTextFieldDNI = jTextFieldDNI;
+        this.jTextFieldNombre = jTextFieldNombre;
+        this.jTextFieldTelefono = jTextFieldTelefono;
+        this.jTextFieldVar2 = jTextFieldVar2;
+        this.jTextFieldVar3 = jTextFieldVar3;
+        
+        
+        if (cli == null || !clientes.contains(cli)) {
+            
+        }
+        String DNI = null;
+        cli.setDNI(DNI);
+        String nombre = null;
+        cli.setNombre(nombre);
+        String telefono = null;
+        cli.setTelefono(telefono);
+        String correo = null;
+        cli.setCorreo(correo);
+        String clave = null;
+        cli.setClave(clave);
+        
+        String tipo = cli.getClass().getSimpleName();
+        if (tipo.equals("Clientes Particulares")) {
+            ClientesParticulares parti = (ClientesParticulares) cli;
+            LocalDate var1 = null;
+            parti.setFechaCaducidad(var1);
+            String var2 = null;
+            parti.setNombreTitular(var2);
+            String var3 = null;
+            parti.setNumero(var3);
+            Boolean var4 = null;
+            parti.setVIP(var4);
+        } else {
+            Anfitriones anfi = (Anfitriones) cli;
+            LocalDate var1 = null;
+            anfi.setFechaRegistro(var1);
+            int var5 = 0;
+            anfi.setCalificacion(var5);
+        }
+    }
+    
+
     private void jRadioButtonVar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVar4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonVar4ActionPerformed
-
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
-
-    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
-
-    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
-
-    private void jTextFieldVar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldVar3ActionPerformed
 
     private void jTextFieldDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDNIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDNIActionPerformed
 
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+
+    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
+
+    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
+
     private void jTextFieldVar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVar2ActionPerformed
+
+    private void jTextFieldVar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldVar3ActionPerformed
+
+    private void jSpinnerVar1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerVar1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSpinnerVar1PropertyChange
+
+    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
+if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
+        setEtiVar1("Fecha de caducidad de la tarjeta");
+        setEtiVar2("Nombre titular de la tarjeta");
+        setEtiVar3("número de tarjeta");
+        setEtiVar4(" ");
+        setEtiVar5(" ");
+        
+    } else { 
+        setEtiVar1("Fecha de registro en la aplicación");
+        setEtiVar2(" ");
+        setEtiVar3(" ");
+        setEtiVar4(" ");
+        setEtiVar5(" ");
+    }
+    }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        ArrayList<Clientes> clientes = new ArrayList<>();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -317,24 +456,20 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModifiDatosCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModifiDatosCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModifiDatosCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModifiDatosCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
-              //new ModifiDatosCliParti().setVisible(true);
+                new ModificacionDatos().setVisible(true);
             }
         });
     }
@@ -344,6 +479,9 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
     private javax.swing.JLabel etiVar2;
     private javax.swing.JLabel etiVar3;
     private javax.swing.JLabel etiVar4;
+    private javax.swing.JLabel etiVar5;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JComboBox<String> jComboBoxVar5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;

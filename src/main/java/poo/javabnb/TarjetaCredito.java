@@ -11,10 +11,11 @@ import java.time.LocalDate;
  */
 public class TarjetaCredito {
     
-    private String nombreTitular;
-    private String numero;
-    private LocalDate fechaCaducidad;
-
+    public String nombreTitular;
+    public String numero;
+    public LocalDate fechaCaducidad;
+    
+    
     public TarjetaCredito(String nombreTitular, String numero, LocalDate fechaCaducidad) {
         this.nombreTitular = nombreTitular;
         this.numero = numero;

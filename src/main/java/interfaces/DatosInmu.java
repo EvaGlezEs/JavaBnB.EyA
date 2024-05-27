@@ -4,12 +4,19 @@
  */
 package interfaces;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneId;
 import java.util.Date;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import poo.javabnb.Inmuebles;
 import poo.javabnb.UtilInmuebles;
@@ -22,6 +29,7 @@ import poo.javabnb.Clientes;
 public class DatosInmu extends javax.swing.JFrame {
     
     private Clientes cli;
+    private BufferedImage foto = null;
     /**
      * Creates new form DatosInmuebles
      * @param cli
@@ -134,51 +142,54 @@ public class DatosInmu extends javax.swing.JFrame {
         jTextFieldServicios = new javax.swing.JTextField();
         jComboBoxTipoPropiedad = new javax.swing.JComboBox<>();
         jFormattedTextFieldPrecioNkche = new javax.swing.JFormattedTextField();
+        jButtonFoto = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        lblFoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 220, 186));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lao MN", 2, 18)); // NOI18N
         jLabel1.setText("DATOS DEL INMUEBLE");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, 33));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 210, 30));
 
         jLabel2.setText("Titulo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 58, 37, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 37, -1));
 
         jLabel3.setText("Calle");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 110, 37, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 37, -1));
 
         jLabel4.setText("Número");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 151, 50, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 50, 20));
 
         jLabel5.setText("Codigo Postal");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 192, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
 
         jLabel6.setText("Ciudad");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 227, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
 
         jLabel7.setText("Número de huespedes");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 322, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
 
         jLabel8.setText("Número de habitaciones");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 360, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         jLabel9.setText("Tipo de propiedad");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 515, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 560, -1, 20));
 
         jLabel10.setText("Número de baños");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 442, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
         jLabel11.setText("Precio por noche");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 556, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 600, -1, -1));
 
         jLabel12.setText("Número de camas");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 401, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, -1, -1));
 
         jLabel13.setText("Calificación");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 594, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 640, -1, -1));
 
         jButtonCrearInmueble.setText("Crear inmueble");
         jButtonCrearInmueble.addActionListener(new java.awt.event.ActionListener() {
@@ -186,28 +197,28 @@ public class DatosInmu extends javax.swing.JFrame {
                 jButtonCrearInmuebleActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonCrearInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 700, -1, -1));
+        jPanel1.add(jButtonCrearInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 720, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel14.setText("Dirección");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel15.setText("Especificaciones inmueble");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jLabel16.setText("Características");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, -1, -1));
-        jPanel1.add(jTextFieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 55, 230, 20));
-        jPanel1.add(jTextFieldCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 107, 140, 20));
-        jPanel1.add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 148, 140, 20));
-        jPanel1.add(jTextFieldCodigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 189, 140, 20));
-        jPanel1.add(jTextFieldCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 224, 140, 20));
-        jPanel1.add(jTextFieldNumHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 316, 71, -1));
-        jPanel1.add(jTextFieldNumHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 357, 71, -1));
-        jPanel1.add(jTextFieldNumCamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 398, 71, -1));
-        jPanel1.add(jTextFieldNumBanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 439, 71, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 530, -1, -1));
+        jPanel1.add(jTextFieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 270, 20));
+        jPanel1.add(jTextFieldCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 160, 20));
+        jPanel1.add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 160, 20));
+        jPanel1.add(jTextFieldCodigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 160, 20));
+        jPanel1.add(jTextFieldCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 160, 20));
+        jPanel1.add(jTextFieldNumHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 160, 20));
+        jPanel1.add(jTextFieldNumHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 160, 20));
+        jPanel1.add(jTextFieldNumCamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 160, 20));
+        jPanel1.add(jTextFieldNumBanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, 160, 20));
 
         jComboBoxCalificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         jComboBoxCalificacion.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +226,7 @@ public class DatosInmu extends javax.swing.JFrame {
                 jComboBoxCalificacionActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 590, -1, -1));
+        jPanel1.add(jComboBoxCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 640, 110, 20));
 
         jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -223,20 +234,20 @@ public class DatosInmu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 700, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 720, -1, -1));
 
         jLabel17.setText("Servicios");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 630, -1, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 680, -1, -1));
 
         jTextFieldServicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldServiciosActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 630, 100, -1));
+        jPanel1.add(jTextFieldServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 680, 170, 20));
 
         jComboBoxTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento", " " }));
-        jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
+        jPanel1.add(jComboBoxTipoPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, -1, -1));
 
         jFormattedTextFieldPrecioNkche.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldPrecioNkche.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +255,21 @@ public class DatosInmu extends javax.swing.JFrame {
                 jFormattedTextFieldPrecioNkcheActionPerformed(evt);
             }
         });
-        jPanel1.add(jFormattedTextFieldPrecioNkche, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, -1, -1));
+        jPanel1.add(jFormattedTextFieldPrecioNkche, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 600, 170, 20));
+
+        jButtonFoto.setText("Insertar foto");
+        jButtonFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFotoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, -1, -1));
+
+        jLabel18.setText("Inserte la foto del inmueble que desea registrar ");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
+
+        lblFoto.setText("jLabel19");
+        jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 190, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,12 +277,12 @@ public class DatosInmu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1013, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -309,6 +334,40 @@ public class DatosInmu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldPrecioNkcheActionPerformed
 
+    private void jButtonFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFotoActionPerformed
+    JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                if (f.isDirectory()) {
+                    return true;
+                }
+                String name = f.getName().toLowerCase();
+                return name.endsWith(".png") || name.endsWith(".jpg") || name.endsWith(".jpeg");
+            }
+
+            @Override
+            public String getDescription() {
+                return "Image Files (PNG, JPEG)";
+            }
+        });
+
+        int option = fileChooser.showOpenDialog(DatosInmu.this);
+        if (option == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                foto = ImageIO.read(selectedFile); // Load the image into the BufferedImage
+                Image scaledImage = foto.getScaledInstance(250, 77, Image.SCALE_SMOOTH); // Scale the image
+                ImageIcon imageIcon = new ImageIcon(scaledImage); // Use the scaled image to create an ImageIcon
+                lblFoto.setIcon(imageIcon);
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(DatosInmu.this, "Error loading image", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButtonFotoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -352,6 +411,7 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCrearInmueble;
+    private javax.swing.JButton jButtonFoto;
     private javax.swing.JComboBox<String> jComboBoxCalificacion;
     private javax.swing.JComboBox<String> jComboBoxTipoPropiedad;
     private javax.swing.JFormattedTextField jFormattedTextFieldPrecioNkche;
@@ -364,6 +424,7 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -383,5 +444,6 @@ public class DatosInmu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldServicios;
     private javax.swing.JTextField jTextFieldTitulo;
+    private javax.swing.JLabel lblFoto;
     // End of variables declaration//GEN-END:variables
 }

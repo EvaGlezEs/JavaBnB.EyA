@@ -39,7 +39,7 @@ public class UtilClientes {
     /**@return Devuelve el ArrayList de clientes */
     public static ArrayList<Clientes> getClientes() {
         
-//Comparador para ordenar las personas por su c
+//Comparador para ordenar las personas por su correo
         Comparator CorreoCliComp = new Comparator() {
 
             @Override
@@ -190,15 +190,17 @@ public class UtilClientes {
      * @param var4
      * @param var5
      * @return boolean */
-    public static boolean modificaClientes(Clientes cli, String c_DNI, String c_nombre, String c_correo, String c_clave, String c_telefono, LocalDate var1, String var2, String var3, Boolean var4, int var5) {
+    public static boolean modificaClientes(Clientes cli, String DNI, String nombre,String telefono, String correo, String clave, LocalDate var1, String var2, String var3, Boolean var4, int var5) {
+        
         if (cli == null || !clientes.contains(cli)) {
             return false;
         }
-        cli.setDNI(c_DNI);
-        cli.setNombre(c_nombre);
-        cli.setCorreo(c_correo);
-        cli.setClave(c_clave);
-        cli.setTelefono(c_telefono);
+        cli.setDNI(DNI);
+        cli.setNombre(nombre);
+        cli.setTelefono(telefono);
+        cli.setCorreo(correo);
+        cli.setClave(clave);
+        
         String tipo = cli.getClass().getSimpleName();
         if (tipo.equals("Clientes Particulares")) {
             ClientesParticulares parti = (ClientesParticulares) cli;

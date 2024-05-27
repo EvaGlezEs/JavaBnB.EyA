@@ -4,8 +4,13 @@
  */
 package poo.javabnb;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import java.io.Serializable;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -36,6 +41,8 @@ public class Inmuebles implements Serializable {
     
     private String correoAnfitrion;
     
+   private transient BufferedImage foto; 
+    
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
@@ -54,8 +61,28 @@ public class Inmuebles implements Serializable {
         this.calificacion = calificacion;
         this.servicios = servicios;
         this.correoAnfitrion = correo;
+        
     }
 
+    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios, String correoAnfitrion, BufferedImage foto) {
+        this.titulo = titulo;
+        this.calle = calle;
+        this.numero = numero;
+        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
+        this.numHuespedes = numHuespedes;
+        this.numHabitaciones = numHabitaciones;
+        this.numCamas = numCamas;
+        this.numBanos = numBanos;
+        this.tipoPropiedad = tipoPropiedad;
+        this.precioNoche = precioNoche;
+        this.calificacion = calificacion;
+        this.servicios = servicios;
+        this.correoAnfitrion = correoAnfitrion;
+        this.foto = foto;
+    }
+
+    
     public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios) {
         this.titulo = titulo;
         this.calle = calle;
@@ -78,6 +105,30 @@ public class Inmuebles implements Serializable {
         
     }
 
+    public BufferedImage getFoto() {
+        return foto;
+    }
+
+    public void setFoto(BufferedImage foto) {
+        this.foto = foto;
+    }
+
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        // Copiado dese
+        //<<<https://stackoverflow.com/questions/15058663/how-to-serialize-an-object-that-includes-bufferedimages
+        out.defaultWriteObject();  //todo lo q no es transient lo guarda, y luego guardamos la foto por separado
+        if (foto != null) //pasar sofi
+        {
+            ImageIO.write(foto, "png", out); // png is lossless
+        }
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        // Copiado dese
+        // https://stackoverflow.com/questions/15058663/how-to-serialize-an-object-that-includes-bufferedimages
+        in.defaultReadObject();
+        foto = ImageIO.read(in);
+    }
     /**
      * Get the value of tipoPropiedad
      *

@@ -13,8 +13,12 @@ import java.time.LocalDate;
  */
 public class ClientesParticulares extends Clientes implements Serializable {
     
-    private Boolean VIP;
-    private TarjetaCredito tarjetaCredito;
+    public Boolean VIP;
+    public TarjetaCredito tarjetaCredito;
+    public LocalDate var1;
+    public String var2;
+    public String var3;
+    public boolean var4;
  
     
    
@@ -31,6 +35,44 @@ public class ClientesParticulares extends Clientes implements Serializable {
         this.tarjetaCredito = tarjetaCredito;
     }
 
+    public LocalDate getVar1() {
+        LocalDate var1 = null;
+        return var1;
+    }
+    
+    public void setVar1(LocalDate var1) {
+        this.var1 = var1;
+    }
+
+    public String getVar2() {
+        String var2 = null;
+        return var2;
+    }
+    
+    public void setVar2(String var2) {
+        this.var2 = var2;
+    }
+
+    public String getVar3() {
+        String var3 = null;
+        return var3;
+    }
+    
+    public void setVar3(String var3) {
+        this.var3 = var3;
+    }
+
+    public boolean getVar4() {
+        boolean var4 = false;
+        return var4;
+    }
+    
+    public void setVar4(boolean var4) {
+        this.var4 = var4;
+    }
+
+
+    
     /**
      * Get the value of tarjetaCredito
      *
@@ -84,15 +126,15 @@ public class ClientesParticulares extends Clientes implements Serializable {
      
     }
 
-    void setFechaCaducidad(LocalDate var1) {
+    public void setFechaCaducidad(LocalDate var1) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    void setNombreTitular(String var2) {
+    public void setNombreTitular(String var2) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    void setNumero(String var3) {
+   public  void setNumero(String var3) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
