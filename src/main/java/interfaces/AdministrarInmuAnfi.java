@@ -18,6 +18,7 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
      
      private Clientes cli;
      private ArrayList<Inmuebles> inmueblesanfitrion = new ArrayList<>();
+     private Inmuebles inmuanfi;
     /**
      * Creates new form AdministrarInmu
      * @param cli
