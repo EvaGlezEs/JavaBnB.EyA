@@ -3,46 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ListIterator;
 import poo.javabnb.UtilInmuebles;
 import poo.javabnb.Inmuebles;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Alejandro
  */
-
 public class BuscarInmueblesCliParti extends javax.swing.JFrame {
-    
-    private JFrame principal;
+
     private ArrayList<Inmuebles> peraux; //Referencia al ArrayList de personas de la clase UtilCenso
     private ListIterator<Inmuebles> li; //Iterador para recorrer el ArrayList en ambas direcciones
     private Inmuebles objinmu; //Referencia a un objeto de tipo persona del ArrayList
 
-    
     /**
-     * Creates new form BuscarInmueblesCliParti
-     * @param ventana
+     * Creates new form VerInmueblesAdmin
      */
-    public BuscarInmueblesCliParti(JFrame ventana) {
-        principal = ventana;
-        principal.setVisible(false);  
-        desactivaTitulo();
-        this.setVisible(true);
-        
+    public BuscarInmueblesCliParti() {
         initComponents();
+        consultarTodo();
     }
-    
-    
 
     public void setJTextFieldTitulo(String txt) {
         this.jTextFieldTitulo.setText(txt);
@@ -51,65 +34,54 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
     public void setJTextFieldCalle(String txt) {
         this.jTextFieldCalle.setText(txt);
     }
-    
 
     public void setJTextFieldNumero(String txt) {
         this.jTextFieldNumero.setText(txt);
     }
 
-
     public void setJTextFieldCodigoPostal(String txt) {
         this.jTextFieldCodigoPostal.setText(txt);
     }
 
-
     public void setJTextFieldCiudad(String txt) {
         this.jTextFieldCiudad.setText(txt);
     }
-    
+
     public void setJTextFieldNumHuespedes(String txt) {
         this.jTextFieldNumHuespedes.setText(txt);
     }
-    
+
     public void setJTextFieldNumHabitaciones(String txt) {
         this.jTextFieldNumHabitaciones.setText(txt);
     }
-    
+
     public void setJTextFieldNumCamas(String txt) {
         this.jTextFieldNumCamas.setText(txt);
     }
-    
+
     public void setJTextFieldNumBanos(String txt) {
         this.jTextFieldNumBanos.setText(txt);
     }
-    
+
     public void setJTextFieldTipoPropiedad(String txt) {
         this.jTextFieldTipoPropiedad.setText(txt);
     }
-    
+
     public void setJTextFieldPrecioNoche(String txt) {
         this.jTextFieldPrecioNoche.setText(txt);
     }
-    
+
     public void setJTextFieldCalificacion(String txt) {
         this.jTextFieldCalificacion.setText(txt);
     }
-    
+
     public void setJTextFieldServicios(String txt) {
         this.jTextFieldServicios.setText(txt);
     }
-    
 
-   
- 
-    
-    
-    
-    
-    
     //borra el contenido del panel
     public void borrar() {
-        
+
         setJTextFieldTitulo("");
         setJTextFieldCalle("");
         setJTextFieldNumero("");
@@ -135,7 +107,9 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
         this.jTextFieldTitulo.setEditable(false);
     }
 
-    /** Consulta las personas del ArrayList ordenadas para su presentación */
+    /**
+     * Consulta las personas del ArrayList ordenadas para su presentación
+     */
     private void consultarTodo() {
         try {
             //referenciamos al ArrayList de UtilCenso
@@ -147,12 +121,12 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 jButtonSIG.setEnabled(false);
                 jButtonANT.setEnabled(false);
-                
+
                 return;
             } else {
                 jButtonSIG.setEnabled(true);
                 jButtonANT.setEnabled(true);
-                
+
             }
             //presentamos la primera persona
             if (li.hasNext()) {
@@ -168,10 +142,8 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
             System.out.println("Error: " + e.toString());
         }
     }//fin consultarTodo
-    
-    
-    
-    private void presenta(Inmuebles inmueble){
+
+    private void presenta(Inmuebles inmueble) {
         setJTextFieldTitulo(inmueble.getTitulo());
         setJTextFieldCalle(inmueble.getCalle());
         setJTextFieldNumero(inmueble.getNumero());
@@ -185,10 +157,8 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
         setJTextFieldPrecioNoche(String.valueOf(inmueble.getPrecioNoche()));
         setJTextFieldCalificacion(String.valueOf(inmueble.getCalificacion()));
         setJTextFieldServicios(inmueble.getServicios());
-        
-    }
-  
 
+    }
 
 
     
@@ -554,7 +524,7 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            
+            new BuscarInmueblesCliParti().setVisible(true);
         }
     });
 }

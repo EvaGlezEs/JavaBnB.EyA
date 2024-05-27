@@ -5,11 +5,10 @@
 package interfaces;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ListIterator;
 import poo.javabnb.UtilInmuebles;
 import poo.javabnb.Inmuebles;
-import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class VerInmueblesAdmin extends javax.swing.JFrame {
 
-    private JFrame principal;
+   
     private ArrayList<Inmuebles> peraux; //Referencia al ArrayList de personas de la clase UtilCenso
     private ListIterator<Inmuebles> li; //Iterador para recorrer el ArrayList en ambas direcciones
     private Inmuebles objinmu; //Referencia a un objeto de tipo persona del ArrayList
@@ -26,12 +25,9 @@ public class VerInmueblesAdmin extends javax.swing.JFrame {
     /**
      * Creates new form VerInmueblesAdmin
      */
-    public VerInmueblesAdmin(JFrame ventana) {
-        principal = ventana;
-        principal.setVisible(false);
-        desactivaTitulo();
-        this.setVisible(true);
+    public VerInmueblesAdmin() {
         initComponents();
+        consultarTodo();
     }
 
     public void setJTextFieldTitulo(String txt) {
@@ -525,7 +521,7 @@ public class VerInmueblesAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
+                new VerInmueblesAdmin().setVisible(true);
             }
         });
     }
