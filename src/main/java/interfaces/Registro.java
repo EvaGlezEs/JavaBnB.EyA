@@ -153,8 +153,6 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButtonVar4 = new javax.swing.JRadioButton();
-        jComboBoxVar5 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -180,20 +178,8 @@ public class Registro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         etiVar4 = new javax.swing.JLabel();
         etiVar5 = new javax.swing.JLabel();
-
-        jRadioButtonVar4.setText("jRadioButton1");
-        jRadioButtonVar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonVar4ActionPerformed(evt);
-            }
-        });
-
-        jComboBoxVar5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxVar5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxVar5ActionPerformed(evt);
-            }
-        });
+        jRadioButtonVar4 = new javax.swing.JRadioButton();
+        jComboBoxVar5 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -282,6 +268,9 @@ public class Registro extends javax.swing.JFrame {
 
         etiVar5.setText("jLabel9");
         jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+
+        jPanel1.add(jComboBoxVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
@@ -340,14 +329,6 @@ public class Registro extends javax.swing.JFrame {
         setEtiVar5(" ");
     }
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
-
-    private void jRadioButtonVar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVar4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonVar4ActionPerformed
-
-    private void jComboBoxVar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVar5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxVar5ActionPerformed
 
     /**
      * @param args the command line arguments
