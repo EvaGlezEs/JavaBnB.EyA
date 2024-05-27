@@ -446,11 +446,29 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonANTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonANTActionPerformed
-        // TODO add your handling code here:
+                // TODO add your handling code here:
+    //Comprobamos el rango del ArrayList...
+    if (li.hasPrevious()) {
+        objinmuanfi = li.previous();
+        if (objinmuanfi != null) {
+            presenta(objinmuanfi);
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     }//GEN-LAST:event_jButtonANTActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+    //Comprobamos el rango del ArrayList...
+    if (li.hasNext()) {
+        objinmuanfi = li.next();
+        if (objinmuanfi != null) {
+            presenta(objinmuanfi);
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextFieldTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTituloActionPerformed
