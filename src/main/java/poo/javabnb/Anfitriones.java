@@ -18,11 +18,13 @@ public class Anfitriones extends Clientes implements Serializable {
 
     //constructor
 
-    public Anfitriones(String DNI, String nombre, String correo, String clave, String telefono, LocalDate fechaRegistro, Boolean var4) {
-        super(DNI, nombre, correo, clave, telefono);
+    public Anfitriones(String DNI, String nombre, String telefono, String correo, String clave, LocalDate fechaRegistro, int calificacion) {
+        super(DNI, nombre, telefono, correo, clave);
         this.fechaRegistro = fechaRegistro;
         this.calificacion = calificacion;
     }
+
+    
 
     public Anfitriones() {
     }
@@ -90,7 +92,7 @@ public class Anfitriones extends Clientes implements Serializable {
                 + '}';
     }
 
-    void setCalificacion(String var2) {
+    void setCalificacion(int var2) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

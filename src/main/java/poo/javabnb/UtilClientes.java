@@ -100,7 +100,7 @@ public class UtilClientes {
     
     
     
-     /** Consulta los datos de una persona por su dni
+     /** Consulta los datos de una persona por su correo y clave
      * @param clave
      * @param correo
      * @return objper */
@@ -188,8 +188,9 @@ public class UtilClientes {
      * @param var2
      * @param var3
      * @param var4
+     * @param var5
      * @return boolean */
-    public static boolean modificaClientes(Clientes cli, String c_DNI, String c_nombre, String c_correo, String c_clave, String c_telefono, LocalDate var1, String var2, String var3, Boolean var4) {
+    public static boolean modificaClientes(Clientes cli, String c_DNI, String c_nombre, String c_correo, String c_clave, String c_telefono, LocalDate var1, String var2, String var3, Boolean var4, int var5) {
         if (cli == null || !clientes.contains(cli)) {
             return false;
         }
@@ -208,7 +209,7 @@ public class UtilClientes {
         } else {
             Anfitriones anfi = (Anfitriones) cli;
             anfi.setFechaRegistro(var1);
-            anfi.setCalificacion(var2);
+            anfi.setCalificacion(var5);
         }
         return true;
     }

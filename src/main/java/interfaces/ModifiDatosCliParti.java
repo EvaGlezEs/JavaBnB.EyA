@@ -121,6 +121,7 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
     public void setEtiVar4(String txt) {
         this.etiVar4.setText(txt);
     } 
+    
 
     
     
@@ -155,9 +156,6 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jPasswordFieldClave = new javax.swing.JPasswordField();
         jTextFieldVar2 = new javax.swing.JTextField();
         jTextFieldVar3 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jTextFieldBuscarCorreo = new javax.swing.JTextField();
-        jButtonBuscarCorreo = new javax.swing.JButton();
         jSpinnerVar1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -258,15 +256,6 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 190, 20));
-
-        jLabel13.setText("Introduzca su correo para localizarle");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 20));
-
-        jTextFieldBuscarCorreo.setText("jTextField1");
-        jPanel1.add(jTextFieldBuscarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
-
-        jButtonBuscarCorreo.setText("jButton1");
-        jPanel1.add(jButtonBuscarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
         jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,7 +334,7 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                //new ModifiDatosCliParti().setVisible(true);
+              //new ModifiDatosCliParti().setVisible(true);
             }
         });
     }
@@ -355,10 +344,8 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
     private javax.swing.JLabel etiVar2;
     private javax.swing.JLabel etiVar3;
     private javax.swing.JLabel etiVar4;
-    private javax.swing.JButton jButtonBuscarCorreo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -369,7 +356,6 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JRadioButton jRadioButtonVar4;
     private javax.swing.JSpinner jSpinnerVar1;
-    private javax.swing.JTextField jTextFieldBuscarCorreo;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldNombre;

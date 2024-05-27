@@ -29,6 +29,7 @@ public class Registro extends javax.swing.JFrame {
      * Creates new form RegistroAnfitrion
      */
     public Registro() {
+         
         initComponents();
         jComboBoxTipo.setSelectedIndex(0);
     }
@@ -101,13 +102,26 @@ public class Registro extends javax.swing.JFrame {
         this.jTextFieldVar3.setText(txt);
     }
   
-   public Boolean getjRadioButtonVar4() {
+    public Boolean getjRadioButtonVar4() {
         return jRadioButtonVar4.isSelected();
     }
 
     public void setjRadioButtonVar4(Boolean t) {
         this.jRadioButtonVar4.setSelected(t);
     }
+    
+   public int getjComboBoxVar5() {
+    // Convierte el texto de jComboBoxVar5 a un int
+    return Integer.parseInt(jComboBoxVar5.getSelectedItem().toString());
+    }
+
+    public void setjComboBoxVar5(int num) {
+    // Convierte el número a texto y lo establece en jComboBoxVar5
+    this.jComboBoxVar5.setSelectedItem(String.valueOf(num));
+    }
+    
+    
+    
     
     //metodos para cambiar las etiquetas variables
     public void setEtiVar1(String txt) {
@@ -124,6 +138,10 @@ public class Registro extends javax.swing.JFrame {
     
     public void setEtiVar4(String txt) {
         this.etiVar4.setText(txt);
+    } 
+    
+    public void setEtiVar5(String txt) {
+        this.etiVar5.setText(txt);
     } 
     
     /**
@@ -160,6 +178,9 @@ public class Registro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         etiVar4 = new javax.swing.JLabel();
         jRadioButtonVar4 = new javax.swing.JRadioButton();
+        etiVar5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBoxVar5 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -247,7 +268,19 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, 30));
 
         jRadioButtonVar4.setText("jRadioButton1");
-        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+        jRadioButtonVar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonVar4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
+        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
+
+        jLabel8.setText("calificación ");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, -1, -1));
+
+        jComboBoxVar5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBoxVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
@@ -265,10 +298,11 @@ public class Registro extends javax.swing.JFrame {
         String var2 = getJTextFieldVar2();
         String var3 = getJTextFieldVar3();
         Boolean var4 = getjRadioButtonVar4();
+        int var5 = getjComboBoxVar5();
         if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
             cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3, var4);
         } else {
-            cli = new Anfitriones(DNI, nombre,telefono, correo, clave, var1, var4);
+            cli = new Anfitriones(DNI, nombre, telefono, correo, clave, var1, var5);
         }
         
     //se inserta en el array
@@ -301,8 +335,13 @@ public class Registro extends javax.swing.JFrame {
         setEtiVar2(" ");
         setEtiVar3(" ");
         setEtiVar4(" ");
+        setEtiVar5(" ");
     }
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
+
+    private void jRadioButtonVar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVar4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonVar4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,9 +390,11 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel etiVar2;
     private javax.swing.JLabel etiVar3;
     private javax.swing.JLabel etiVar4;
+    private javax.swing.JLabel etiVar5;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JComboBox<String> jComboBoxVar5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -362,6 +403,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JRadioButton jRadioButtonVar4;

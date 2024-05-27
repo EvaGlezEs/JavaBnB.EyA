@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public class ClientesParticulares extends Clientes implements Serializable {
     
-    private boolean VIP;
+    private Boolean VIP;
     private TarjetaCredito tarjetaCredito;
  
     
@@ -30,8 +30,7 @@ public class ClientesParticulares extends Clientes implements Serializable {
         this.VIP = VIP;
         this.tarjetaCredito = tarjetaCredito;
     }
-    
-    
+
     /**
      * Get the value of tarjetaCredito
      *
@@ -55,7 +54,7 @@ public class ClientesParticulares extends Clientes implements Serializable {
      *
      * @return the value of VIP
      */
-    public boolean getVIP() {
+    public Boolean getVIP() {
         return VIP;
     }
 
@@ -64,7 +63,7 @@ public class ClientesParticulares extends Clientes implements Serializable {
      *
      * @param VIP new value of VIP
      */
-    public void setVIP(boolean VIP) {
+    public void setVIP(Boolean VIP) {
         this.VIP = VIP;
     }
 
