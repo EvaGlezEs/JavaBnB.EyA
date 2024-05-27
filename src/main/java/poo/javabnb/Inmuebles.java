@@ -56,22 +56,7 @@ public class Inmuebles implements Serializable {
         this.correoAnfitrion = correo;
     }
 
-    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios) {
-        this.titulo = titulo;
-        this.calle = calle;
-        this.numero = numero;
-        this.codigoPostal = codigoPostal;
-        this.ciudad = ciudad;
-        this.numHuespedes = numHuespedes;
-        this.numHabitaciones = numHabitaciones;
-        this.numCamas = numCamas;
-        this.numBanos = numBanos;
-        this.tipoPropiedad = tipoPropiedad;
-        this.precioNoche = precioNoche;
-        this.calificacion = calificacion;
-        this.servicios = servicios;
     
-    }
 
     
     public Inmuebles(){
@@ -309,6 +294,14 @@ public class Inmuebles implements Serializable {
 
     public void setServicios(String servicios) {
         this.servicios = servicios;
+    }
+
+    public String getCorreoAnfitrion() {
+        return correoAnfitrion;
+    }
+
+    public void setCorreoAnfitrion(String correoAnfitrion) {
+        this.correoAnfitrion = correoAnfitrion;
     }
     
     

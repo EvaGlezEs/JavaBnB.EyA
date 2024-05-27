@@ -26,12 +26,9 @@ public class VerInmueblesAdmin extends javax.swing.JFrame {
     /**
      * Creates new form VerInmueblesAdmin
      */
-    public VerInmueblesAdmin(JFrame ventana) {
-        principal = ventana;
-        principal.setVisible(false);
-        desactivaTitulo();
-        this.setVisible(true);
+    public VerInmueblesAdmin() {
         initComponents();
+        consultarTodo();
     }
 
     public void setJTextFieldTitulo(String txt) {
@@ -525,7 +522,7 @@ public class VerInmueblesAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
+                new VerInmueblesAdmin().setVisible(true);
             }
         });
     }

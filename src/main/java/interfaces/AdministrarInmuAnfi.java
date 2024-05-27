@@ -4,9 +4,8 @@
  */
 package interfaces;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.ListIterator;
+import javax.swing.JOptionPane;
 import poo.javabnb.Clientes;
 import poo.javabnb.Inmuebles;
 import poo.javabnb.UtilInmuebles;
@@ -17,8 +16,9 @@ import poo.javabnb.UtilInmuebles;
 public class AdministrarInmuAnfi extends javax.swing.JFrame {
      
      private Clientes cli;
-     private ArrayList<Inmuebles> inmueblesanfitrion = new ArrayList<>();
-     private Inmuebles inmuanfi;
+     private ArrayList<Inmuebles> peraux = null;
+     private ListIterator<Inmuebles> li = null;
+     private Inmuebles objinmuanfi = null;
     /**
      * Creates new form AdministrarInmu
      * @param cli
@@ -26,16 +26,127 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
     public AdministrarInmuAnfi(Clientes cli){
         this.cli = cli;
         initComponents();
+        consultarTodo();
     }
    
     public AdministrarInmuAnfi() {
         initComponents();
     }
 
- 
-  
+        public void setJTextFieldTitulo(String txt) {
+        this.jTextFieldTitulo.setText(txt);
+    }
 
+    public void setJTextFieldCalle(String txt) {
+        this.jTextFieldCalle.setText(txt);
+    }
     
+
+    public void setJTextFieldNumero(String txt) {
+        this.jTextFieldNumero.setText(txt);
+    }
+
+
+    public void setJTextFieldCodigoPostal(String txt) {
+        this.jTextFieldCodigoPostal.setText(txt);
+    }
+
+
+    public void setJTextFieldCiudad(String txt) {
+        this.jTextFieldCiudad.setText(txt);
+    }
+    
+    public void setJTextFieldNumHuespedes(String txt) {
+        this.jTextFieldNumHuespedes.setText(txt);
+    }
+    
+    public void setJTextFieldNumHabitaciones(String txt) {
+        this.jTextFieldNumHabitaciones.setText(txt);
+    }
+    
+    public void setJTextFieldNumCamas(String txt) {
+        this.jTextFieldNumCamas.setText(txt);
+    }
+    
+    public void setJTextFieldNumBanos(String txt) {
+        this.jTextFieldNumBanos.setText(txt);
+    }
+    
+    public void setJTextFieldTipoPropiedad(String txt) {
+        this.jTextFieldTipoPropiedad.setText(txt);
+    }
+    
+    public void setJTextFieldPrecioNoche(String txt) {
+        this.jTextFieldPrecioNoche.setText(txt);
+    }
+    
+    public void setJTextFieldCalificacion(String txt) {
+        this.jTextFieldCalificacion.setText(txt);
+    }
+    
+    public void setJTextFieldServicios(String txt) {
+        this.jTextFieldServicios.setText(txt);
+    }
+    
+   public ArrayList<Inmuebles> ListaInmueblesAnfitrion(){
+       ArrayList<Inmuebles> inmueblesanfitriones = new ArrayList <> ();
+       for (Inmuebles inmuanfi : UtilInmuebles.getInmuebles()){
+           if(cli.getCorreo().equals(inmuanfi.getCorreoAnfitrion())){
+               inmueblesanfitriones.add(inmuanfi);
+           }
+       }
+       return inmueblesanfitriones;
+   }
+  
+   /** Consulta las personas del ArrayList ordenadas para su presentación */
+    private void consultarTodo() {
+        try {
+            peraux = ListaInmueblesAnfitrion();
+             li = peraux.listIterator();
+            Inmuebles objinmuanfi = null;
+            //si no hay personas...
+            if (peraux.size() < 1) {
+                JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                jButtonSIG.setEnabled(false);
+                jButtonANT.setEnabled(false);
+                
+                return;
+            } else {
+                jButtonSIG.setEnabled(true);
+                jButtonANT.setEnabled(true);
+                
+            }
+            //presentamos la primera persona
+            if (li.hasNext()) {
+                objinmuanfi = (Inmuebles) li.next();
+            }
+            if (objinmuanfi != null) {
+                presenta(objinmuanfi);
+            } else {
+                JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Mensaje", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Error: " + e.toString());
+        }
+    }//fin consultarTodo
+
+    private void presenta(Inmuebles inmuebles){
+        setJTextFieldTitulo(inmuebles.getTitulo());
+        setJTextFieldCalle(inmuebles.getCalle());
+        setJTextFieldNumero(inmuebles.getNumero());
+        setJTextFieldCodigoPostal(inmuebles.getCodigoPostal());
+        setJTextFieldCiudad(inmuebles.getCiudad());
+        setJTextFieldNumHuespedes(inmuebles.getNumHuespedes());
+        setJTextFieldNumHabitaciones(inmuebles.getNumHabitaciones());
+        setJTextFieldNumCamas(inmuebles.getNumCamas());
+        setJTextFieldNumBanos(inmuebles.getNumBanos());
+        setJTextFieldTipoPropiedad(inmuebles.getTipoPropiedad());
+        setJTextFieldPrecioNoche(String.valueOf(inmuebles.getPrecioNoche()));
+        setJTextFieldCalificacion(String.valueOf(inmuebles.getCalificacion()));
+        setJTextFieldServicios(inmuebles.getServicios());
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +165,7 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldCalle = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldNum = new javax.swing.JTextField();
+        jTextFieldNumero = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldCodigoPostal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -67,20 +178,20 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         jTextFieldNumHuespedes = new javax.swing.JTextField();
         jTextFieldNumHabitaciones = new javax.swing.JTextField();
         jTextFieldNumCamas = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        jTextFieldNumBanos = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonSIG = new javax.swing.JButton();
+        jButtonANT = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        jTextFieldServicios = new javax.swing.JTextField();
+        jTextFieldPrecioNoche = new javax.swing.JTextField();
+        jTextFieldTipoPropiedad = new javax.swing.JTextField();
+        jTextFieldCalificacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,9 +215,9 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
 
         jLabel5.setText("Número");
 
-        jTextFieldNum.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNumActionPerformed(evt);
+                jTextFieldNumeroActionPerformed(evt);
             }
         });
 
@@ -136,25 +247,21 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
 
         jLabel14.setText("Tipo de propiedad");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         jLabel15.setText("Precio por noche");
 
         jLabel16.setText("Calificación");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
-
-        jButton2.setText("SIG");
-
-        jButton3.setText("ANT");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSIG.setText("SIG");
+        jButtonSIG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonSIGActionPerformed(evt);
+            }
+        });
+
+        jButtonANT.setText("ANT");
+        jButtonANT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonANTActionPerformed(evt);
             }
         });
 
@@ -169,15 +276,21 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
 
         jLabel17.setText("Servicios");
 
+        jTextFieldCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCalificacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(jButton3)
+                .addComponent(jButtonANT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButtonSIG)
                 .addGap(133, 133, 133))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,42 +305,35 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel5)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(73, 73, 73)
+                                        .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(71, 71, 71)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldNumBanos, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldNumCamas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldNumHuespedes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldNumHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(73, 73, 73)
-                                        .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jTextFieldNumHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(203, 203, 203)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel16))
-                                .addGap(96, 96, 96)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(5, 5, 5))))))
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(244, 244, 244)
                         .addComponent(jLabel1))
@@ -237,7 +343,7 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(216, 216, 216)
                         .addComponent(jLabel8)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -254,8 +360,8 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButtonSIG)
+                    .addComponent(jButtonANT))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -269,7 +375,7 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,28 +401,25 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNumBanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(jLabel13)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextFieldTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(jTextFieldCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -343,9 +446,18 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButtonANTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonANTActionPerformed
+                  // TODO add your handling code here:
+    //Comprobamos el rango del ArrayList...
+    if (li.hasPrevious()) {
+        objinmuanfi = li.previous();
+        if (objinmuanfi != null) {
+            presenta(objinmuanfi);
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    }//GEN-LAST:event_jButtonANTActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -355,17 +467,30 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTituloActionPerformed
 
-    private void jTextFieldNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumActionPerformed
+    private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNumActionPerformed
+    }//GEN-LAST:event_jTextFieldNumeroActionPerformed
 
     private void jTextFieldNumHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumHuespedesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNumHuespedesActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jTextFieldCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCalificacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jTextFieldCalificacionActionPerformed
+
+    private void jButtonSIGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSIGActionPerformed
+              // TODO add your handling code here:
+    //Comprobamos el rango del ArrayList...
+    if (li.hasNext()) {
+        objinmuanfi = li.next();
+        if (objinmuanfi != null) {
+            presenta(objinmuanfi);
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay personas.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    }//GEN-LAST:event_jButtonSIGActionPerformed
 
     /**
      * @param args the command line arguments
@@ -404,12 +529,10 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton jButtonANT;
+    private javax.swing.JButton jButtonSIG;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -428,16 +551,18 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldCalificacion;
     private javax.swing.JTextField jTextFieldCalle;
     private javax.swing.JTextField jTextFieldCiudad;
     private javax.swing.JTextField jTextFieldCodigoPostal;
-    private javax.swing.JTextField jTextFieldNum;
+    private javax.swing.JTextField jTextFieldNumBanos;
     private javax.swing.JTextField jTextFieldNumCamas;
     private javax.swing.JTextField jTextFieldNumHabitaciones;
     private javax.swing.JTextField jTextFieldNumHuespedes;
+    private javax.swing.JTextField jTextFieldNumero;
+    private javax.swing.JTextField jTextFieldPrecioNoche;
+    private javax.swing.JTextField jTextFieldServicios;
+    private javax.swing.JTextField jTextFieldTipoPropiedad;
     private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables
 }

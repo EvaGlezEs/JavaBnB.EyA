@@ -36,6 +36,8 @@ public class UtilInmuebles {
         
     }
     
+    
+    
     public static ArrayList<Inmuebles> getInmuebles() {
         //Comparador para ordenar los inmuebles por su precio
         Comparator PrecioPerComp = new Comparator() {

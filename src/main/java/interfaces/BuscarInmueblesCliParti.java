@@ -3,17 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ListIterator;
 import poo.javabnb.UtilInmuebles;
 import poo.javabnb.Inmuebles;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,23 +16,19 @@ import javax.swing.JOptionPane;
 
 public class BuscarInmueblesCliParti extends javax.swing.JFrame {
     
-    private JFrame principal;
-    private ArrayList<Inmuebles> peraux; //Referencia al ArrayList de personas de la clase UtilCenso
+   
+    private ArrayList<Inmuebles> peraux; //Referencia al ArrayList de inmuebles de la clase UtilInmuebles
     private ListIterator<Inmuebles> li; //Iterador para recorrer el ArrayList en ambas direcciones
-    private Inmuebles objinmu; //Referencia a un objeto de tipo persona del ArrayList
+    private Inmuebles objinmu; //Referencia a un objeto de tipo inmuebles del ArrayList
 
     
     /**
      * Creates new form BuscarInmueblesCliParti
-     * @param ventana
+     * @param 
      */
-    public BuscarInmueblesCliParti(JFrame ventana) {
-        principal = ventana;
-        principal.setVisible(false);  
-        desactivaTitulo();
-        this.setVisible(true);
-        
+    public BuscarInmueblesCliParti() {
         initComponents();
+        consultarTodo();
     }
     
     
@@ -171,20 +160,20 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
     
     
     
-    private void presenta(Inmuebles inmueble){
-        setJTextFieldTitulo(inmueble.getTitulo());
-        setJTextFieldCalle(inmueble.getCalle());
-        setJTextFieldNumero(inmueble.getNumero());
-        setJTextFieldCodigoPostal(inmueble.getCodigoPostal());
-        setJTextFieldCiudad(inmueble.getCiudad());
-        setJTextFieldNumHuespedes(inmueble.getNumHuespedes());
-        setJTextFieldNumHabitaciones(inmueble.getNumHabitaciones());
-        setJTextFieldNumCamas(inmueble.getNumCamas());
-        setJTextFieldNumBanos(inmueble.getNumBanos());
-        setJTextFieldTipoPropiedad(inmueble.getTipoPropiedad());
-        setJTextFieldPrecioNoche(String.valueOf(inmueble.getPrecioNoche()));
-        setJTextFieldCalificacion(String.valueOf(inmueble.getCalificacion()));
-        setJTextFieldServicios(inmueble.getServicios());
+    private void presenta(Inmuebles inmuebles){
+        setJTextFieldTitulo(inmuebles.getTitulo());
+        setJTextFieldCalle(inmuebles.getCalle());
+        setJTextFieldNumero(inmuebles.getNumero());
+        setJTextFieldCodigoPostal(inmuebles.getCodigoPostal());
+        setJTextFieldCiudad(inmuebles.getCiudad());
+        setJTextFieldNumHuespedes(inmuebles.getNumHuespedes());
+        setJTextFieldNumHabitaciones(inmuebles.getNumHabitaciones());
+        setJTextFieldNumCamas(inmuebles.getNumCamas());
+        setJTextFieldNumBanos(inmuebles.getNumBanos());
+        setJTextFieldTipoPropiedad(inmuebles.getTipoPropiedad());
+        setJTextFieldPrecioNoche(String.valueOf(inmuebles.getPrecioNoche()));
+        setJTextFieldCalificacion(String.valueOf(inmuebles.getCalificacion()));
+        setJTextFieldServicios(inmuebles.getServicios());
         
     }
   
@@ -554,7 +543,7 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            
+            new BuscarInmueblesCliParti().setVisible(true);
         }
     });
 }
