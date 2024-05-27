@@ -16,6 +16,7 @@ public class OperacionesCliParti extends javax.swing.JFrame {
      * @param cli
      */
     public OperacionesCliParti(Clientes cli) {
+        this.cli = cli;
         initComponents();
     }
     

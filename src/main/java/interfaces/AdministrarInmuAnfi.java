@@ -3,79 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-
+import java.util.ArrayList;
+import java.util.ListIterator;
+import poo.javabnb.Clientes;
+import poo.javabnb.Inmuebles;
 /**
  *
  * @author Alejandro
  */
 public class AdministrarInmuAnfi extends javax.swing.JFrame {
-
+     
+     private Clientes cli;
+    
     /**
      * Creates new form AdministrarInmu
+     * @param cli
      */
+    public AdministrarInmuAnfi(Clientes cli){
+        this.cli = cli;
+        initComponents();
+    }
+   
     public AdministrarInmuAnfi() {
         initComponents();
     }
 //metodos para devolver y presentar el contenido de los campos del formulario
 
-    public String getJTextFieldTitulo() {
-        return jTextFieldTitulo.getText();
-    }
-
-    public void setJTextFieldTitulo(String txt) {
-        this.jTextFieldTitulo.setText(txt);
-    }
-
-    public String getJTextFieldCalle() {
-        return jTextFieldCalle.getText();
-    }
-
-    public void setJTextFieldCalle(String txt) {
-        this.jTextFieldCalle.setText(txt);
-    }
-
-
- 
-
-    public String getJTextFieldCodigoPostal() {
-        return jTextFieldCodigoPostal.getText();
-    }
-
-    public void setJTextFieldCodigoPostal(String txt) {
-        this.jTextFieldCodigoPostal.setText(txt);
-    }
-
-    public String getJTextFieldCiudad() {
-        return jTextFieldCiudad.getText();
-    }
-
-    public void setJTextFieldCiudad(String txt) {
-        this.jTextFieldCiudad.setText(txt);
-    }
-
-    public String getJTextFieldNumHuespedes() {
-        return jTextFieldNumHuespedes.getText();
-    }
-
-    public void setJTextFieldNumHuespedes(String txt) {
-        this.jTextFieldNumHuespedes.setText(txt);
-    }
-
-    public String getJTextFieldNumHabitaciones() {
-        return jTextFieldNumHabitaciones.getText();
-    }
-
-    public void setJTextFieldNumHabitaciones(String txt) {
-        this.jTextFieldNumHabitaciones.setText(txt);
-    }
-
-    public String getJTextFieldNumCamas() {
-        return jTextFieldNumCamas.getText();
-    }
-
-    public void setJTextFieldNumCamas(String txt) {
-        this.jTextFieldNumCamas.setText(txt);
-    }
+  
 
     
 
@@ -258,15 +212,18 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
-                                    .addComponent(jLabel16)
                                     .addComponent(jLabel14)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16))
                                 .addGap(96, 96, 96)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(244, 244, 244)
                         .addComponent(jLabel1))
@@ -279,11 +236,9 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                 .addContainerGap(173, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(8, 8, 8)))
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(18, 18, 18))
@@ -350,14 +305,15 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5))

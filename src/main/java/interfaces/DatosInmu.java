@@ -27,6 +27,7 @@ public class DatosInmu extends javax.swing.JFrame {
      * @param cli
      */
     public DatosInmu(Clientes cli) {
+        this.cli = cli;
         initComponents();
     }
     
