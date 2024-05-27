@@ -24,8 +24,10 @@ import java.util.Comparator;
  */
 public class UtilInmuebles {
      
-    private static ArrayList<Inmuebles> inmuebles = new ArrayList<>();
-    private static Inmuebles objinmu;
+    private static  ArrayList<Inmuebles> inmuebles = new ArrayList<>();
+    private static  Inmuebles objinmu;
+    
+    
     
    
     
@@ -34,7 +36,7 @@ public class UtilInmuebles {
         
     }
     
-    public static ArrayList<Inmuebles> getPrecio() {
+    public static ArrayList<Inmuebles> getInmuebles() {
         //Comparador para ordenar los inmuebles por su precio
         Comparator PrecioPerComp = new Comparator() {
 
@@ -64,6 +66,8 @@ public class UtilInmuebles {
         Collections.sort(inmuebles, PrecioPerComp);
         return inmuebles;
     }
+    
+  
     
     
     /** Da de baja un inmueble

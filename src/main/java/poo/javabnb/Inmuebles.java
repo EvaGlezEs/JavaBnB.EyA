@@ -39,22 +39,6 @@ public class Inmuebles implements Serializable {
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
-    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios) {
-        this.titulo = titulo;
-        this.calle = calle;
-        this.numero = numero;
-        this.codigoPostal = codigoPostal;
-        this.ciudad = ciudad;
-        this.numHuespedes = numHuespedes;
-        this.numHabitaciones = numHabitaciones;
-        this.numCamas = numCamas;
-        this.numBanos = numBanos;
-        this.tipoPropiedad = tipoPropiedad;
-        this.precioNoche = precioNoche;
-        this.calificacion = calificacion;
-        this.servicios = servicios;
-    }
-
     public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios, String correo) {
         this.titulo = titulo;
         this.calle = calle;
@@ -70,6 +54,23 @@ public class Inmuebles implements Serializable {
         this.calificacion = calificacion;
         this.servicios = servicios;
         this.correoAnfitrion = correo;
+    }
+
+    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios) {
+        this.titulo = titulo;
+        this.calle = calle;
+        this.numero = numero;
+        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
+        this.numHuespedes = numHuespedes;
+        this.numHabitaciones = numHabitaciones;
+        this.numCamas = numCamas;
+        this.numBanos = numBanos;
+        this.tipoPropiedad = tipoPropiedad;
+        this.precioNoche = precioNoche;
+        this.calificacion = calificacion;
+        this.servicios = servicios;
+    
     }
 
     

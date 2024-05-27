@@ -4,9 +4,12 @@
  */
 package interfaces;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ListIterator;
 import poo.javabnb.Clientes;
 import poo.javabnb.Inmuebles;
+import poo.javabnb.UtilInmuebles;
 /**
  *
  * @author Alejandro
@@ -14,7 +17,7 @@ import poo.javabnb.Inmuebles;
 public class AdministrarInmuAnfi extends javax.swing.JFrame {
      
      private Clientes cli;
-    
+     private ArrayList<Inmuebles> inmueblesanfitrion = new ArrayList<>();
     /**
      * Creates new form AdministrarInmu
      * @param cli
@@ -27,8 +30,8 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
     public AdministrarInmuAnfi() {
         initComponents();
     }
-//metodos para devolver y presentar el contenido de los campos del formulario
 
+ 
   
 
     
