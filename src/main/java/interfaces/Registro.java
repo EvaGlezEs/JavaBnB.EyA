@@ -153,6 +153,8 @@ public class Registro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButtonVar4 = new javax.swing.JRadioButton();
+        jComboBoxVar5 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -177,10 +179,21 @@ public class Registro extends javax.swing.JFrame {
         jSpinnerVar1 = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         etiVar4 = new javax.swing.JLabel();
-        jRadioButtonVar4 = new javax.swing.JRadioButton();
         etiVar5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBoxVar5 = new javax.swing.JComboBox<>();
+
+        jRadioButtonVar4.setText("jRadioButton1");
+        jRadioButtonVar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonVar4ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxVar5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxVar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxVar5ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,20 +280,8 @@ public class Registro extends javax.swing.JFrame {
         etiVar4.setText("jLabel8");
         jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, 30));
 
-        jRadioButtonVar4.setText("jRadioButton1");
-        jRadioButtonVar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonVar4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
-        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
-
-        jLabel8.setText("calificación ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, -1, -1));
-
-        jComboBoxVar5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBoxVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
+        etiVar5.setText("jLabel9");
+        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
@@ -329,6 +330,7 @@ public class Registro extends javax.swing.JFrame {
         setEtiVar2("Nombre titular de la tarjeta");
         setEtiVar3("número de tarjeta");
         setEtiVar4(" ");
+        setEtiVar5(" ");
         
     } else { 
         setEtiVar1("Fecha de registro en la aplicación");
@@ -342,6 +344,10 @@ public class Registro extends javax.swing.JFrame {
     private void jRadioButtonVar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVar4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonVar4ActionPerformed
+
+    private void jComboBoxVar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVar5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxVar5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,7 +409,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JRadioButton jRadioButtonVar4;
