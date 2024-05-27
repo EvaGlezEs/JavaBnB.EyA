@@ -74,7 +74,7 @@ public class Registro extends javax.swing.JFrame {
         this.jTextFieldTelefono.setText(txt);
     }
 
-     public LocalDate getjSpinnerVar1() {
+    public LocalDate getjSpinnerVar1() {
         Date fecha = (Date) jSpinnerVar1.getValue();
         Instant instant = Instant.ofEpochMilli(fecha.getTime());
         LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
@@ -101,6 +101,13 @@ public class Registro extends javax.swing.JFrame {
         this.jTextFieldVar3.setText(txt);
     }
   
+   public Boolean getjRadioButtonVar4() {
+        return jRadioButtonVar4.isSelected();
+    }
+
+    public void setjRadioButtonVar4(Boolean t) {
+        this.jRadioButtonVar4.setSelected(t);
+    }
     
     //metodos para cambiar las etiquetas variables
     public void setEtiVar1(String txt) {
@@ -111,10 +118,13 @@ public class Registro extends javax.swing.JFrame {
         this.etiVar2.setText(txt);
     } 
     
-     public void setEtiVar3(String txt) {
+    public void setEtiVar3(String txt) {
         this.etiVar3.setText(txt);
     } 
     
+    public void setEtiVar4(String txt) {
+        this.etiVar4.setText(txt);
+    } 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,6 +158,8 @@ public class Registro extends javax.swing.JFrame {
         jTextFieldVar3 = new javax.swing.JTextField();
         jSpinnerVar1 = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
+        etiVar4 = new javax.swing.JLabel();
+        jRadioButtonVar4 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -231,6 +243,12 @@ public class Registro extends javax.swing.JFrame {
         jLabel7.setText("Selecione como desea registrarse");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
+        etiVar4.setText("jLabel8");
+        jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, 30));
+
+        jRadioButtonVar4.setText("jRadioButton1");
+        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
         pack();
@@ -246,10 +264,11 @@ public class Registro extends javax.swing.JFrame {
         LocalDate var1 = getjSpinnerVar1();
         String var2 = getJTextFieldVar2();
         String var3 = getJTextFieldVar3();
+        Boolean var4 = getjRadioButtonVar4();
         if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
-            cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3);
+            cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3, var4);
         } else {
-            cli = new Anfitriones(DNI, nombre,telefono, correo, clave, var1);
+            cli = new Anfitriones(DNI, nombre,telefono, correo, clave, var1, var4);
         }
         
     //se inserta en el array
@@ -275,10 +294,13 @@ public class Registro extends javax.swing.JFrame {
         setEtiVar1("Fecha de caducidad de la tarjeta");
         setEtiVar2("Nombre titular de la tarjeta");
         setEtiVar3("número de tarjeta");
+        setEtiVar4(" ");
+        
     } else { 
         setEtiVar1("Fecha de registro en la aplicación");
         setEtiVar2(" ");
         setEtiVar3(" ");
+        setEtiVar4(" ");
     }
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
@@ -328,6 +350,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel etiVar1;
     private javax.swing.JLabel etiVar2;
     private javax.swing.JLabel etiVar3;
+    private javax.swing.JLabel etiVar4;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxTipo;
@@ -341,6 +364,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
+    private javax.swing.JRadioButton jRadioButtonVar4;
     private javax.swing.JSpinner jSpinnerVar1;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldDNI;

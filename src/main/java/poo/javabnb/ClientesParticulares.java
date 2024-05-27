@@ -25,7 +25,7 @@ public class ClientesParticulares extends Clientes implements Serializable {
      * @param VIP
      * @param tarjetaCredito
      */
-    public ClientesParticulares(String DNI, String nombre, String telefono, String correo, String clave, LocalDate var1, String var2, String var3) {
+    public ClientesParticulares(String DNI, String nombre, String telefono, String correo, String clave, LocalDate var1, String var2, String var3, Boolean var4) {
         super(DNI, nombre, telefono, correo, clave);
         this.VIP = VIP;
         this.tarjetaCredito = tarjetaCredito;

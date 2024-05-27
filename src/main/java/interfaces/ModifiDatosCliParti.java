@@ -4,6 +4,12 @@
  */
 package interfaces;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
 import poo.javabnb.Clientes;
 import poo.javabnb.ClientesParticulares;
 import poo.javabnb.Anfitriones;
@@ -18,10 +24,106 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
     /**
      * Creates new form DatosCliParti2
      */
-    public ModifiDatosCliParti() {
+    public ModifiDatosCliParti(ArrayList<Clientes> clientes) {
         initComponents();
     }
 
+    
+     //metodos para devolver y mostrar el contenido de los campos del registro
+    public String getJTextFieldDNI() {
+        return jTextFieldDNI.getText();
+    }
+
+    public void setJTextFieldDNI(String txt) {
+        this.jTextFieldDNI.setText(txt);
+    }
+
+    public String getJTextFieldNombre() {
+        return jTextFieldNombre.getText();
+    }
+
+    public void setJTextFieldNombre(String txt) {
+        this.jTextFieldNombre.setText(txt);
+    }
+    
+    public String getJTextFieldCorreo() {
+        return jTextFieldCorreo.getText();
+    }
+
+    public void setJTextFieldCorreo(String txt) {
+        this.jTextFieldCorreo.setText(txt);
+    }
+
+    public String getjPasswordFieldClave() {
+        return jPasswordFieldClave.getText();
+    }
+
+    public void setJPasswordFieldClave(String txt) {
+        this.jPasswordFieldClave.setText(txt);
+    }
+
+    public String getJTextFieldTelefono() {
+        return jTextFieldTelefono.getText();
+    }
+
+    public void setJTextFieldTelefono(String txt) {
+        this.jTextFieldTelefono.setText(txt);
+    }
+
+    public LocalDate getjSpinnerVar1() {
+        Date fecha = (Date) jSpinnerVar1.getValue();
+        Instant instant = Instant.ofEpochMilli(fecha.getTime());
+        LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+        return localDate;
+    }
+
+    public void setjSpinnerVar1(Date d) {
+        this.jSpinnerVar1.setValue(d);
+    }
+    
+     public String getJTextFieldVar2() {
+        return jTextFieldVar2.getText();
+    }
+
+    public void setJTextFieldVar2(String txt) {
+        this.jTextFieldVar2.setText(txt);
+    }
+   
+    public String getJTextFieldVar3() {
+        return jTextFieldVar3.getText();
+    }
+
+    public void setJTextFieldVar3(String txt) {
+        this.jTextFieldVar3.setText(txt);
+    }
+  
+    public String getjRadioButtonVar4() {
+        return jRadioButtonVar4.getText();
+    }
+
+    public void setjRadioButtonVar4(String txt) {
+        this.jRadioButtonVar4.setText(txt);
+    }
+    
+    //metodos para cambiar las etiquetas variables
+    public void setEtiVar1(String txt) {
+        this.etiVar1.setText(txt);
+    }
+
+    public void setEtiVar2(String txt) {
+        this.etiVar2.setText(txt);
+    } 
+    
+    public void setEtiVar3(String txt) {
+        this.etiVar3.setText(txt);
+    } 
+    
+    public void setEtiVar4(String txt) {
+        this.etiVar4.setText(txt);
+    } 
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,21 +141,24 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        etiVar2 = new javax.swing.JLabel();
+        etiVar1 = new javax.swing.JLabel();
+        etiVar3 = new javax.swing.JLabel();
         jbuttonModificar = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jRadioButtonModVIP = new javax.swing.JRadioButton();
+        etiVar4 = new javax.swing.JLabel();
+        jRadioButtonVar4 = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
-        jTextFieldModDNI = new javax.swing.JTextField();
-        jTextFieldModNombre = new javax.swing.JTextField();
-        jTextFieldModTelefono = new javax.swing.JTextField();
-        jTextFieldModCorreo = new javax.swing.JTextField();
-        jPasswordFieldModClave = new javax.swing.JPasswordField();
-        jTextFieldModNombreTarjeta = new javax.swing.JTextField();
-        jFormattedTextFieldFechaCaducidadTarjeta = new javax.swing.JFormattedTextField();
-        jTextFieldNumeroTarjeta = new javax.swing.JTextField();
+        jTextFieldDNI = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldCorreo = new javax.swing.JTextField();
+        jPasswordFieldClave = new javax.swing.JPasswordField();
+        jTextFieldVar2 = new javax.swing.JTextField();
+        jTextFieldVar3 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextFieldBuscarCorreo = new javax.swing.JTextField();
+        jButtonBuscarCorreo = new javax.swing.JButton();
+        jSpinnerVar1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,64 +189,85 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         jLabel7.setText("Tarjeta de Crédito");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
-        jLabel8.setText("Nombre del Titular");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+        etiVar2.setText("Nombre del Titular");
+        jPanel1.add(etiVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
 
-        jLabel9.setText("Fecha de Caducidad");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        etiVar1.setText("Fecha de Caducidad");
+        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
-        jLabel10.setText("Número");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
+        etiVar3.setText("Número");
+        jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
         jbuttonModificar.setText("Modificar");
-        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 100, 30));
+        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, 100, 30));
 
-        jLabel11.setText("¿Es usted un cliente VIP?");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 160, -1));
+        etiVar4.setText("¿Es usted un cliente VIP?");
+        jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 160, -1));
 
-        jRadioButtonModVIP.setText("Si, soy un cliente VIP");
-        jRadioButtonModVIP.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonVar4.setText("Si, lo soy");
+        jRadioButtonVar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonModVIPActionPerformed(evt);
+                jRadioButtonVar4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButtonModVIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 150, 30));
+        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 150, 30));
 
         jLabel12.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel12.setText("En esta ventana, si lo desea puede modificar sus datos ");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
-        jPanel1.add(jTextFieldModDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 230, 20));
 
-        jTextFieldModNombre.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldModNombreActionPerformed(evt);
+                jTextFieldDNIActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldModNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 230, 20));
+        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 230, 20));
 
-        jTextFieldModTelefono.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldModTelefonoActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldModTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, 20));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 230, 20));
 
-        jTextFieldModCorreo.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldModCorreoActionPerformed(evt);
+                jTextFieldTelefonoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldModCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, 20));
-        jPanel1.add(jPasswordFieldModClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, -1));
-        jPanel1.add(jTextFieldModNombreTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 190, 20));
-        jPanel1.add(jFormattedTextFieldFechaCaducidadTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 190, 20));
+        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, 20));
 
-        jTextFieldNumeroTarjeta.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNumeroTarjetaActionPerformed(evt);
+                jTextFieldCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldNumeroTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 190, 20));
+        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, 20));
+        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, -1));
+
+        jTextFieldVar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldVar2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 190, 20));
+
+        jTextFieldVar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldVar3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 190, 20));
+
+        jLabel13.setText("Introduzca su correo para localizarle");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 20));
+
+        jTextFieldBuscarCorreo.setText("jTextField1");
+        jPanel1.add(jTextFieldBuscarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+
+        jButtonBuscarCorreo.setText("jButton1");
+        jPanel1.add(jButtonBuscarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,25 +283,33 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButtonModVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonModVIPActionPerformed
+    private void jRadioButtonVar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVar4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonModVIPActionPerformed
+    }//GEN-LAST:event_jRadioButtonVar4ActionPerformed
 
-    private void jTextFieldModNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModNombreActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldModNombreActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jTextFieldModCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModCorreoActionPerformed
+    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldModCorreoActionPerformed
+    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
 
-    private void jTextFieldModTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModTelefonoActionPerformed
+    private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldModTelefonoActionPerformed
+    }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
 
-    private void jTextFieldNumeroTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroTarjetaActionPerformed
+    private void jTextFieldVar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVar3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNumeroTarjetaActionPerformed
+    }//GEN-LAST:event_jTextFieldVar3ActionPerformed
+
+    private void jTextFieldDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDNIActionPerformed
+
+    private void jTextFieldVar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldVar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,35 +343,39 @@ public class ModifiDatosCliParti extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new ModifiDatosCliParti().setVisible(true);
+                //new ModifiDatosCliParti().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField jFormattedTextFieldFechaCaducidadTarjeta;
+    private javax.swing.JLabel etiVar1;
+    private javax.swing.JLabel etiVar2;
+    private javax.swing.JLabel etiVar3;
+    private javax.swing.JLabel etiVar4;
+    private javax.swing.JButton jButtonBuscarCorreo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordFieldModClave;
-    private javax.swing.JRadioButton jRadioButtonModVIP;
-    private javax.swing.JTextField jTextFieldModCorreo;
-    private javax.swing.JTextField jTextFieldModDNI;
-    private javax.swing.JTextField jTextFieldModNombre;
-    private javax.swing.JTextField jTextFieldModNombreTarjeta;
-    private javax.swing.JTextField jTextFieldModTelefono;
-    private javax.swing.JTextField jTextFieldNumeroTarjeta;
+    private javax.swing.JPasswordField jPasswordFieldClave;
+    private javax.swing.JRadioButton jRadioButtonVar4;
+    private javax.swing.JSpinner jSpinnerVar1;
+    private javax.swing.JTextField jTextFieldBuscarCorreo;
+    private javax.swing.JTextField jTextFieldCorreo;
+    private javax.swing.JTextField jTextFieldDNI;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldVar2;
+    private javax.swing.JTextField jTextFieldVar3;
     private javax.swing.JButton jbuttonModificar;
     // End of variables declaration//GEN-END:variables
 }

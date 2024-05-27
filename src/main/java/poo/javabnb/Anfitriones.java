@@ -18,7 +18,7 @@ public class Anfitriones extends Clientes implements Serializable {
 
     //constructor
 
-    public Anfitriones(String DNI, String nombre, String correo, String clave, String telefono, LocalDate fechaRegistro) {
+    public Anfitriones(String DNI, String nombre, String correo, String clave, String telefono, LocalDate fechaRegistro, Boolean var4) {
         super(DNI, nombre, correo, clave, telefono);
         this.fechaRegistro = fechaRegistro;
         this.calificacion = calificacion;
