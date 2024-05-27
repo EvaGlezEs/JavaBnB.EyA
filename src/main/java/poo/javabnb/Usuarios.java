@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package poo.javabnb;
-
+import java.io.Serializable;
 /**
  *
  * @author eva
  */
-public class Usuarios {
+public class Usuarios implements Serializable{
     protected String correo;
     protected String clave;
     
