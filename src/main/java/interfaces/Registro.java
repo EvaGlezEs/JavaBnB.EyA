@@ -75,15 +75,15 @@ public class Registro extends javax.swing.JFrame {
         this.jTextFieldTelefono.setText(txt);
     }
 
-    public LocalDate getjSpinnerVar1() {
-        Date fecha = (Date) jSpinnerVar1.getValue();
+    public LocalDate getjFormattedTextFieldVar1() {
+        Date fecha = (Date) jFormattedTextFieldVar1.getValue();
         Instant instant = Instant.ofEpochMilli(fecha.getTime());
         LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
         return localDate;
     }
 
-    public void setjSpinnerVar1(Date d) {
-        this.jSpinnerVar1.setValue(d);
+    public void setjFormattedTextFieldVar1(Date d) {
+        this.jFormattedTextFieldVar1.setValue(d);
     }
     
      public String getJTextFieldVar2() {
@@ -174,12 +174,12 @@ public class Registro extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         etiVar3 = new javax.swing.JLabel();
         jTextFieldVar3 = new javax.swing.JTextField();
-        jSpinnerVar1 = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         etiVar4 = new javax.swing.JLabel();
         etiVar5 = new javax.swing.JLabel();
         jRadioButtonVar4 = new javax.swing.JRadioButton();
         jComboBoxVar5 = new javax.swing.JComboBox<>();
+        jFormattedTextFieldVar1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -257,7 +257,6 @@ public class Registro extends javax.swing.JFrame {
         etiVar3.setText("Número tarjeta");
         jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, 20));
         jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 170, 20));
-        jPanel1.add(jSpinnerVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 170, -1));
 
         jLabel7.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel7.setText("Selecione como desea registrarse");
@@ -271,6 +270,7 @@ public class Registro extends javax.swing.JFrame {
         jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
         jPanel1.add(jComboBoxVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
+        jPanel1.add(jFormattedTextFieldVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 120, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
 
@@ -284,7 +284,7 @@ public class Registro extends javax.swing.JFrame {
         String correo = getJTextFieldCorreo();
         String clave = getjPasswordFieldClave();
         String telefono = getJTextFieldTelefono();
-        LocalDate var1 = getjSpinnerVar1();
+        LocalDate var1 = getjFormattedTextFieldVar1();
         String var2 = getJTextFieldVar2();
         String var3 = getJTextFieldVar3();
         Boolean var4 = getjRadioButtonVar4();
@@ -326,7 +326,7 @@ public class Registro extends javax.swing.JFrame {
         setEtiVar2(" ");
         setEtiVar3(" ");
         setEtiVar4(" ");
-        setEtiVar5(" ");
+        setEtiVar5("Calificación");
     }
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
@@ -382,6 +382,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JComboBox<String> jComboBoxVar5;
+    private javax.swing.JFormattedTextField jFormattedTextFieldVar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -393,7 +394,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JRadioButton jRadioButtonVar4;
-    private javax.swing.JSpinner jSpinnerVar1;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldNombre;
