@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import poo.javabnb.Clientes;
+import poo.javabnb.Particular;
 
 /**
  * Interfaz para que el cliente particular, una vez realizado el inicio de sesión decida a que apartado de la aplicación desea ir
@@ -12,13 +12,13 @@ import poo.javabnb.Clientes;
 
 public class OperacionesCliParti extends javax.swing.JFrame {
 
-    private Clientes cli;
+    private Particular parti;
     /**
      * Creates new form OperacionesCliParti
-     * @param cli
+     * @param parti
      */
-    public OperacionesCliParti(Clientes cli) {
-        this.cli = cli;
+    public OperacionesCliParti(Particular parti) {
+        this.parti = parti;
         initComponents();
     }
     

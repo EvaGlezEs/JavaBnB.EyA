@@ -3,20 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import poo.javabnb.Clientes;
+import poo.javabnb.Anfitrion;
 /**
  *Interfaz para que el anfitrión, una vez realizado el inicio de sesión decida a que apartado de la aplicación desea ir
  * @author Alejandro
  */
 public class OperacionesAnfitriones extends javax.swing.JFrame {
 
-    private Clientes cli;
+    private Anfitrion anfi;
     /**
      * Creates new form OperacionesAnfitriones
-     * @param cli
+     * @param anfi
      */
-    public OperacionesAnfitriones(Clientes cli){
-        this.cli = cli;
+    public OperacionesAnfitriones(Anfitrion anfi){
+        this.anfi = anfi;
         initComponents();
     }
 
@@ -101,7 +101,7 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarInmuebleActionPerformed
-        DatosInmu newframe = new DatosInmu(cli);
+        DatosInmu newframe = new DatosInmu(anfi);
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButtonRegistrarInmuebleActionPerformed
@@ -113,7 +113,7 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDatosPersonalesActionPerformed
 
     private void jButtonAdministrarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministrarInmuebleActionPerformed
-        AdministrarInmuAnfi newframe = new AdministrarInmuAnfi(cli);
+        AdministrarInmuAnfi newframe = new AdministrarInmuAnfi(anfi);
         newframe.setVisible(true); //para que aparezca la nueva ventana 
         this.dispose(); //para que se cierre la ventana actual
     }//GEN-LAST:event_jButtonAdministrarInmuebleActionPerformed

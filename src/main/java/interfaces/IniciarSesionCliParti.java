@@ -6,6 +6,7 @@ package interfaces;
 
 import javax.swing.JOptionPane;
 import poo.javabnb.Clientes;
+import poo.javabnb.Particular;
 import poo.javabnb.UtilClientes;
 
 /**
@@ -122,10 +123,10 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
             String correo = getJTextFieldCorreo();
             String clave = getJTextFieldClave();
             
-            Clientes cli = UtilClientes.consultaClientesPorCorreoYClave(correo,clave);
-            if (cli != null){
-                OperacionesAnfitriones operacionesanfi = new OperacionesAnfitriones(cli);
-                operacionesanfi.setVisible(true);
+            Particular parti = UtilClientes.consultaParticularPorCorreoYClave(correo,clave);
+            if (parti != null){
+                OperacionesCliParti operacioneClienteParticular = new OperacionesCliParti(parti);
+                operacioneClienteParticular.setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "No hay ninguna cuenta con este correo y/o clave", "Mensaje", JOptionPane.ERROR_MESSAGE);
