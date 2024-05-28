@@ -16,9 +16,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import poo.javabnb.Anfitriones;
+import poo.javabnb.Anfitrion;
 import poo.javabnb.Clientes;
-import poo.javabnb.ClientesParticulares;
+import poo.javabnb.Particular;
 
 /**
  * interfaz para modificar los datos si lso clientes desean cambiar sus datos personales, u añadir otros como es el caso de ser VIP o Superanfitrión
@@ -485,7 +485,7 @@ public class ModificacionDatos extends javax.swing.JFrame {
         
         String tipo = cli.getClass().getSimpleName();
         if (tipo.equals("Clientes Particulares")) {
-            ClientesParticulares parti = (ClientesParticulares) cli;
+            Particular parti = (Particular) cli;
             LocalDate var1 = null;
             parti.setFechaCaducidad(var1);
             String var2 = null;
@@ -495,7 +495,7 @@ public class ModificacionDatos extends javax.swing.JFrame {
             Boolean var4 = null;
             parti.setVIP(var4);
         } else {
-            Anfitriones anfi = (Anfitriones) cli;
+            Anfitrion anfi = (Anfitrion) cli;
             LocalDate var1 = null;
             anfi.setFechaRegistro(var1);
             int var5 = 0;

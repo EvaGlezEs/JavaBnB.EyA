@@ -12,11 +12,11 @@ import java.io.Serializable;
  * @author eva
  */
 
-public class Clientes extends Usuarios implements Serializable {
+public class Clientes extends Usuarios implements Serializable  {
     
     private String DNI;
     private String nombre;
-    private String telefono;
+    private long telefono;
     
 
     //constructor
@@ -30,7 +30,7 @@ public class Clientes extends Usuarios implements Serializable {
      * @param clave
      */
 
-    public Clientes(String DNI, String nombre, String telefono, String correo, String clave) {
+    public Clientes(String DNI, String nombre, long telefono, String correo, String clave) {
         super(correo, clave);
         this.DNI = DNI;
         this.nombre = nombre;
@@ -79,7 +79,7 @@ public class Clientes extends Usuarios implements Serializable {
      *
      * @return
      */
-    public String getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
@@ -87,7 +87,7 @@ public class Clientes extends Usuarios implements Serializable {
      *
      * @param telefono
      */
-    public void setTelefono(String telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
     
@@ -97,7 +97,7 @@ public class Clientes extends Usuarios implements Serializable {
      */
     @Override
     public String toString() {
-        return "cliente{" + "DNI=" + DNI + ", nombre=" + nombre + ", correo=" + correo + ", clave" + clave + ", telefono" + telefono + '}';
+        return this.DNI + " - " + this.nombre + " - " + this.telefono + " - " + this.correo + " - " + this.clave;
         
     }
 
@@ -106,28 +106,6 @@ public class Clientes extends Usuarios implements Serializable {
      * @param c
      * @return
      */
-    public int compareTo(Clientes c) {
-        return this.correo.compareTo(c.getCorreo());
-    }
-     
-    /**
-     *
-     * @param obj
-     * @return
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Clientes other = (Clientes) obj;
-        if ((this.correo == null) ? (other.correo != null) : !this.correo.equals(other.correo)) {
-            return false;
-        }
-        return true;
-    }
+    
     
 }

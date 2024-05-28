@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.text.DateFormatter;
 
 import poo.javabnb.Clientes;
-import poo.javabnb.ClientesParticulares;
-import poo.javabnb.Anfitriones;
+import poo.javabnb.Particular;
+import poo.javabnb.Anfitrion;
 import poo.javabnb.UtilClientes;
 
 /**
@@ -420,9 +420,9 @@ public class Registro extends javax.swing.JFrame {
         
         
         if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
-            cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3, var4);
+            cli = new Particular(DNI, nombre, telefono, correo, clave, var1, var2, var3, var4);
         } else {
-            cli = new Anfitriones(DNI, nombre, telefono, correo, clave, var1, var5);
+            cli = new Anfitrion(DNI, nombre, telefono, correo, clave, var1, var5);
         }
         
     //se inserta en el array

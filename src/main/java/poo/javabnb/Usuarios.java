@@ -42,6 +42,8 @@ public class Usuarios implements Serializable{
     public Usuarios(){
         
     }
+    
+    //métodos
     /**
      * Get the value of correo
      *
@@ -83,6 +85,11 @@ public class Usuarios implements Serializable{
      */
     public boolean esAdministrador(){
         return ADMIN_CORREO.equals(this.correo) && ADMIN_CLAVE.equals(this.clave);
+    }
+
+    @Override
+    public String toString() {
+        return this.correo + " - " + this.clave;
     }
     
     

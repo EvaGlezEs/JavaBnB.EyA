@@ -9,16 +9,15 @@ import java.time.LocalDate; //por la fecha de registro en la app del anfitrion
 import java.util.List;
 
 /**
- *Clase compuesta por todos los atributos comunes de los Anfitriones
- * Esta clase hereda los atributos de Usuarios y los de Clientes
+ *Clase compuesta por todos los atributos comunes de los Anfitrion
+ Esta clase hereda los atributos de Usuarios y los de Clientes
  * 
  * @author eva
  */
 
-public class Anfitriones extends Clientes implements Serializable {
+public class Anfitrion extends Clientes implements Serializable {
     
     private LocalDate fechaRegistro;
-
     /**
      *
      */
@@ -37,7 +36,7 @@ public class Anfitriones extends Clientes implements Serializable {
      * @param calificacion
      */
 
-    public Anfitriones(String DNI, String nombre, String telefono, String correo, String clave, LocalDate fechaRegistro, int calificacion) {
+    public Anfitrion(String DNI, String nombre, long telefono, String correo, String clave, LocalDate fechaRegistro, int calificacion) {
         super(DNI, nombre, telefono, correo, clave);
         this.fechaRegistro = fechaRegistro;
         this.calificacion = calificacion;
@@ -46,7 +45,7 @@ public class Anfitriones extends Clientes implements Serializable {
     /**
      *
      */
-    public Anfitriones() {
+    public Anfitrion() {
     }
       
     
@@ -112,7 +111,7 @@ public class Anfitriones extends Clientes implements Serializable {
     
     /**
      *
-     * @return
+     * @return true si this.calificacion tiene un valor superior a 4
      */
     public boolean esSuperAnfitrion(){
         return this.calificacion > 4.0;
@@ -125,24 +124,43 @@ public class Anfitriones extends Clientes implements Serializable {
     @Override
     public String toString() {
         return "Anfitriones{"
-                + "fecha de registro=" + fechaRegistro 
-                + ", DNI='" + getDNI() + '\''
-                + ", nombre='" + getNombre() + '\''
-                + ", correo='" + getCorreo() + '\''
-                + ", clave='" + getClave() + '\''
-                + ", telefono='" + getTelefono() + '\''
+                + ", DNI='" + this.getDNI() + '\''
+                + ", nombre='" + this.getNombre() + '\''
+                + ", telefono='" + this.getTelefono() + '\''
+                + ", correo='" + this.getCorreo()
+                + ", clave='" + this.getClave() + '\''
+                + ", fechaRegistro='" + this.fechaRegistro + '\''
+                + ", calificacion='" + this.calificacion + '\''
                 + '}';
     }
+    
 
-    /**
-     *
-     * @param var2
-     */
-    public void setCalificacion(int var2) {
+    public int compareTo(Anfitrion a) {
+        return this.correo.compareTo(a.getCorreo());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Anfitrion other = (Anfitrion) obj;
+        if ((this.correo == null) ? (other.correo != null) : !this.correo.equals(other.correo)) {
+            return false;
+        }
+        return true;
+    }
+
+    void setCalificacion(int calificacion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    
-    
 
+    String getfechaRegistro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+  
+    
 }

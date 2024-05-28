@@ -27,125 +27,203 @@ import java.util.Comparator;
  */
 public class UtilClientes implements Serializable {
 
-    private static ArrayList<Clientes> clientes = new ArrayList<>();
-    private static Clientes objcli;
-   
+    private static ArrayList<Particular> particulares = new ArrayList<>();
+    private static Particular objparti;
+    
 
-    /** Establece el ArrayList de clientes
-     * @param c */
-    public static void setClientes (ArrayList<Clientes> c) {
-        clientes = c;
+    /** Establece el ArrayList de particulares
+    * @param p */
+    public static void setParticulares(ArrayList<Particular> p) {
+        particulares = p;
+    }
         
-}
 
-    /**@return Devuelve el ArrayList de clientes */
-    public static ArrayList<Clientes> getClientes() {
-        
-//Comparador para ordenar las personas por su correo
-        Comparator CorreoCliComp = new Comparator() {
+    /** Da de alta un cliente particular
+     * @param objparti
+     * @return  boolean */
+    public static boolean altaParticular(Particular objparti) {
+        if (!particulares.contains(objparti)) {
+            particulares.add(objparti);
+            return true;
+        } else {
+            return false;
+        }
 
-            @Override
-            public int compare(Object o1, Object o2) {
-                Clientes c1 = (Clientes) o1;
-                Clientes c2 = (Clientes) o2;
-                return c1.getCorreo().compareTo(c2.getCorreo());
-            }
-        };
-        //Ordenamos el array
-        Collections.sort(clientes, CorreoCliComp);
-        return clientes;
     }
 
- /** Da de alta una persona
-     * @param objcli
-     * @return  boolean */
-    public static boolean altaClientes(Clientes objcli) {
-        if (!clientes.contains(objcli)) {
-            clientes.add(objcli);
+    /** Da de baja un cliente particular
+     * @param objparti
+     * @return boolean */
+    public static boolean bajaParticular(Particular objparti) {
+        if (particulares.contains(objparti)) {
+            particulares.remove(objparti);
             return true;
         } else {
             return false;
         }
     }
    
-    /** Consulta los datos de una persona por su correo
-     * @param correo
-     * @return objper */
-    public static Clientes consultaClientesPorCorreo(String correo) {
-        //Comparador para ordenar las personas por su dni
-        Comparator DniCliCorreo = new Comparator() {
-
+    
+    /**@return Devuelve el ArrayList de particulares */
+    public static ArrayList<Particular> getParticulares() {
+        //Comparador para ordenar a los particulares por su correo
+        Comparator CorreoPartiComp = new Comparator() {
+            
             @Override
             public int compare(Object o1, Object o2) {
-                Clientes c1 = (Clientes) o1;
-                Clientes c2 = (Clientes) o2;
-                return c1.getCorreo().compareTo(c2.getCorreo());
+                Particular p1 = (Particular) o1;
+                Particular p2 = (Particular) o2;
+                return p1.getCorreo().compareTo(p2.getCorreo());
             }
         };
         //Ordenamos el array
-        Collections.sort(clientes, DniCliCorreo);
-        //creamos una persona con el dni a buscar
-        Anfitriones anfi = new Anfitriones();
-        anfi.setCorreo(correo);
-        int pos = Collections.binarySearch(clientes, anfi, DniCliCorreo);
+        Collections.sort(particulares, CorreoPartiComp);
+        return particulares;
+    }
+         
+   /** Devuelve un particular por la posición dentro del ArrayList
+     * @param indice
+     * @return objper */
+    public static Particular consultaParticular(int indice) {
+        objparti = particulares.get(indice);
+        return objparti;
+    }
+
+    /** Modifica los datos de un particular
+     * @param parti
+     * @param DNI
+     * @param nombre
+     * @param telefono
+     * @param correo
+     * @param clave
+     * @param nombreTitular
+     * @param numero
+     * @param fechaCaducidad
+     * @param VIP
+     * @return boolean */
+    public static boolean modificaParticular(Particular parti, String DNI, String nombre, long telefono, String correo, String clave, String nombreTitular, String numero, LocalDate fechaCaducidad, Boolean VIP) {
+        if (parti == null || !particulares.contains(parti)) {
+            return false;
+        }
+        else {
+        
+         if(!parti.getDNI().equals(DNI)){
+                parti.setDNI(DNI);
+                return true;
+            }
+            if(!parti.getNombre().equals(nombre)){
+                parti.setNombre(nombre);
+                return true;
+            }
+            if (parti.getTelefono() != telefono) {
+                parti.setTelefono(telefono);
+                return true;
+            }
+            if(!parti.getCorreo().equals(correo)){
+                parti.setCorreo(correo);
+                return true;
+            }
+            if(!parti.getClave().equals(clave)){
+                parti.setClave(clave);
+                return true;
+            }
+            if(!parti.getNombreTitular().equals(nombreTitular)){
+                parti.setNombreTitular(nombreTitular);
+                return true;
+            }
+            if(!parti.getNumero().equals(numero)){
+                parti.setNumero(numero);
+                return true;
+            }
+            if(!parti.getFechaCaducidad().equals(fechaCaducidad)){
+                parti.setFechaCaducidad(fechaCaducidad);
+                return true;
+            }
+            if(!parti.getVIP().equals(VIP)){
+                parti.setVIP(VIP);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
+    
+    /** Consulta los datos de un particular por su correo
+     * @param correo
+     * @return objparti */
+    public static Particular consultaParticularPorCorreo(String correo) {
+        //Comparador para ordenar los particulares por su correo
+        Comparator CorreoPartiComp = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Particular p1 = (Particular) o1;
+                Particular p2 = (Particular) o2;
+                return p1.getCorreo().compareTo(p2.getCorreo());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(particulares, CorreoPartiComp);
+        //creamos una persona con el nombre a buscar
+        Particular p = new Particular();
+        p.setCorreo(correo);
+        int pos = Collections.binarySearch(particulares, p, CorreoPartiComp);
         if (pos >= 0) {
-            objcli = clientes.get(pos);
+            objparti = particulares.get(pos);
         } else {
-            objcli = null;
+            objparti = null;
         }
 
-        return objcli;
+        return objparti;
     }
-    
-    
- 
-    
+
     
     
      /** Consulta los datos de una persona por su correo y clave
      * @param clave
      * @param correo
-     * @return objper */
-    public static Clientes consultaClientesPorCorreoYClave(String correo, String clave) {
+     * @return objparti */
+    public static Particular consultaParticularPorCorreoYClave(String correo, String clave) {
         //Comparador para ordenar las personas por su dni
-        Comparator CliCorreo = new Comparator() {
+        Comparator CorreoPartiComp = new Comparator() {
 
+            
             @Override
             public int compare(Object o1, Object o2) {
-                Clientes p1 = (Clientes) o1;
-                Clientes p2 = (Clientes) o2;
+                Particular p1 = (Particular) o1;
+                Particular p2 = (Particular) o2;
                 return p1.getCorreo().compareTo(p2.getCorreo());
             }
         };
         //Ordenamos el array
-        Collections.sort(clientes, CliCorreo);
-        //creamos una persona con el dni a buscar
-        Clientes cli = new Clientes();
-        cli.setCorreo(correo);
-        int pos = Collections.binarySearch(clientes, cli, CliCorreo);
+        Collections.sort(particulares, CorreoPartiComp);
+        //creamos una persona con el nombre a buscar
+        Particular p = new Particular();
+        p.setCorreo(correo);
+        int pos = Collections.binarySearch(particulares, p, CorreoPartiComp);
         if (pos >= 0) {
-            objcli = clientes.get(pos);
-            if (objcli.getClave() != clave){
-                objcli = null;
+            objparti = particulares.get(pos);
+            if (objparti.getClave() != clave){
+                objparti = null;
             }
         } else {
-            objcli = null;
+            objparti = null;
         }
 
-        return objcli;
+        return objparti;
     }
 
 
-    
-    
-    /** Carga los datos de los clientes del fichero */
-    public static void cargarDatos() {
+      /** Carga los datos de los particulares del fichero */
+    public static void cargarDatosParti() {
         try {
             //Lectura de los objetos de tipo persona
-            FileInputStream istreamCli = new FileInputStream("copiasegClientes.dat");
-            ObjectInputStream oisCli = new ObjectInputStream(istreamCli);
-            clientes = (ArrayList) oisCli.readObject();
-            istreamCli.close();
+            FileInputStream istreamParti = new FileInputStream("copiasegParti.dat");
+            ObjectInputStream oisParti = new ObjectInputStream(istreamParti);
+            particulares = (ArrayList) oisParti.readObject();
+            istreamParti.close();
         } catch (IOException ioe) {
             System.out.println("Error de IO: " + ioe.getMessage());
         } catch (ClassNotFoundException cnfe) {
@@ -155,18 +233,18 @@ public class UtilClientes implements Serializable {
         }
     }//fin cargarDatos
 
-    /** Guarda los datos de los clientes en el fichero */
-    public static void guardarDatos() {
+    /** Guarda los datos de personas en el fichero */
+    public static void guardarDatosParti() {
         try {
             //Si hay datos los guardamos...
-            if (!clientes.isEmpty()) {
+            if (!particulares.isEmpty()) {
                 /****** Serialización de los objetos ******/
-                //Serialización de los clientes
-                FileOutputStream ostreamCli = new FileOutputStream("copiasegClientes.dat");
-                ObjectOutputStream oosCli = new ObjectOutputStream(ostreamCli);
-                //guardamos el array de clientes
-                oosCli.writeObject(clientes);
-                ostreamCli.close();
+                //Serialización de las personas
+                FileOutputStream ostreamParti = new FileOutputStream("copiasegParti.dat");
+                ObjectOutputStream oosParti = new ObjectOutputStream(ostreamParti);
+                //guardamos el array de personas
+                oosParti.writeObject(particulares);
+                ostreamParti.close();
             } else {
                 System.out.println("Error: No hay datos...");
             }
@@ -177,96 +255,308 @@ public class UtilClientes implements Serializable {
             System.out.println("Error: " + e.getMessage());
         }
     }//fin guardarDatos
-
     
-    /** Modifica los datos de un cliente
-     * @param cli
-     * @param DNI
-     * @param nombre
-     * @param telefono
-     * @param correo
-     * @param clave
-     * @param var1
-     * @param var2
-     * @param var3
-     * @param var4
-     * @param var5
-     * @return boolean */
-    public static boolean modificaClientes(Clientes cli, String DNI, String nombre,String telefono, String correo, String clave, LocalDate var1, String var2, String var3, Boolean var4, int var5) {
-        
-        if (cli == null || !clientes.contains(cli)) {
-            return false;
-        }
-        cli.setDNI(DNI);
-        cli.setNombre(nombre);
-        cli.setTelefono(telefono);
-        cli.setCorreo(correo);
-        cli.setClave(clave);
-        
-        String tipo = cli.getClass().getSimpleName();
-        if (tipo.equals("Clientes Particulares")) {
-            ClientesParticulares parti = (ClientesParticulares) cli;
-            parti.setFechaCaducidad(var1);
-            parti.setNombreTitular(var2);
-            parti.setNumero(var3);
-            parti.setVIP(var4);
-        } else {
-            Anfitriones anfi = (Anfitriones) cli;
-            anfi.setFechaRegistro(var1);
-            anfi.setCalificacion(var5);
-        }
-        return true;
-    }
-
-
     
 
-    
-    
-    
 
     
     /** Crea un fichero de texto con los datos de un cliente (o particular o anfitrión)
-     * @param cli
+     * @param parti
      * @throws java.io.IOException */
-    public static void generaFicha(Clientes cli) throws IOException {
+    public static void generaFicha(Particular parti) throws IOException {
         //la siguiente linea de código envuelve el FileWriter en un BufferedWriter para mejoarar la eficiencia de la escritura
         // y a su vez envuelve el BufferedWriter en un PrintWriter para proporcionar metodos de escritura más convenientes
-        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(cli.getDNI() + ".txt"))); 
+        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(parti.getCorreo() + ".txt"))); 
         //con la siguiente línea formateamos la fecha de registro a la aplicación de los anfitriones
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");        
     
 
         salida.println("-------------------------------- Ficha Cliente --------------------------------");
         salida.println("\n");
-        salida.println("DNI: " + cli.getDNI());
+        salida.println("DNI: " + parti.getDNI());
         salida.println("\n");
-        salida.println("Nombre: " + cli.getNombre());
+        salida.println("Nombre: " + parti.getNombre());
         salida.println("\n");
-        salida.println("Correo: " + cli.getCorreo());
+        salida.println("Teléfono: " + parti.getTelefono());
         salida.println("\n");
-        salida.println("Clave: " + cli.getClave());
+        salida.println("Correo: " + parti.getCorreo());
         salida.println("\n");
-        salida.println("Teléfono: " + cli.getTelefono());
+        salida.println("Clave: " + parti.getClave());
         salida.println("\n");
-        if (cli.getClass().getSimpleName().equals("Clientes particulares")) {
-            ClientesParticulares clientesParticulares = (ClientesParticulares) cli;
-            TarjetaCredito tarjetaCredito = clientesParticulares.getTarjetaCredito();
-            salida.println("*** Particular ***");
-            salida.println("Tarjeta de credito: " + "Nombre del titular: " + tarjetaCredito.getNombreTitular() + " Número tarjeta: " + tarjetaCredito.getNumero() + " Fecha de caducidad: " + tarjetaCredito.getFechaCaducidad().format(formatoCorto));
-            salida.println("VIP: " + clientesParticulares.getVIP());
-        } else {
-            Anfitriones anfitriones = (Anfitriones) cli;
-            salida.println("*** Anfitrión ***");
-            salida.println("Fecha de registro: " + anfitriones.getFechaRegistro().format(formatoCorto));
-            salida.println("Superanfitrión: " + anfitriones.getCalificacion());
-        }
+        salida.println("Nombre titular: " + parti.getNombreTitular());
+        salida.println("\n");
+        salida.println("Numero: " + parti.getNumero());
+        salida.println("\n");
+        salida.println("Fecha caducidad: " + parti.getfechaCaducidad());
+        salida.println("\n");
+        salida.println("VIP: " + parti.getVIP());
+        salida.println("\n");
+        
         salida.println("\n");
         salida.println("-------------------------------------------------------------------------------");
         salida.close();
     }
 
+    
+    private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
+    private static Anfitrion objanfi;
+    
+    /** Establece el ArrayList de anfitriones
+    * @param a */
+    public static void setAnfitriones(ArrayList<Anfitrion> a) {
+        anfitriones = a;
+    }
+        
+
+    /** Da de alta a un anfitrion
+     * @param objanfi
+     * @return  boolean */
+    public static boolean altaAnfitriones(Anfitrion objanfi) {
+        if (!anfitriones.contains(objanfi)) {
+            anfitriones.add(objanfi);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /** Da de baja un anfitrion
+     * @param objanfi
+     * @return boolean */
+    public static boolean bajaAnfitriones(Anfitrion objanfi) {
+        if (anfitriones.contains(objanfi)) {
+            anfitriones.remove(objanfi);
+            return true;
+        } else {
+            return false;
+        }
+    }
+   
+    
+    /**@return Devuelve el ArrayList de anfitriones */
+    public static ArrayList<Anfitrion> getAnfitriones() {
+        //Comparador para ordenar a los anfitriones por su correo
+        Comparator CorreoAnfiComp = new Comparator() {
+            
+            @Override
+            public int compare(Object o1, Object o2) {
+                Anfitrion a1 = (Anfitrion) o1;
+                Anfitrion a2 = (Anfitrion) o2;
+                return a1.getCorreo().compareTo(a2.getCorreo());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(anfitriones, CorreoAnfiComp);
+        return anfitriones;
+    }
+         
+   /** Devuelve un anfitrion por la posición dentro del ArrayList
+     * @param indice
+     * @return objanfi */
+    public static Anfitrion consultaAnfitriones(int indice) {
+        objanfi = anfitriones.get(indice);
+        return objanfi;
+    }
+
+    /** Modifica los datos de un particular
+     * @param anfi
+     * @param DNI
+     * @param nombre
+     * @param telefono
+     * @param correo
+     * @param clave
+     * @param fechaRegistro
+     * @param calificacion
+     * @return boolean */
+    public static boolean modificaAnfitriones(Anfitrion anfi, String DNI, String nombre, long telefono, String correo, String clave, LocalDate fechaRegistro, int calificacion) {
+        if (anfi == null || !anfitriones.contains(anfi)) {
+            return false;
+        }
+        else {
+        
+         if(!anfi.getDNI().equals(DNI)){
+                anfi.setDNI(DNI);
+                return true;
+            }
+            if(!anfi.getNombre().equals(nombre)){
+                anfi.setNombre(nombre);
+                return true;
+            }
+            if (anfi.getTelefono() != telefono) {
+                anfi.setTelefono(telefono);
+                return true;
+            }
+            if(!anfi.getCorreo().equals(correo)){
+                anfi.setCorreo(correo);
+                return true;
+            }
+            if(!anfi.getClave().equals(clave)){
+               anfi.setClave(clave);
+                return true;
+            }
+            if(!anfi.getFechaRegistro().equals(fechaRegistro)){
+               anfi.setFechaRegistro(fechaRegistro);
+                return true;
+            }
+            if(!(anfi.getCalificacion()==(calificacion))){
+                anfi.setCalificacion(calificacion);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
+    
+    /** Consulta los datos de un anfitrion por su correo
+     * @param correo
+     * @return objanfi */
+    public static Anfitrion consultaAnfitrionesPorCorreo(String correo) {
+        //Comparador para ordenar los particulares por su correo
+        Comparator CorreoAnfiComp = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Anfitrion a1 = (Anfitrion) o1;
+                Anfitrion a2 = (Anfitrion) o2;
+                return a1.getCorreo().compareTo(a2.getCorreo());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(anfitriones, CorreoAnfiComp);
+        //creamos una persona con el nombre a buscar
+        Anfitrion a = new Anfitrion();
+        a.setCorreo(correo);
+        int pos = Collections.binarySearch(anfitriones, a, CorreoAnfiComp);
+        if (pos >= 0) {
+            objanfi = anfitriones.get(pos);
+        } else {
+            objanfi = null;
+        }
+        return objanfi;
+        
+    }
+
+    
+    
+     /** Consulta los datos de un anfitrion por su correo y clave
+     * @param clave
+     * @param correo
+     * @return objanfi */
+    public static Anfitrion consultaAnfitrionesPorCorreoYClave(String correo, String clave) {
+        //Comparador para ordenar las personas por su dni
+        Comparator CorreoAnfiComp = new Comparator() {
+
+            
+            @Override
+            public int compare(Object o1, Object o2) {
+                Anfitrion a1 = (Anfitrion) o1;
+                Anfitrion a2 = (Anfitrion) o2;
+                return a1.getCorreo().compareTo(a2.getCorreo());
+            }
+        };
+        //Ordenamos el array
+        Collections.sort(anfitriones, CorreoAnfiComp);
+        //creamos una persona con el nombre a buscar
+        Anfitrion a = new Anfitrion();
+        a.setCorreo(correo);
+        int pos = Collections.binarySearch(anfitriones, a, CorreoAnfiComp);
+        if (pos >= 0) {
+            objanfi = anfitriones.get(pos);
+            if (objanfi.getClave() != clave){
+                objanfi = null;
+            }
+        } else {
+            objanfi = null;
+        }
+
+        return objanfi;
+    }
+    
+
+
+      /** Carga los datos de los anfitriones del fichero */
+    public static void cargarDatosAnfi() {
+        try {
+            //Lectura de los objetos de tipo persona
+            FileInputStream istreamAnfi = new FileInputStream("copiasegAnfi.dat");
+            ObjectInputStream oisAnfi= new ObjectInputStream(istreamAnfi);
+            anfitriones = (ArrayList) oisAnfi.readObject();
+            istreamAnfi.close();
+        } catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada: " + cnfe.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }//fin cargarDatos
+
+    /** Guarda los datos de personas en el fichero */
+    public static void guardarDatosAnfi() {
+        try {
+            //Si hay datos los guardamos...
+            if (!anfitriones.isEmpty()) {
+                /****** Serialización de los objetos ******/
+                //Serialización de las personas
+                FileOutputStream ostreamAnfi = new FileOutputStream("copiasegAnfi.dat");
+                ObjectOutputStream oosAnfi = new ObjectOutputStream(ostreamAnfi);
+                //guardamos el array de personas
+                oosAnfi.writeObject(anfitriones);
+                ostreamAnfi.close();
+            } else {
+                System.out.println("Error: No hay datos...");
+            }
+
+        } catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }//fin guardarDatos
+    
+    
+
+
+    
+    /** Crea un fichero de texto con los datos de un anfitrion
+     * @param anfi
+     * @throws java.io.IOException */
+    public static void generaFicha(Anfitrion anfi) throws IOException {
+        //la siguiente linea de código envuelve el FileWriter en un BufferedWriter para mejoarar la eficiencia de la escritura
+        // y a su vez envuelve el BufferedWriter en un PrintWriter para proporcionar metodos de escritura más convenientes
+        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(anfi.getCorreo() + ".txt"))); 
+        //con la siguiente línea formateamos la fecha de registro a la aplicación de los anfitriones
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy");        
+    
+
+        salida.println("-------------------------------- Ficha Cliente --------------------------------");
+        salida.println("\n");
+        salida.println("DNI: " + anfi.getDNI());
+        salida.println("\n");
+        salida.println("Nombre: " + anfi.getNombre());
+        salida.println("\n");
+        salida.println("Teléfono: " + anfi.getTelefono());
+        salida.println("\n");
+        salida.println("Correo: " + anfi.getCorreo());
+        salida.println("\n");
+        salida.println("Clave: " + anfi.getClave());
+        salida.println("\n");
+        salida.println("Fecha registro: " + anfi.getFechaRegistro());
+        salida.println("\n");
+        salida.println("Calificacion: " + anfi.getCalificacion());
+        salida.println("\n");
+        salida.println("\n");
+        salida.println("-------------------------------------------------------------------------------");
+        salida.close();
+    }
+    
+    
+   
 }
 
     
+
     

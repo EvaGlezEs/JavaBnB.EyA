@@ -31,7 +31,7 @@ public class Inmuebles implements Serializable {
     private String numHuespedes;
     private String numHabitaciones;
     private String numCamas;
-    private String  numBanos;
+    private String numBanos;
 
     private String tipoPropiedad;
     

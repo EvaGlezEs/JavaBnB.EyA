@@ -4,6 +4,7 @@
  */
 package poo.javabnb;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,7 +31,7 @@ public class UtilInmuebles implements Serializable  {
     private static  ArrayList<Inmuebles> inmuebles = new ArrayList<>();
     private static  Inmuebles objinmu;
     
-    /**
+    /** Establece el ArrayList de inmuebles
      *
      * @param i
      */
@@ -39,23 +40,23 @@ public class UtilInmuebles implements Serializable  {
         
     }
     
-    /**
+    /** Devuelve el ArrayList de inmuebles
      *
      * @return
      */
     public static ArrayList<Inmuebles> getInmuebles() {
         //Comparador para ordenar los inmuebles por su precio
-        Comparator PrecioPerComp = new Comparator() {
+        Comparator PrecioInmuComp = new Comparator() {
 
             @Override
             public int compare(Object o1, Object o2) {
-                Inmuebles p1 = (Inmuebles) o1;
-                Inmuebles p2 = (Inmuebles) o2;
-                return Double.compare(p1.getPrecioNoche(), p2.getPrecioNoche());
+                Inmuebles i1 = (Inmuebles) o1;
+                Inmuebles i2 = (Inmuebles) o2;
+                return Double.compare(i1.getPrecioNoche(), i2.getPrecioNoche());
             }
         };
         //Ordenamos el array
-        Collections.sort(inmuebles, PrecioPerComp);
+        Collections.sort(inmuebles, PrecioInmuComp);
         return inmuebles;
     }
 
@@ -65,71 +66,22 @@ public class UtilInmuebles implements Serializable  {
      */
     public static ArrayList<Inmuebles> getCalificacion() {
         //Comparador para ordenar los inmuebles por su precio
-        Comparator PrecioPerComp = new Comparator() {
+        Comparator PrecioInmuComp = new Comparator() {
 
             @Override
             public int compare(Object o1, Object o2) {
-                Inmuebles p1 = (Inmuebles) o1;
-                Inmuebles p2 = (Inmuebles) o2;
-                return Double.compare(p1.getCalificacion(), p2.getCalificacion());
+                Inmuebles i1 = (Inmuebles) o1;
+                Inmuebles i2 = (Inmuebles) o2;
+                return Double.compare(i1.getCalificacion(), i2.getCalificacion());
             }
         };
         //Ordenamos el array
-        Collections.sort(inmuebles, PrecioPerComp);
+        Collections.sort(inmuebles, PrecioInmuComp);
         return inmuebles;
     }
     
   
-    
-    
-    /** Da de baja un inmueble
-     * @param objinmu
-     * @return boolean */
-    public static boolean bajaInmueble(Inmuebles objinmu) {
-        if (inmuebles.contains(objinmu)) {
-            inmuebles.remove(objinmu);
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    /** Modifica los datos de una persona
-     * @param Inmu
-     * @param i_titulo
-     * @param i_calle
-     * @param i_numero
-     * @param i_codiPostal
-     * @param i_ciudad
-     * @param i_numHuesp
-     * @param i_numHabi
-     * @param i_numCamas
-     * @param i_numBanos
-     * @param i_tipoPro
-     * @param i_PrecioNoche
-     * @param i_servicios
-     * @return boolean */
-    public static boolean modificaInmuebles(Inmuebles Inmu, String i_titulo, String i_calle, String i_numero, String i_codiPostal, String i_ciudad, String i_numHuesp, String i_numHabi, String i_numCamas, String i_numBanos, String i_tipoPro, double i_PrecioNoche, String i_servicios) {
-        if (Inmu == null || !inmuebles.contains(Inmu)) {
-            return false;
-        }
-        Inmu.setTitulo(i_titulo);
-        Inmu.setCalle(i_calle);
-        Inmu.setNumero(i_numero);
-        Inmu.setCodigoPostal(i_codiPostal);
-        Inmu.setCiudad(i_ciudad);
-        Inmu.setNumHuespedes(i_numHuesp);
-        Inmu.setNumHabitaciones(i_numHabi);
-        Inmu.setNumCamas(i_numCamas);
-        Inmu.setNumBanos(i_numBanos);
-        Inmu.setTipoPropiedad(i_tipoPro);
-        Inmu.setPrecioNoche(i_PrecioNoche);
-        Inmu.setServicios(i_servicios);
-       
-        return true;
-    }
-    
-    /**
+    /**Da de alta un inmueble
      *
      * @param objinmu
      * @return
@@ -143,8 +95,112 @@ public class UtilInmuebles implements Serializable  {
         }
 
     }
+    
+    /** Da de baja un inmueble
+     * @param objinmu
+     * @return boolean */
+    public static boolean bajaInmueble(Inmuebles objinmu) {
+        if (inmuebles.contains(objinmu)) {
+            inmuebles.remove(objinmu);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /** Modifica los datos de un inmueble
+     * @param inmu
+     * @param titulo
+     * @param calle
+     * @param numero
+     * @param codigoPostal
+     * @param ciudad
+     * @param numHuespedes
+     * @param numHabitaciones
+     * @param numCamas
+     * @param numBanos
+     * @param tipoPropiedad
+     * @param precioNoche
+     * @param calificacion
+     * @param servicios
+     * @param correoAnfitrion
+     * @param foto
+     * @return boolean */
+    public static boolean modificaInmuebles(Inmuebles inmu, String titulo,String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios, String correoAnfitrion, BufferedImage foto) {
+        if (inmu == null || !inmuebles.contains(inmu)) {
+            return false;
+        }
+        else{
+             if(!inmu.getTitulo().equals(titulo)){
+                inmu.setTitulo(titulo);
+                return true;
+            }
+            if(!inmu.getCalle().equals(calle)){
+                inmu.setCalle(calle);
+                return true;
+            }
+            if(!inmu.getNumero().equals(numero)){
+                inmu.setNumero(numero);
+                return true;
+            }
+            if(!inmu.getCodigoPostal().equals(codigoPostal)){
+                inmu.setCodigoPostal(codigoPostal);
+                return true;
+            }
+            if(!inmu.getCiudad().equals(ciudad)){
+                inmu.setCiudad(ciudad);
+                return true;
+            }
+            if(!inmu.getNumHuespedes().equals(numHuespedes)){
+                inmu.setNumHuespedes(numHuespedes);
+                return true;
+            }
+            if(!inmu.getNumHabitaciones().equals(numHabitaciones)){
+                inmu.setNumHabitaciones(numHabitaciones);
+                return true;
+            }
+            if(!inmu.getNumCamas().equals(numCamas)){
+                inmu.setNumCamas(numCamas);
+                return true;
+            }
+            if(!inmu.getNumBanos().equals(numBanos)){
+                inmu.setNumBanos(numBanos);
+                return true;
+            }
+            if(!inmu.getTipoPropiedad().equals(tipoPropiedad)){
+                inmu.setTipoPropiedad(tipoPropiedad);
+                return true;
+            }
+            
+            if(!(inmu.getPrecioNoche()==(precioNoche))){
+                inmu.setPrecioNoche(precioNoche);
+                return true;
+            }
+            if(!(inmu.getCalificacion()==(calificacion))){
+                inmu.setCalificacion(calificacion);
+                return true;
+            }
+            if(!inmu.getServicios().equals(servicios)){
+                inmu.setServicios(servicios);
+                return true;
+            }
+            if(!inmu.getCorreoAnfitrion().equals(correoAnfitrion)){
+                inmu.setCorreoAnfitrion(correoAnfitrion);
+                return true;
+            }
+            if(!inmu.getFoto().equals(foto)){
+                inmu.setFoto(foto);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    
+
      
-     /** Carga los datos de Inmuebles del fichero */
+    /** Carga los datos de Inmuebles del fichero */
     public static void cargarDatos() {
         try {
             //Lectura de los objetos de tipo inmuebles
@@ -185,38 +241,43 @@ public class UtilInmuebles implements Serializable  {
     }//fin guardarDatos
 
     /** Crea un fichero de texto con los datos de un Inmueble
-     * @param per
+     * @param inmu
      * @throws java.io.IOException */
-    public static void generaFicha(Inmuebles per) throws IOException {
-        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(per.getTitulo() + ".txt")));
+    public static void generaFicha(Inmuebles inmu) throws IOException {
+        PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(inmu.getTitulo() + ".txt")));
 
         salida.println("-------------------------------- Ficha Inmueble --------------------------------");
         salida.println("\n");
-        salida.println("Titulo: " + per.getTitulo());
+        salida.println("Titulo: " + inmu.getTitulo());
         salida.println("\n");
-        salida.println("Nombre: " + per.getCalle());
+        salida.println("Nombre: " + inmu.getCalle());
         salida.println("\n");
-        salida.println("Numero: " + per.getNumero());
+        salida.println("Numero: " + inmu.getNumero());
         salida.println("\n");
-        salida.println("Código Postal: " + per.getCodigoPostal());
+        salida.println("Código Postal: " + inmu.getCodigoPostal());
         salida.println("\n");
-        salida.println("Ciudad: " + per.getCiudad());
+        salida.println("Ciudad: " + inmu.getCiudad());
         salida.println("\n");
-        salida.println("Número de Huespedes: " + per.getNumHuespedes());
+        salida.println("Número de Huespedes: " + inmu.getNumHuespedes());
         salida.println("\n");
-        salida.println("Número de Habitaciones: " + per.getNumHabitaciones());
+        salida.println("Número de Habitaciones: " + inmu.getNumHabitaciones());
         salida.println("\n");
-        salida.println("Número de Camas: " + per.getNumCamas());
+        salida.println("Número de Camas: " + inmu.getNumCamas());
         salida.println("\n");
-        salida.println("Número de Baños: " + per.getNumBanos());
+        salida.println("Número de Baños: " + inmu.getNumBanos());
         salida.println("\n");
-        salida.println("Tipo de propiedad: " + per.getTipoPropiedad());
+        salida.println("Tipo de propiedad: " + inmu.getTipoPropiedad());
         salida.println("\n");
-        salida.println("Precio por noche: " + per.getPrecioNoche());
+        salida.println("Precio por noche: " + inmu.getPrecioNoche());
         salida.println("\n");
-        salida.println("Calificación: " + per.getCalificacion());
+        salida.println("Calificación: " + inmu.getCalificacion());
         salida.println("\n");
-        salida.println("Servicios: " + per.getServicios());
+        salida.println("Servicios: " + inmu.getServicios());
+        salida.println("\n");
+        salida.println("Correo anfitrión: " + inmu.getCorreoAnfitrion());
+        salida.println("\n");
+        salida.println("Foto: " + inmu.getFoto());
+        salida.println("\n");
         salida.println("\n");
         salida.println("-------------------------------------------------------------------------------");
         salida.close();

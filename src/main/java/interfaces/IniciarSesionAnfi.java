@@ -6,7 +6,7 @@ package interfaces;
 import javax.swing.JOptionPane;
 import poo.javabnb.Clientes;
 import poo.javabnb.UtilClientes;
-import poo.javabnb.Anfitriones;
+import poo.javabnb.Anfitrion;
 
 /**
  * Interfaz para que los anfitriones inicien sesión en la app, busca en el ArrayList el correo y clave introducidos
