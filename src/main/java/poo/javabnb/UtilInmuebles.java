@@ -24,6 +24,7 @@ import java.util.Comparator;
  * 
  * @author Alejandro
  */
+
 public class UtilInmuebles implements Serializable  {
      
     private static  ArrayList<Inmuebles> inmuebles = new ArrayList<>();
