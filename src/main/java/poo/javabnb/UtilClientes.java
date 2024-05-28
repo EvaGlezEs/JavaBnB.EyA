@@ -218,12 +218,12 @@ public class UtilClientes implements Serializable {
 
       /** Carga los datos de los particulares del fichero */
     public static void cargarDatosParti() {
-        try {
+        try (FileInputStream istreamParti = new FileInputStream("copiasegParti.dat");
+            ObjectInputStream oisParti = new ObjectInputStream(istreamParti)) {
             //Lectura de los objetos de tipo persona
-            FileInputStream istreamParti = new FileInputStream("copiasegParti.dat");
-            ObjectInputStream oisParti = new ObjectInputStream(istreamParti);
+            
             particulares = (ArrayList) oisParti.readObject();
-            istreamParti.close();
+            
         } catch (IOException ioe) {
             System.out.println("Error de IO: " + ioe.getMessage());
         } catch (ClassNotFoundException cnfe) {
@@ -240,11 +240,12 @@ public class UtilClientes implements Serializable {
             if (!particulares.isEmpty()) {
                 /****** Serialización de los objetos ******/
                 //Serialización de las personas
-                FileOutputStream ostreamParti = new FileOutputStream("copiasegParti.dat");
-                ObjectOutputStream oosParti = new ObjectOutputStream(ostreamParti);
-                //guardamos el array de personas
+                try (FileOutputStream ostreamParti = new FileOutputStream("copiasegParti.dat");
+                ObjectOutputStream oosParti = new ObjectOutputStream(ostreamParti)){
+                    //guardamos el array de personas
                 oosParti.writeObject(particulares);
-                ostreamParti.close();
+                }
+                
             } else {
                 System.out.println("Error: No hay datos...");
             }
