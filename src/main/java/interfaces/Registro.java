@@ -31,7 +31,7 @@ public class Registro extends javax.swing.JFrame {
      * Creates new form RegistroAnfitrion
      */
     public Registro() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DateFormatter dateFormatter = new DateFormatter(dateFormat);
         jFormattedTextFieldVar1 = new JFormattedTextField(dateFormatter);
         jFormattedTextFieldVar1.setValue(new Date()); // Inicializar con la fecha actual
