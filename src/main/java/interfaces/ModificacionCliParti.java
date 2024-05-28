@@ -22,25 +22,20 @@ import poo.javabnb.Anfitrion;
 import poo.javabnb.UtilClientes;
 import poo.javabnb.Usuarios;
 
+
 /**
- * Interfaz para el registro de clientes, tanto de particulares como de anfitriones
- * 
+ * interfaz para modificar los datos si lso clientes desean cambiar sus datos personales, u añadir otros como es el caso de ser VIP o Superanfitrión
  * @author eva
  */
-public class RegistroCliParti extends javax.swing.JFrame {
+public class ModificacionCliParti extends javax.swing.JFrame {
     private static ArrayList<Particular> particulares = new ArrayList<>();
     private static Particular objparti;
-    
+   
     
     /**
-     * Creates new form RegistroAnfitrion
+     * Creates new form ModificacionDatos
      */
-    public RegistroCliParti() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        DateFormatter dateFormatter = new DateFormatter(dateFormat);
-        jFormattedTextFieldFechaCaducidad = new JFormattedTextField(dateFormatter);
-        jFormattedTextFieldFechaCaducidad.setValue(new Date()); // Inicializar con la fecha actual
-        
+    public ModificacionCliParti() {
         initComponents();
     }
     
@@ -114,7 +109,6 @@ public class RegistroCliParti extends javax.swing.JFrame {
      *
      * @return
      */
-    
     public long getjFormattedTextFieldTelefono() {
     try {
         return Long.parseLong(jFormattedTextFieldTelefono.getText());
@@ -129,8 +123,8 @@ public class RegistroCliParti extends javax.swing.JFrame {
     jFormattedTextFieldTelefono.setText(Long.toString(telefono));
 }
 
-
-    public String getjTextFieldNombreTitular() {
+    
+     public String getjTextFieldNombreTitular() {
         return jTextFieldNombreTitular.getText();
     }
 
@@ -168,7 +162,7 @@ public class RegistroCliParti extends javax.swing.JFrame {
         return null;
     }
     }
-    
+
     /**
      *
      * @param txt
@@ -178,10 +172,14 @@ public class RegistroCliParti extends javax.swing.JFrame {
     }
     
     
-    
- 
- 
-    
+    public Boolean getjCheckBoxVip() {
+    return jCheckBoxVip.isSelected();
+}
+
+    public void setjCheckBoxVip(Boolean isVip) {
+    jCheckBoxVip.setSelected(isVip);
+}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -198,114 +196,135 @@ public class RegistroCliParti extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        fechaCaducidad = new javax.swing.JLabel();
-        jButtonRegistrar = new javax.swing.JButton();
-        jTextFieldNombre = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        nombreTitular = new javax.swing.JLabel();
+        numero = new javax.swing.JLabel();
+        jbuttonModificar = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jTextFieldDNI = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldCorreo = new javax.swing.JTextField();
         jPasswordFieldClave = new javax.swing.JPasswordField();
-        jButtonVolver = new javax.swing.JButton();
-        nombreTitular = new javax.swing.JLabel();
         jTextFieldNombreTitular = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        numero = new javax.swing.JLabel();
         jTextFieldNumero = new javax.swing.JTextField();
-        jFormattedTextFieldFechaCaducidad = new javax.swing.JFormattedTextField();
-        jLabel7 = new javax.swing.JLabel();
+        fechaCaducidad = new javax.swing.JLabel();
         jFormattedTextFieldTelefono = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldFechaCaducidad = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jCheckBoxVip = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 219, 183));
+        jPanel1.setBackground(new java.awt.Color(255, 220, 186));
+        jPanel1.setForeground(new java.awt.Color(255, 214, 173));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
-        jLabel1.setText("REGISTRO CLIENTE PARTICULAR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
+        jLabel1.setText("MODIFICACIÓN DATOS CLIENTES PARTICULARES");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jLabel2.setText("DNI");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 37, -1));
 
-        jLabel3.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jLabel3.setText("DNI");
+        jLabel3.setText("Nombre");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jLabel4.setText("Correo ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
+        jLabel4.setText("Correo");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 74, -1));
 
-        jLabel5.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel5.setText("Clave");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 37, -1));
 
-        jLabel6.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jLabel6.setText("Teléfono ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        jLabel6.setText("Teléfono");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
-        fechaCaducidad.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        fechaCaducidad.setText("Fecha de caducidad de la tarjeta ");
-        jPanel1.add(fechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("Tarjeta de Crédito");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, -1, -1));
 
-        jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jButtonRegistrar.setText("Registrar");
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        nombreTitular.setText("Nombre del Titular");
+        jPanel1.add(nombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+
+        numero.setText("Número");
+        jPanel1.add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
+
+        jbuttonModificar.setText("Modificar");
+        jbuttonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
+                jbuttonModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 373, 90, 30));
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 210, 30));
-        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 210, 30));
+        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, 100, 30));
+
+        jLabel12.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        jLabel12.setText("En esta ventana, si lo desea puede modificar sus datos ");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+
+        jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDNIActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 230, 20));
+
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 230, 20));
 
         jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 220, 30));
-        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 220, 30));
+        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, 20));
+        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, -1));
 
-        jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jButtonVolver.setText("Volver");
-        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombreTitular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVolverActionPerformed(evt);
+                jTextFieldNombreTitularActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, -1, -1));
+        jPanel1.add(jTextFieldNombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 190, 20));
 
-        nombreTitular.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        nombreTitular.setText("Nombre del titular de la tarjeta");
-        jPanel1.add(nombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
-        jPanel1.add(jTextFieldNombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 210, 30));
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 20));
+        jTextFieldNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumeroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 190, 20));
 
-        numero.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        numero.setText("Número tarjeta");
-        jPanel1.add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, 20));
-        jPanel1.add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 260, 30));
-        jPanel1.add(jFormattedTextFieldFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 200, 30));
+        fechaCaducidad.setText("Fecha caducidad ");
+        jPanel1.add(fechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 110, 20));
+        jPanel1.add(jFormattedTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, 20));
+        jPanel1.add(jFormattedTextFieldFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 190, -1));
 
-        jLabel7.setFont(new java.awt.Font("Avenir", 3, 14)); // NOI18N
-        jLabel7.setText("Introduzca los datos de su tarjeta bancaria");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, -1, -1));
-        jPanel1.add(jFormattedTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 200, 30));
+        jLabel8.setText("¿Es usted un cliente VIP?");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
+        jCheckBoxVip.setText("VIP");
+        jPanel1.add(jCheckBoxVip, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-        RegistrarseComo registrarseComo = new RegistrarseComo ();
-        registrarseComo.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonVolverActionPerformed
-
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        try {
+    private void jbuttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonModificarActionPerformed
+     try {
             String DNI = getJTextFieldDNI();
             String nombre = getJTextFieldNombre();
             long telefono = getjFormattedTextFieldTelefono();
@@ -314,6 +333,7 @@ public class RegistroCliParti extends javax.swing.JFrame {
             String nombreTitular = getjTextFieldNombreTitular();
             String numero = getjTextFieldNumero();
             LocalDate fechaCaducidad = getjFormattedTextFieldFechaCaducidad();
+            Boolean VIP = getjCheckBoxVip();
 
 
             //Para validar los campos
@@ -325,8 +345,9 @@ public class RegistroCliParti extends javax.swing.JFrame {
 
 
             //se inserta en el array
-            if (UtilClientes.altaParticular(objparti)) {
-                JOptionPane.showMessageDialog(this, "Cliente dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            if (UtilClientes.modificaParticular(objparti, DNI, nombre, telefono, correo, clave, nombreTitular, numero, fechaCaducidad, VIP)) {
+                
+            JOptionPane.showMessageDialog(this, "Cliente dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
             }
@@ -335,16 +356,52 @@ public class RegistroCliParti extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
+      
+    }//GEN-LAST:event_jbuttonModificarActionPerformed
+
+    /**
+     *
+     * @param cli
+     * @param jTextFieldDNI
+     * @param jTextFieldNombre
+     * @param jTextFieldTelefono
+     * @param jTextFieldCorreo
+     * @param jPasswordFieldClave
+     * @param jSpinnerVar1
+     * @param jTextFieldVar2
+     * @param jTextFieldVar3
+     * @param jRadioButtonVar4
+     * @param jComboBoxVar5
+     */
+    
+    
+
+    private void jTextFieldDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDNIActionPerformed
+
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCorreoActionPerformed
 
+    private void jTextFieldNombreTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreTitularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreTitularActionPerformed
+
+    private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNumeroActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        ArrayList<Clientes> clientes = new ArrayList<>();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -358,53 +415,39 @@ public class RegistroCliParti extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificacionCliParti.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistroCliParti().setVisible(true);
+                new ModificacionCliParti().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fechaCaducidad;
-    private javax.swing.JButton jButtonRegistrar;
-    private javax.swing.JButton jButtonVolver;
+    private javax.swing.JCheckBox jCheckBoxVip;
     private javax.swing.JFormattedTextField jFormattedTextFieldFechaCaducidad;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefono;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
     private javax.swing.JTextField jTextFieldCorreo;
@@ -412,9 +455,8 @@ public class RegistroCliParti extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldNombreTitular;
     private javax.swing.JTextField jTextFieldNumero;
+    private javax.swing.JButton jbuttonModificar;
     private javax.swing.JLabel nombreTitular;
     private javax.swing.JLabel numero;
     // End of variables declaration//GEN-END:variables
-
-   
 }

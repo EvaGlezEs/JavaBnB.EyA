@@ -100,20 +100,19 @@ public class RegistroAnfi extends javax.swing.JFrame {
         this.jPasswordFieldClave.setText(txt);
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getJTextFieldTelefono() {
-        return jFormattedTextFieldTelefono.getText();
+    public long getjFormattedTextFieldTelefono() {
+    try {
+        return Long.parseLong(jFormattedTextFieldTelefono.getText());
+    } catch (NumberFormatException e) {
+        // Manejar el caso donde el texto no es un número válido
+        // Por ejemplo, lanzar una excepción personalizada o devolver un valor predeterminado
+        System.err.println("El texto ingresado no es un número válido: " + e.getMessage());
+        return -1; // O cualquier valor que consideres adecuado como valor predeterminado
     }
-    /**
-     *
-     * @param txt
-     */
-    public void setJTextFieldTelefono(String txt) {
-        this.jFormattedTextFieldTelefono.setText(txt);
-    }
+}
+    public void setjFormattedTextFieldTelefono(long telefono) {
+    jFormattedTextFieldTelefono.setText(Long.toString(telefono));
+}
     
     public LocalDate getjFormattedTextFieldFechaRegistro() {
         try {
@@ -358,7 +357,5 @@ public class RegistroAnfi extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 
-    private long getjFormattedTextFieldTelefono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
