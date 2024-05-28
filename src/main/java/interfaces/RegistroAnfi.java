@@ -26,11 +26,11 @@ import poo.javabnb.Usuarios;
  */
 
 /**
- *
+ * Interfaz que registra a los anfitriones
  * @author eva
  */
 public class RegistroAnfi extends javax.swing.JFrame {
-    private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
+    
     private static Anfitrion objanfi;
 
     /**
@@ -44,8 +44,10 @@ public class RegistroAnfi extends javax.swing.JFrame {
         initComponents();
     }
 
-    
-    
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldDNI() {
         return jTextFieldDNI.getText();
     }
@@ -106,6 +108,10 @@ public class RegistroAnfi extends javax.swing.JFrame {
         this.jPasswordFieldClave.setText(txt);
     }
 
+    /**
+     *
+     * @return
+     */
     public long getjFormattedTextFieldTelefono() {
     try {
         return Long.parseLong(jFormattedTextFieldTelefono.getText());
@@ -116,10 +122,19 @@ public class RegistroAnfi extends javax.swing.JFrame {
         return -1; // O cualquier valor que consideres adecuado como valor predeterminado
     }
 }
+
+    /**
+     *
+     * @param telefono
+     */
     public void setjFormattedTextFieldTelefono(long telefono) {
     jFormattedTextFieldTelefono.setText(Long.toString(telefono));
 }
     
+    /**
+     *
+     * @return
+     */
     public LocalDate getjFormattedTextFieldFechaRegistro() {
         String text = jFormattedTextFieldFechaRegistro.getText();
         try {

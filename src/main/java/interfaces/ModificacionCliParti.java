@@ -28,7 +28,6 @@ import poo.javabnb.Usuarios;
  * @author eva
  */
 public class ModificacionCliParti extends javax.swing.JFrame {
-    private static ArrayList<Particular> particulares = new ArrayList<>();
     private static Particular objparti;
    
     
@@ -119,12 +118,20 @@ public class ModificacionCliParti extends javax.swing.JFrame {
         return -1; // O cualquier valor que consideres adecuado como valor predeterminado
     }
 }
+
+    /**
+     *
+     * @param telefono
+     */
     public void setjFormattedTextFieldTelefono(long telefono) {
     jFormattedTextFieldTelefono.setText(Long.toString(telefono));
 }
 
-    
-     public String getjTextFieldNombreTitular() {
+    /**
+     *
+     * @return
+     */
+    public String getjTextFieldNombreTitular() {
         return jTextFieldNombreTitular.getText();
     }
 
@@ -136,6 +143,10 @@ public class ModificacionCliParti extends javax.swing.JFrame {
         this.jTextFieldNombreTitular.setText(txt);
     }
     
+    /**
+     *
+     * @return
+     */
     public String getjTextFieldNumero() {
         return jTextFieldNumero.getText();
     }
@@ -148,6 +159,10 @@ public class ModificacionCliParti extends javax.swing.JFrame {
         this.jTextFieldNumero.setText(txt);
     }
     
+    /**
+     *
+     * @return
+     */
     public LocalDate getjFormattedTextFieldFechaCaducidad() {
         try {
         Date fecha = (Date) jFormattedTextFieldFechaCaducidad.getValue();
@@ -171,11 +186,18 @@ public class ModificacionCliParti extends javax.swing.JFrame {
         this.jFormattedTextFieldFechaCaducidad.setText(txt);
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public Boolean getjCheckBoxVip() {
     return jCheckBoxVip.isSelected();
 }
 
+    /**
+     *
+     * @param isVip
+     */
     public void setjCheckBoxVip(Boolean isVip) {
     jCheckBoxVip.setSelected(isVip);
 }
@@ -212,6 +234,7 @@ public class ModificacionCliParti extends javax.swing.JFrame {
         jFormattedTextFieldFechaCaducidad = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         jCheckBoxVip = new javax.swing.JCheckBox();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -254,7 +277,7 @@ public class ModificacionCliParti extends javax.swing.JFrame {
                 jbuttonModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, 100, 30));
+        jPanel1.add(jbuttonModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, 100, 30));
 
         jLabel12.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel12.setText("En esta ventana, si lo desea puede modificar sus datos ");
@@ -306,6 +329,14 @@ public class ModificacionCliParti extends javax.swing.JFrame {
 
         jCheckBoxVip.setText("VIP");
         jPanel1.add(jCheckBoxVip, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
+
+        jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -397,6 +428,12 @@ public class ModificacionCliParti extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNumeroActionPerformed
 
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+    OperacionesCliParti  operacionesCliParti= new OperacionesCliParti();
+       operacionesCliParti.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -436,6 +473,7 @@ public class ModificacionCliParti extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fechaCaducidad;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JCheckBox jCheckBoxVip;
     private javax.swing.JFormattedTextField jFormattedTextFieldFechaCaducidad;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefono;

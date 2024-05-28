@@ -87,6 +87,10 @@ public class Usuarios implements Serializable{
         return ADMIN_CORREO.equals(this.correo) && ADMIN_CLAVE.equals(this.clave);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return this.correo + " - " + this.clave;

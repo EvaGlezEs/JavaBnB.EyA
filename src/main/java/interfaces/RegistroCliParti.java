@@ -9,6 +9,8 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFormattedTextField;
@@ -28,7 +30,7 @@ import poo.javabnb.Usuarios;
  * @author eva
  */
 public class RegistroCliParti extends javax.swing.JFrame {
-    private static ArrayList<Particular> particulares = new ArrayList<>();
+    
     private static Particular objparti;
     
     
@@ -125,11 +127,19 @@ public class RegistroCliParti extends javax.swing.JFrame {
         return -1; // O cualquier valor que consideres adecuado como valor predeterminado
     }
 }
+
+    /**
+     *
+     * @param telefono
+     */
     public void setjFormattedTextFieldTelefono(long telefono) {
     jFormattedTextFieldTelefono.setText(Long.toString(telefono));
 }
 
-
+    /**
+     *
+     * @return
+     */
     public String getjTextFieldNombreTitular() {
         return jTextFieldNombreTitular.getText();
     }
@@ -142,6 +152,10 @@ public class RegistroCliParti extends javax.swing.JFrame {
         this.jTextFieldNombreTitular.setText(txt);
     }
     
+    /**
+     *
+     * @return
+     */
     public String getjTextFieldNumero() {
         return jTextFieldNumero.getText();
     }
@@ -154,21 +168,22 @@ public class RegistroCliParti extends javax.swing.JFrame {
         this.jTextFieldNumero.setText(txt);
     }
     
+    /**
+     *
+     * @return
+     */
     public LocalDate getjFormattedTextFieldFechaCaducidad() {
+        String text = jFormattedTextFieldFechaCaducidad.getText();
         try {
-        Date fecha = (Date) jFormattedTextFieldFechaCaducidad.getValue();
-         if (fecha == null) {
-            JOptionPane.showMessageDialog(this, "Fecha no válida o no ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
-            return null;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Asegúrate de que el patrón coincida con el formato del texto
+            return LocalDate.parse(text, formatter);
+        } catch (DateTimeParseException e) {
+            // Manejo de excepción en caso de que el texto no sea una fecha válida
+            e.printStackTrace();
+            return null; // O lanza una excepción, o maneja el error de la manera que prefieras
         }
-        Instant instant = fecha.toInstant();
-        return instant.atZone(ZoneId.systemDefault()).toLocalDate();
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al obtener la fecha: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        return null;
     }
-    }
-    
+
     /**
      *
      * @param txt

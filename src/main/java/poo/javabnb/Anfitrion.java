@@ -134,11 +134,20 @@ public class Anfitrion extends Clientes implements Serializable {
                 + '}';
     }
     
-
+    /**
+     *
+     * @param a
+     * @return
+     */
     public int compareTo(Anfitrion a) {
         return this.correo.compareTo(a.getCorreo());
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

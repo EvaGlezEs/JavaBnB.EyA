@@ -20,9 +20,20 @@ public class Particular extends Clientes implements Serializable {
      *
      */
     public String nombreTitular;
+
+    /**
+     *
+     */
     public String numero;
+
+    /**
+     *
+     */
     public LocalDate fechaCaducidad;
     
+    /**
+     *
+     */
     public Boolean VIP;
  
     
@@ -37,7 +48,7 @@ public class Particular extends Clientes implements Serializable {
      * @param correo
      * @param clave
      * @param nombreTitular
-     * @param fechacaducidad
+     * @param fechaCaducidad
      * @param numero
      * @param VIP
      */
@@ -52,27 +63,48 @@ public class Particular extends Clientes implements Serializable {
         this.VIP = VIP;
     }
 
+    /**
+     *
+     */
     public Particular() {
     }
 
-    
-    
+    /**
+     *
+     * @return
+     */
     public String getNombreTitular() {
         return nombreTitular;
     }
 
+    /**
+     *
+     * @param nombreTitular
+     */
     public void setNombreTitular(String nombreTitular) {
         this.nombreTitular = nombreTitular;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     *
+     * @param numero
+     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getFechaCaducidad() {
         return fechaCaducidad;
     }
@@ -80,7 +112,7 @@ public class Particular extends Clientes implements Serializable {
     /**
      * Get the value of tarjetaCredito
      *
-     * @return the value of tarjetaCredito
+     * @param fechaCaducidad
      */
     public void setFechaCaducidad(LocalDate fechaCaducidad) {    
         this.fechaCaducidad = fechaCaducidad;
@@ -125,10 +157,20 @@ public class Particular extends Clientes implements Serializable {
              
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     public int compareTo(Particular p) {
         return this.correo.compareTo(p.getCorreo());
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
