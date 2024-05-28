@@ -9,15 +9,18 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.text.DateFormatter;
 
 import poo.javabnb.Clientes;
 import poo.javabnb.Particular;
 import poo.javabnb.Anfitrion;
 import poo.javabnb.UtilClientes;
+import poo.javabnb.Usuarios;
 
 /**
  * Interfaz para el registro de clientes, tanto de particulares como de anfitriones
@@ -25,7 +28,8 @@ import poo.javabnb.UtilClientes;
  * @author eva
  */
 public class RegistroCliParti extends javax.swing.JFrame {
-    private Clientes cli = null;
+    private static ArrayList<Particular> particulares = new ArrayList<>();
+    private static Particular objparti;
     
     
     /**
@@ -34,11 +38,10 @@ public class RegistroCliParti extends javax.swing.JFrame {
     public RegistroCliParti() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DateFormatter dateFormatter = new DateFormatter(dateFormat);
-        jFormattedTextFieldVar1 = new JFormattedTextField(dateFormatter);
-        jFormattedTextFieldVar1.setValue(new Date()); // Inicializar con la fecha actual
+        jFormattedTextFieldFechaCaducidad = new JFormattedTextField(dateFormatter);
+        jFormattedTextFieldFechaCaducidad.setValue(new Date()); // Inicializar con la fecha actual
         
         initComponents();
-        jComboBoxTipo.setSelectedIndex(0);
     }
     
     //metodos para devolver y mostrar el contenido de los campos del registro
@@ -112,24 +115,43 @@ public class RegistroCliParti extends javax.swing.JFrame {
      * @return
      */
     public String getJTextFieldTelefono() {
-        return jTextFieldTelefono.getText();
+        return jFormattedTextFieldTelefono.getText();
+    }
+    /**
+     *
+     * @param txt
+     */
+    public void setJTextFieldTelefono(String txt) {
+        this.jFormattedTextFieldTelefono.setText(txt);
+    }
+
+    public String getjTextFieldNombreTitular() {
+        return jTextFieldNombreTitular.getText();
     }
 
     /**
      *
      * @param txt
      */
-    public void setJTextFieldTelefono(String txt) {
-        this.jTextFieldTelefono.setText(txt);
+    public void setjTextFieldNombreTitular(String txt) {
+        this.jTextFieldNombreTitular.setText(txt);
+    }
+    
+    public String getjTextFieldNumero() {
+        return jTextFieldNumero.getText();
     }
 
     /**
      *
-     * @return
+     * @param txt
      */
-    public LocalDate getjFormattedTextFieldVar1() {
-    try {
-        Date fecha = (Date) jFormattedTextFieldVar1.getValue();
+    public void setjTextFieldNumero(String txt) {
+        this.jTextFieldNumero.setText(txt);
+    }
+    
+    public LocalDate getjFormattedTextFieldFechaCaducidad() {
+        try {
+        Date fecha = (Date) jFormattedTextFieldFechaCaducidad.getValue();
          if (fecha == null) {
             JOptionPane.showMessageDialog(this, "Fecha no válida o no ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
             return null;
@@ -140,125 +162,20 @@ public class RegistroCliParti extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Error al obtener la fecha: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         return null;
     }
-}
-
-    /**
-     *
-     * @param d
-     */
-    public void setjFormattedTextFieldVar1(Date d) {
-        this.jFormattedTextFieldVar1.setValue(d);
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public String getJTextFieldVar2() {
-        return jTextFieldVar2.getText();
     }
 
     /**
      *
      * @param txt
      */
-    public void setJTextFieldVar2(String txt) {
-        this.jTextFieldVar2.setText(txt);
-    }
-   
-    /**
-     *
-     * @return
-     */
-    public String getJTextFieldVar3() {
-        return jTextFieldVar3.getText();
-    }
-
-    /**
-     *
-     * @param txt
-     */
-    public void setJTextFieldVar3(String txt) {
-        this.jTextFieldVar3.setText(txt);
-    }
-  
-    /**
-     *
-     * @return
-     */
-    public Boolean getjRadioButtonVar4() {
-        return jRadioButtonVar4.isSelected();
-    }
-
-    /**
-     *
-     * @param t
-     */
-    public void setjRadioButtonVar4(Boolean t) {
-        this.jRadioButtonVar4.setSelected(t);
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public int getjComboBoxVar5() {
-    // Convierte el texto de jComboBoxVar5 a un int
-    return Integer.parseInt(jComboBoxVar5.getSelectedItem().toString());
-    }
-
-    /**
-     *
-     * @param num
-     */
-    public void setjComboBoxVar5(int num) {
-    // Convierte el número a texto y lo establece en jComboBoxVar5
-    this.jComboBoxVar5.setSelectedItem(String.valueOf(num));
+    public void setjFormattedTextFieldFechaCaducidad(String txt) {
+        this.jFormattedTextFieldFechaCaducidad.setText(txt);
     }
     
     
     
-    //metodos para cambiar las etiquetas variables
-
-    /**
-     *
-     * @param txt
-     */
-    public void setEtiVar1(String txt) {
-        this.etiVar1.setText(txt);
-    }
-
-    /**
-     *
-     * @param txt
-     */
-    public void setEtiVar2(String txt) {
-        this.etiVar2.setText(txt);
-    } 
-    
-    /**
-     *
-     * @param txt
-     */
-    public void setEtiVar3(String txt) {
-        this.etiVar3.setText(txt);
-    } 
-    
-    /**
-     *
-     * @param txt
-     */
-    public void setEtiVar4(String txt) {
-        this.etiVar4.setText(txt);
-    } 
-    
-    /**
-     *
-     * @param txt
-     */
-    public void setEtiVar5(String txt) {
-        this.etiVar5.setText(txt);
-    } 
+ 
+ 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -276,26 +193,21 @@ public class RegistroCliParti extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        etiVar1 = new javax.swing.JLabel();
+        fechaCaducidad = new javax.swing.JLabel();
         jButtonRegistrar = new javax.swing.JButton();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldDNI = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
         jTextFieldCorreo = new javax.swing.JTextField();
         jPasswordFieldClave = new javax.swing.JPasswordField();
         jButtonVolver = new javax.swing.JButton();
-        jComboBoxTipo = new javax.swing.JComboBox<>();
-        etiVar2 = new javax.swing.JLabel();
-        jTextFieldVar2 = new javax.swing.JTextField();
+        nombreTitular = new javax.swing.JLabel();
+        jTextFieldNombreTitular = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        etiVar3 = new javax.swing.JLabel();
-        jTextFieldVar3 = new javax.swing.JTextField();
+        numero = new javax.swing.JLabel();
+        jTextFieldNumero = new javax.swing.JTextField();
+        jFormattedTextFieldFechaCaducidad = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
-        etiVar4 = new javax.swing.JLabel();
-        etiVar5 = new javax.swing.JLabel();
-        jRadioButtonVar4 = new javax.swing.JRadioButton();
-        jComboBoxVar5 = new javax.swing.JComboBox<>();
-        jFormattedTextFieldVar1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldTelefono = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -304,16 +216,16 @@ public class RegistroCliParti extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Avenir", 2, 18)); // NOI18N
-        jLabel1.setText("REGISTRO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jLabel1.setText("REGISTRO CLIENTE PARTICULAR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel3.setText("DNI");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel4.setText("Correo ");
@@ -325,11 +237,11 @@ public class RegistroCliParti extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jLabel6.setText("Teléfono ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
-        etiVar1.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        etiVar1.setText("Fecha de hoy (día en el que se está usted registrando)");
-        jPanel1.add(etiVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
+        fechaCaducidad.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        fechaCaducidad.setText("Fecha de caducidad de la tarjeta ");
+        jPanel1.add(fechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
 
         jButtonRegistrar.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonRegistrar.setText("Registrar");
@@ -338,12 +250,17 @@ public class RegistroCliParti extends javax.swing.JFrame {
                 jButtonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 160, 20));
-        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 160, 20));
-        jPanel1.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 150, 20));
-        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 180, 20));
-        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 180, 20));
+        jPanel1.add(jButtonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 373, 90, 30));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 210, 30));
+        jPanel1.add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 210, 30));
+
+        jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCorreoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 220, 30));
+        jPanel1.add(jPasswordFieldClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 220, 30));
 
         jButtonVolver.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
         jButtonVolver.setText("Volver");
@@ -352,115 +269,72 @@ public class RegistroCliParti extends javax.swing.JFrame {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, -1, -1));
+        jPanel1.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, -1, -1));
 
-        jComboBoxTipo.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente particular", "Anfitrión" }));
-        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
-
-        etiVar2.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        etiVar2.setText("Nombre del titular de la tarjeta");
-        jPanel1.add(etiVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
-        jPanel1.add(jTextFieldVar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 150, 20));
+        nombreTitular.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        nombreTitular.setText("Nombre del titular de la tarjeta");
+        jPanel1.add(nombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
+        jPanel1.add(jTextFieldNombreTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 210, 30));
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, 20));
 
-        etiVar3.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        etiVar3.setText("Número tarjeta");
-        jPanel1.add(etiVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, 20));
-        jPanel1.add(jTextFieldVar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 170, 20));
+        numero.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
+        numero.setText("Número tarjeta");
+        jPanel1.add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, 20));
+        jPanel1.add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 260, 30));
+        jPanel1.add(jFormattedTextFieldFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 200, 30));
 
-        jLabel7.setFont(new java.awt.Font("Avenir", 0, 12)); // NOI18N
-        jLabel7.setText("Selecione como desea registrarse");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Avenir", 3, 14)); // NOI18N
+        jLabel7.setText("Introduzca los datos de su tarjeta bancaria");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, -1, -1));
+        jPanel1.add(jFormattedTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 200, 30));
 
-        etiVar4.setText("jLabel8");
-        jPanel1.add(etiVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, 30));
-
-        etiVar5.setText("jLabel9");
-        jPanel1.add(etiVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
-        jPanel1.add(jRadioButtonVar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
-
-        jPanel1.add(jComboBoxVar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
-        jPanel1.add(jFormattedTextFieldVar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 120, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 470));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-     try {
-        String DNI = getJTextFieldDNI();
-        String nombre = getJTextFieldNombre();
-        String correo = getJTextFieldCorreo();
-        String clave = getjPasswordFieldClave();
-        String telefono = getJTextFieldTelefono();
-        LocalDate var1 = getjFormattedTextFieldVar1();
-        
-        // Validar fecha
-        if (var1 == null) {
-            return; // Ya se mostró el mensaje de error dentro del método getjFormattedTextFieldVar1
-        }
-        
-        String var2 = getJTextFieldVar2();
-        String var3 = getJTextFieldVar3();
-        Boolean var4 = getjRadioButtonVar4();
-        int var5 = getjComboBoxVar5();
-        
-        //Para validar los campos 
-        if (DNI.isEmpty() || nombre.isEmpty() || correo.isEmpty() || clave.isEmpty() || telefono.isEmpty() || var1 == null) {
-            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.", "Mensaje", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        
-        if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
-            cli = new Particular(DNI, nombre, telefono, correo, clave, var1, var2, var3, var4);
-        } else {
-            cli = new Anfitrion(DNI, nombre, telefono, correo, clave, var1, var5);
-        }
-        
-    //se inserta en el array
-        if (UtilClientes.altaClientes(cli)) {
-            JOptionPane.showMessageDialog(this, "Cliente dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Formato de número incorrecto en algún campo.", "Mensaje", JOptionPane.ERROR_MESSAGE);  
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-     RegistrarseComo registrarseComo = new RegistrarseComo ();
-     registrarseComo.setVisible(true);
-     this.dispose();
+        RegistrarseComo registrarseComo = new RegistrarseComo ();
+        registrarseComo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
-    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
-        
-    if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
-        setEtiVar1("Fecha de caducidad de la tarjeta");
-        setEtiVar2("Nombre titular de la tarjeta");
-        setEtiVar3("número de tarjeta");
-        setEtiVar4(" ");
-        setEtiVar5(" ");
-        
-    } else { 
-        setEtiVar1("Fecha de registro en la aplicación");
-        setEtiVar2(" ");
-        setEtiVar3(" ");
-        setEtiVar4(" ");
-        setEtiVar5("Calificación");
-    }
-    }//GEN-LAST:event_jComboBoxTipoActionPerformed
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        try {
+            String DNI = getJTextFieldDNI();
+            String nombre = getJTextFieldNombre();
+            long telefono = getjFormattedTextFieldTelefono();
+            String correo = getJTextFieldCorreo();
+            String clave = getjPasswordFieldClave();
+            String nombreTitular = getjTextFieldNombreTitular();
+            String numero = getjTextFieldNumero();
+            LocalDate fechaCaducidad = getjFormattedTextFieldFechaCaducidad();
+
+
+            //Para validar los campos
+            if (DNI.isEmpty() || nombre.isEmpty() ||correo.isEmpty() || clave.isEmpty() || nombreTitular.isEmpty() || numero.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.", "Mensaje", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+
+
+            //se inserta en el array
+            if (UtilClientes.altaParticular(objparti)) {
+                JOptionPane.showMessageDialog(this, "Cliente dado de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Formato de número incorrecto en algún campo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
+    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,16 +387,11 @@ public class RegistroCliParti extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel etiVar1;
-    private javax.swing.JLabel etiVar2;
-    private javax.swing.JLabel etiVar3;
-    private javax.swing.JLabel etiVar4;
-    private javax.swing.JLabel etiVar5;
+    private javax.swing.JLabel fechaCaducidad;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JComboBox<String> jComboBoxTipo;
-    private javax.swing.JComboBox<String> jComboBoxVar5;
-    private javax.swing.JFormattedTextField jFormattedTextFieldVar1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldFechaCaducidad;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -533,12 +402,16 @@ public class RegistroCliParti extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldClave;
-    private javax.swing.JRadioButton jRadioButtonVar4;
     private javax.swing.JTextField jTextFieldCorreo;
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
-    private javax.swing.JTextField jTextFieldVar2;
-    private javax.swing.JTextField jTextFieldVar3;
+    private javax.swing.JTextField jTextFieldNombreTitular;
+    private javax.swing.JTextField jTextFieldNumero;
+    private javax.swing.JLabel nombreTitular;
+    private javax.swing.JLabel numero;
     // End of variables declaration//GEN-END:variables
+
+    private long getjFormattedTextFieldTelefono() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
