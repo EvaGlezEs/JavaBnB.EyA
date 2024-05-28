@@ -19,7 +19,8 @@ public class EntradaApp extends javax.swing.JFrame {
      * Creates new form EntradaApp
      */
     public EntradaApp() {
-        UtilClientes.cargarDatos();
+        UtilClientes.cargarDatosParti();
+        UtilClientes.cargarDatosAnfi();
         initComponents();
     }
 
@@ -115,7 +116,8 @@ public class EntradaApp extends javax.swing.JFrame {
 
 
     private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
-    UtilClientes.guardarDatos();
+    UtilClientes.guardarDatosParti();
+    UtilClientes.guardarDatosAnfi();
     }//GEN-LAST:event_jButtonCerrarActionPerformed
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
@@ -125,7 +127,7 @@ public class EntradaApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
-       Registro registro = new Registro ();
+       RegistroCliParti registro = new RegistroCliParti ();
        registro.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
