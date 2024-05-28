@@ -6,6 +6,8 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFormattedTextField;
@@ -34,7 +36,11 @@ public class RegistroAnfi extends javax.swing.JFrame {
     /**
      * Creates new form RegistroAnfi
      */
-    public RegistroAnfi() {
+   public RegistroAnfi() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormatter dateFormatter = new DateFormatter(dateFormat);
+        jFormattedTextFieldFechaRegistro = new JFormattedTextField(dateFormatter);
+        jFormattedTextFieldFechaRegistro.setValue(new Date()); // Inicializar con la fecha actual
         initComponents();
     }
 
@@ -115,18 +121,15 @@ public class RegistroAnfi extends javax.swing.JFrame {
 }
     
     public LocalDate getjFormattedTextFieldFechaRegistro() {
+        String text = jFormattedTextFieldFechaRegistro.getText();
         try {
-        Date fecha = (Date) jFormattedTextFieldFechaRegistro.getValue();
-         if (fecha == null) {
-            JOptionPane.showMessageDialog(this, "Fecha no válida o no ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
-            return null;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Asegúrate de que el patrón coincida con el formato del texto
+            return LocalDate.parse(text, formatter);
+        } catch (DateTimeParseException e) {
+            // Manejo de excepción en caso de que el texto no sea una fecha válida
+            e.printStackTrace();
+            return null; // O lanza una excepción, o maneja el error de la manera que prefieras
         }
-        Instant instant = fecha.toInstant();
-        return instant.atZone(ZoneId.systemDefault()).toLocalDate();
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al obtener la fecha: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        return null;
-    }
     }
 
     /**
