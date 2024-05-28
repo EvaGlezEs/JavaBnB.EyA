@@ -93,13 +93,15 @@ public class RegistrarseComo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonClienteParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteParticularActionPerformed
- 
+    RegistroCliParti registroCliParti = new RegistroCliParti();
+    registroCliParti.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_jButtonClienteParticularActionPerformed
 
     private void jButtonAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnfitrionActionPerformed
-      RegistroCliParti registroAnfi = new RegistroCliParti();
-      registroAnfi.setVisible(true);
-      this.dispose();
+     RegistroAnfi registroAnfi = new RegistroAnfi();
+     registroAnfi.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_jButtonAnfitrionActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
