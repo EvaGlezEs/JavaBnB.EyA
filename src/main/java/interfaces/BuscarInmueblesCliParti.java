@@ -10,7 +10,7 @@ import poo.javabnb.Inmuebles;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Interfaz para que los clientes particulares busquen inmuebles según sus preferencias 
  * @author Alejandro
  */
 public class BuscarInmueblesCliParti extends javax.swing.JFrame {
@@ -27,59 +27,115 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
         consultarTodo();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldTitulo(String txt) {
         this.jTextFieldTitulo.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCalle(String txt) {
         this.jTextFieldCalle.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumero(String txt) {
         this.jTextFieldNumero.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCodigoPostal(String txt) {
         this.jTextFieldCodigoPostal.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCiudad(String txt) {
         this.jTextFieldCiudad.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumHuespedes(String txt) {
         this.jTextFieldNumHuespedes.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumHabitaciones(String txt) {
         this.jTextFieldNumHabitaciones.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumCamas(String txt) {
         this.jTextFieldNumCamas.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumBanos(String txt) {
         this.jTextFieldNumBanos.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldTipoPropiedad(String txt) {
         this.jTextFieldTipoPropiedad.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldPrecioNoche(String txt) {
         this.jTextFieldPrecioNoche.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCalificacion(String txt) {
         this.jTextFieldCalificacion.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldServicios(String txt) {
         this.jTextFieldServicios.setText(txt);
     }
 
     //borra el contenido del panel
+
+    /**
+     *
+     */
     public void borrar() {
 
         setJTextFieldTitulo("");
@@ -98,11 +154,19 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
     }
 
     //activa la caja de texto dni
+
+    /**
+     *
+     */
     public void activaTitulo() {
         this.jTextFieldTitulo.setEditable(true);
     }
 
     //desactiva la caja de texto dni
+
+    /**
+     *
+     */
     public void desactivaTitulo() {
         this.jTextFieldTitulo.setEditable(false);
     }
@@ -307,7 +371,7 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
                                     .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(126, 126, 126)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,9 +398,7 @@ public class BuscarInmueblesCliParti extends javax.swing.JFrame {
                                             .addComponent(jLabel15)
                                             .addGap(65, 65, 65)
                                             .addComponent(jTextFieldPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel14)
-                                            .addGap(132, 132, 132))))))
+                                        .addComponent(jLabel14)))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(280, 280, 280)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

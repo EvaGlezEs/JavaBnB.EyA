@@ -4,10 +4,13 @@
  */
 package poo.javabnb;
 import java.time.LocalDate; //por la fecha de registro en la app del anfitrion
+
 /**
- *
+ * clase para llevar a cabo la reserva de los inmuebles
+ * 
  * @author Alejandro
  */
+
 public class ReservarInmueble {
     
     private LocalDate fechaEntrada;

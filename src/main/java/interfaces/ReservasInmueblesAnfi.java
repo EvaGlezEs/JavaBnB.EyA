@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ *Interfaz que permite al anfitrión ver las reservas que se han hecho de sus inmuebles
  * @author Alejandro
  */
 public class ReservasInmueblesAnfi extends javax.swing.JFrame {

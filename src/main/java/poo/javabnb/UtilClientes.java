@@ -21,7 +21,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- *
+ *clase para almacenar, guardar, ordenar, buscar, etc los clientes registrados en nuestra app
+ * 
  * @author Alejandro
  */
 public class UtilClientes implements Serializable {
@@ -180,11 +181,11 @@ public class UtilClientes implements Serializable {
     
     /** Modifica los datos de un cliente
      * @param cli
-     * @param c_DNI
-     * @param c_nombre
-     * @param c_correo
-     * @param c_clave
-     * @param c_telefono
+     * @param DNI
+     * @param nombre
+     * @param telefono
+     * @param correo
+     * @param clave
      * @param var1
      * @param var2
      * @param var3

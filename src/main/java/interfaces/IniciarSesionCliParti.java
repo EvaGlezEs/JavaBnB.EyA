@@ -9,7 +9,7 @@ import poo.javabnb.Clientes;
 import poo.javabnb.UtilClientes;
 
 /**
- *
+ * Interfaz para que los clientes particulares inicien sesión en la app, busca en el ArrayList el correo y clave introducidos
  * @author Alejandro
  */
 public class IniciarSesionCliParti extends javax.swing.JFrame {
@@ -21,10 +21,18 @@ public class IniciarSesionCliParti extends javax.swing.JFrame {
         initComponents();
     }
     
-     public String getJTextFieldCorreo() {
+    /**
+     *
+     * @return
+     */
+    public String getJTextFieldCorreo() {
         return jTextFieldCorreo.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldClave() {
         return jTextFieldClave.getText();
     }

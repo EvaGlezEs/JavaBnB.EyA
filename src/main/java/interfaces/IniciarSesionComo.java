@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ * Interfaz para que el usuario decida como desea iniciar sesión, depede de como se haya registrado y cual sea su funcionalidad 
  * @author Alejandro
  */
 public class IniciarSesionComo extends javax.swing.JFrame {

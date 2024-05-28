@@ -5,7 +5,7 @@
 package interfaces;
 import poo.javabnb.Clientes;
 /**
- *
+ *Interfaz para que el anfitrión, una vez realizado el inicio de sesión decida a que apartado de la aplicación desea ir
  * @author Alejandro
  */
 public class OperacionesAnfitriones extends javax.swing.JFrame {
@@ -20,6 +20,9 @@ public class OperacionesAnfitriones extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     *
+     */
     public OperacionesAnfitriones() {
         initComponents();
     }

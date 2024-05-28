@@ -23,7 +23,7 @@ import poo.javabnb.UtilInmuebles;
 import poo.javabnb.Clientes;
 
 /**
- *
+ * Interfaz para que el anfitrión registre sus inmuebles, rellenenado los datos y subiendo una foto del mismo 
  * @author Alejandro
  */
 public class DatosInmu extends javax.swing.JFrame {
@@ -39,59 +39,115 @@ public class DatosInmu extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     *
+     */
     public DatosInmu() {
         initComponents();
     }
 
     //metodos para devolver y presentar el contenido de los campos del formulario
+
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldTitulo() {
         return jTextFieldTitulo.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldCalle() {
         return jTextFieldCalle.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldNumero() {
         return jTextFieldNumero.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldCodigoPostal() {
         return jTextFieldCodigoPostal.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldCiudad() {
         return jTextFieldCiudad.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldNumHuespedes() {
         return jTextFieldNumHuespedes.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldNumHabitaciones() {
         return jTextFieldNumHabitaciones.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldNumCamas() {
         return jTextFieldNumCamas.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldNumBanos() {
         return jTextFieldNumBanos.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getComboBoxTipoPropiedad() {
         return String.valueOf(jComboBoxTipoPropiedad.getSelectedItem());
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJFormattedTextFieldPrecioNkche() {
         return jFormattedTextFieldPrecioNkche.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getComboBoxCalificacion() {
         return String.valueOf(jComboBoxCalificacion.getSelectedItem());
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldServicios() {
         return jTextFieldServicios.getText();
     }

@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ *Interfaz para que los clientes particulares dejen una reseña del inmueble que han reservado
  * @author Alejandro
  */
 public class ReseñasCliParti extends javax.swing.JFrame {

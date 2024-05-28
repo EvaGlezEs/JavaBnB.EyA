@@ -21,7 +21,7 @@ import poo.javabnb.Clientes;
 import poo.javabnb.ClientesParticulares;
 
 /**
- *
+ * interfaz para modificar los datos si lso clientes desean cambiar sus datos personales, u añadir otros como es el caso de ser VIP o Superanfitrión
  * @author eva
  */
 public class ModificacionDatos extends javax.swing.JFrame {
@@ -37,47 +37,91 @@ public class ModificacionDatos extends javax.swing.JFrame {
     }
     
     //metodos para devolver y mostrar el contenido de los campos del registro
+
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldDNI() {
         return jTextFieldDNI.getText();
     }
 
-
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldDNI(String txt) {
         this.jTextFieldDNI.setText(txt);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldNombre() {
         return jTextFieldNombre.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNombre(String txt) {
         this.jTextFieldNombre.setText(txt);
     }
     
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldCorreo() {
         return jTextFieldCorreo.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCorreo(String txt) {
         this.jTextFieldCorreo.setText(txt);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getjPasswordFieldClave() {
         return jPasswordFieldClave.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJPasswordFieldClave(String txt) {
         this.jPasswordFieldClave.setText(txt);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldTelefono() {
         return jTextFieldTelefono.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldTelefono(String txt) {
         this.jTextFieldTelefono.setText(txt);
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getjSpinnerVar1() {
         Date fecha = (Date) jSpinnerVar1.getValue();
         Instant instant = Instant.ofEpochMilli(fecha.getTime());
@@ -85,39 +129,75 @@ public class ModificacionDatos extends javax.swing.JFrame {
         return localDate;
     }
 
+    /**
+     *
+     * @param d
+     */
     public void setjSpinnerVar1(Date d) {
         this.jSpinnerVar1.setValue(d);
     }
     
-     public String getJTextFieldVar2() {
+    /**
+     *
+     * @return
+     */
+    public String getJTextFieldVar2() {
         return jTextFieldVar2.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldVar2(String txt) {
         this.jTextFieldVar2.setText(txt);
     }
    
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldVar3() {
         return jTextFieldVar3.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldVar3(String txt) {
         this.jTextFieldVar3.setText(txt);
     }
   
+    /**
+     *
+     * @return
+     */
     public String getjRadioButtonVar4() {
         return jRadioButtonVar4.getText();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setjRadioButtonVar4(String txt) {
         this.jRadioButtonVar4.setText(txt);
     }
     
+    /**
+     *
+     * @return
+     */
     public int getjComboBoxVar5() {
     // Convierte el texto de jComboBoxVar5 a un int
     return Integer.parseInt(jComboBoxVar5.getSelectedItem().toString());
     }
 
+    /**
+     *
+     * @param num
+     */
     public void setjComboBoxVar5(int num) {
     // Convierte el número a texto y lo establece en jComboBoxVar5
     this.jComboBoxVar5.setSelectedItem(String.valueOf(num));
@@ -126,22 +206,43 @@ public class ModificacionDatos extends javax.swing.JFrame {
     
     
      //metodos para cambiar las etiquetas variables
+
+    /**
+     *
+     * @param txt
+     */
     public void setEtiVar1(String txt) {
         this.etiVar1.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setEtiVar2(String txt) {
         this.etiVar2.setText(txt);
     } 
     
+    /**
+     *
+     * @param txt
+     */
     public void setEtiVar3(String txt) {
         this.etiVar3.setText(txt);
     } 
     
+    /**
+     *
+     * @param txt
+     */
     public void setEtiVar4(String txt) {
         this.etiVar4.setText(txt);
     } 
     
+    /**
+     *
+     * @param txt
+     */
     public void setEtiVar5(String txt) {
         this.etiVar5.setText(txt);
     }
@@ -341,6 +442,20 @@ public class ModificacionDatos extends javax.swing.JFrame {
       
     }//GEN-LAST:event_jbuttonModificarActionPerformed
 
+    /**
+     *
+     * @param cli
+     * @param jTextFieldDNI
+     * @param jTextFieldNombre
+     * @param jTextFieldTelefono
+     * @param jTextFieldCorreo
+     * @param jPasswordFieldClave
+     * @param jSpinnerVar1
+     * @param jTextFieldVar2
+     * @param jTextFieldVar3
+     * @param jRadioButtonVar4
+     * @param jComboBoxVar5
+     */
     public ModificacionDatos(Clientes cli, JTextField jTextFieldDNI, JTextField jTextFieldNombre, JTextField jTextFieldTelefono,JTextField jTextFieldCorreo, JPasswordField jPasswordFieldClave, JSpinner jSpinnerVar1 , JTextField jTextFieldVar2, JTextField jTextFieldVar3,JRadioButton jRadioButtonVar4, JComboBox<String> jComboBoxVar5) {
         this.jComboBoxVar5 = jComboBoxVar5;
         this.jPasswordFieldClave = jPasswordFieldClave;

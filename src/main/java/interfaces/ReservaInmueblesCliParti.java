@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ *Interfaz para que los clientes particulares realicen la reserva del inmueble que deseen 
  * @author Alejandro
  */
 public class ReservaInmueblesCliParti extends javax.swing.JFrame {

@@ -4,10 +4,12 @@
  */
 package interfaces;
 import poo.javabnb.Clientes;
+
 /**
- *
+ * Interfaz para que el cliente particular, una vez realizado el inicio de sesión decida a que apartado de la aplicación desea ir
  * @author Alejandro
  */
+
 public class OperacionesCliParti extends javax.swing.JFrame {
 
     private Clientes cli;
@@ -20,6 +22,9 @@ public class OperacionesCliParti extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     *
+     */
     public OperacionesCliParti(){
         
     }

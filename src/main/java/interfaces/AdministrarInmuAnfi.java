@@ -9,8 +9,9 @@ import javax.swing.JOptionPane;
 import poo.javabnb.Clientes;
 import poo.javabnb.Inmuebles;
 import poo.javabnb.UtilInmuebles;
+
 /**
- *
+ * Interfaz para que el anfitrión vea cuales son sus inmuebles 
  * @author Alejandro
  */
 public class AdministrarInmuAnfi extends javax.swing.JFrame {
@@ -29,66 +30,122 @@ public class AdministrarInmuAnfi extends javax.swing.JFrame {
         consultarTodo();
     }
    
+    /**
+     *
+     */
     public AdministrarInmuAnfi() {
         initComponents();
     }
 
-        public void setJTextFieldTitulo(String txt) {
+    /**
+     *
+     * @param txt
+     */
+    public void setJTextFieldTitulo(String txt) {
         this.jTextFieldTitulo.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCalle(String txt) {
         this.jTextFieldCalle.setText(txt);
     }
     
-
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumero(String txt) {
         this.jTextFieldNumero.setText(txt);
     }
 
-
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCodigoPostal(String txt) {
         this.jTextFieldCodigoPostal.setText(txt);
     }
 
-
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCiudad(String txt) {
         this.jTextFieldCiudad.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumHuespedes(String txt) {
         this.jTextFieldNumHuespedes.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumHabitaciones(String txt) {
         this.jTextFieldNumHabitaciones.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumCamas(String txt) {
         this.jTextFieldNumCamas.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumBanos(String txt) {
         this.jTextFieldNumBanos.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldTipoPropiedad(String txt) {
         this.jTextFieldTipoPropiedad.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldPrecioNoche(String txt) {
         this.jTextFieldPrecioNoche.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCalificacion(String txt) {
         this.jTextFieldCalificacion.setText(txt);
     }
     
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldServicios(String txt) {
         this.jTextFieldServicios.setText(txt);
     }
     
-   public ArrayList<Inmuebles> ListaInmueblesAnfitrion(){
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Inmuebles> ListaInmueblesAnfitrion(){
        ArrayList<Inmuebles> inmueblesanfitriones = new ArrayList <> ();
        for (Inmuebles inmuanfi : UtilInmuebles.getInmuebles()){
            if(cli.getCorreo().equals(inmuanfi.getCorreoAnfitrion())){

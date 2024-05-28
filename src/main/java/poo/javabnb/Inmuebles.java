@@ -13,7 +13,9 @@ import java.io.Serializable;
 import javax.imageio.ImageIO;
 
 /**
- *
+ * Clase compuesta por los atributos comunes de todos los inmuebles
+ * 
+ * 
  * @author eva
  */
 public class Inmuebles implements Serializable {
@@ -41,29 +43,30 @@ public class Inmuebles implements Serializable {
     
     private String correoAnfitrion;
     
-   private transient BufferedImage foto; 
+    
+    private transient BufferedImage foto; //para que el anfitrión pueda añadir una imagen de su inmueble 
     
     private static final String CASA = "Casa";
     private static final String APARTAMENTO = "Apartamento";
 
-    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios, String correo) {
-        this.titulo = titulo;
-        this.calle = calle;
-        this.numero = numero;
-        this.codigoPostal = codigoPostal;
-        this.ciudad = ciudad;
-        this.numHuespedes = numHuespedes;
-        this.numHabitaciones = numHabitaciones;
-        this.numCamas = numCamas;
-        this.numBanos = numBanos;
-        this.tipoPropiedad = tipoPropiedad;
-        this.precioNoche = precioNoche;
-        this.calificacion = calificacion;
-        this.servicios = servicios;
-        this.correoAnfitrion = correo;
-        
-    }
-
+    /**
+     *
+     * @param titulo
+     * @param calle
+     * @param numero
+     * @param codigoPostal
+     * @param ciudad
+     * @param numHuespedes
+     * @param numHabitaciones
+     * @param numCamas
+     * @param numBanos
+     * @param tipoPropiedad
+     * @param precioNoche
+     * @param calificacion
+     * @param servicios
+     * @param correoAnfitrion
+     * @param foto
+     */
     public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios, String correoAnfitrion, BufferedImage foto) {
         this.titulo = titulo;
         this.calle = calle;
@@ -82,18 +85,61 @@ public class Inmuebles implements Serializable {
         this.foto = foto;
     }
 
-    
+    /**
+     *
+     * @param titulo
+     * @param calle
+     * @param numero
+     * @param codigoPostal
+     * @param ciudad
+     * @param numHuespedes
+     * @param numHabitaciones
+     * @param numCamas
+     * @param numBanos
+     * @param tipoPropiedad
+     * @param precioNoche
+     * @param calificacion
+     * @param servicios
+     * @param correoAnfitrion
+     */
+    public Inmuebles(String titulo, String calle, String numero, String codigoPostal, String ciudad, String numHuespedes, String numHabitaciones, String numCamas, String numBanos, String tipoPropiedad, double precioNoche, double calificacion, String servicios, String correoAnfitrion) {
+        this.titulo = titulo;
+        this.calle = calle;
+        this.numero = numero;
+        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
+        this.numHuespedes = numHuespedes;
+        this.numHabitaciones = numHabitaciones;
+        this.numCamas = numCamas;
+        this.numBanos = numBanos;
+        this.tipoPropiedad = tipoPropiedad;
+        this.precioNoche = precioNoche;
+        this.calificacion = calificacion;
+        this.servicios = servicios;
+        this.correoAnfitrion = correoAnfitrion;
+    }
 
-
-    
+    /**
+     *
+     */
     public Inmuebles(){
         
     }
 
+    // getters y setters para la imagen
+
+    /**
+     *
+     * @return
+     */
     public BufferedImage getFoto() {
         return foto;
     }
 
+    /**
+     *
+     * @param foto
+     */
     public void setFoto(BufferedImage foto) {
         this.foto = foto;
     }
@@ -101,7 +147,7 @@ public class Inmuebles implements Serializable {
     private void writeObject(ObjectOutputStream out) throws IOException {
         // Copiado dese
         //<<<https://stackoverflow.com/questions/15058663/how-to-serialize-an-object-that-includes-bufferedimages
-        out.defaultWriteObject();  //todo lo q no es transient lo guarda, y luego guardamos la foto por separado
+        out.defaultWriteObject();  //todo lo que no es transient lo guarda, y luego guardamos la foto por separado
         if (foto != null) //pasar sofi
         {
             ImageIO.write(foto, "png", out); // png is lossless
@@ -134,10 +180,19 @@ public class Inmuebles implements Serializable {
     
     //los metodos para verificar el tipo de propiedad (casa o propiedad)
 
+    /**
+     *
+     * @return
+     */
+
     public boolean esCasa() {
         return tipoPropiedad.equalsIgnoreCase(CASA); // se usa para comparar dos cadenas de texto sin tener en cuenta mayusculas o minusculas 
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean esApartamento() {
         return tipoPropiedad.equalsIgnoreCase(APARTAMENTO);
     }
@@ -331,36 +386,59 @@ public class Inmuebles implements Serializable {
         this.titulo = titulo;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getCalificacion() {
         return calificacion;
     }
 
+    /**
+     *
+     * @param calificacion
+     */
     public void setCalificacion(double calificacion) {
         this.calificacion = calificacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getServicios() {
         return servicios;
     }
 
+    /**
+     *
+     * @param servicios
+     */
     public void setServicios(String servicios) {
         this.servicios = servicios;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCorreoAnfitrion() {
         return correoAnfitrion;
     }
 
+    /**
+     *
+     * @param correoAnfitrion
+     */
     public void setCorreoAnfitrion(String correoAnfitrion) {
         this.correoAnfitrion = correoAnfitrion;
     }
     
-    
-    
-    
-    
-    
-
+    /**
+     *
+     * @param resenas
+     * @param resena
+     */
     public static void agregarResena(List<Integer> resenas, int resena) {
         if (resena >= 0 && resena <= 5) {
             resenas.add(resena);
@@ -370,6 +448,12 @@ public class Inmuebles implements Serializable {
     }
           
     //después se calcula la calificación, que es la media de las reseñas
+
+    /**
+     *
+     * @param resenas
+     * @return
+     */
     public static double calificacion(List<Integer> resenas) {
         if (resenas.isEmpty()) {
             throw new IllegalArgumentException("La lista de reseñas no puede estar vacía");
@@ -386,6 +470,10 @@ public class Inmuebles implements Serializable {
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Inmuebles{" + "titulo=" + titulo + ", calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", numHuespedes=" + numHuespedes + ", numHabitaciones=" + numHabitaciones + ", numCamas=" + numCamas + ", numBanos=" + numBanos + ", tipoPropiedad=" + tipoPropiedad + ", precioNoche=" + precioNoche + ", calificacion=" + calificacion + ", servicios=" + servicios + '}';

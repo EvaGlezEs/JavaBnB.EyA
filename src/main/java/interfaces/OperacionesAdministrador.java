@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ * Interfaz para que el administrador, una vez realizado el inicio de sesión, ya que los administradores no tienen que registrarse, decida a que apartado de la aplicación desea ir
  * @author Alejandro
  */
 public class OperacionesAdministrador extends javax.swing.JFrame {

@@ -5,22 +5,40 @@
 package poo.javabnb;
 import java.io.Serializable;
 /**
- *
+ *clase usuario que contiene los atributos que comparten todos los usuarios de la app, tanto clientes como administradores
+ * con ADMIN_CORREO y ADMIN_CLAVE llevamos a cabo el inicio de sesión de los administradores, corroborando que tiene ese correo y clave 
+ * 
  * @author eva
  */
 public class Usuarios implements Serializable{
+
+    /**
+     *
+     */
     protected String correo;
+
+    /**
+     *
+     */
     protected String clave;
     
     
     private static final String ADMIN_CORREO = "admin@javabnb.com";
     private static final String ADMIN_CLAVE = "admin";
 
+    /**
+     *
+     * @param correo
+     * @param clave
+     */
     public Usuarios(String correo, String clave) {
         this.correo = correo;
         this.clave = clave;
     }
     
+    /**
+     *
+     */
     public Usuarios(){
         
     }
@@ -59,6 +77,10 @@ public class Usuarios implements Serializable{
         this.clave = clave;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean esAdministrador(){
         return ADMIN_CORREO.equals(this.correo) && ADMIN_CLAVE.equals(this.clave);
     }

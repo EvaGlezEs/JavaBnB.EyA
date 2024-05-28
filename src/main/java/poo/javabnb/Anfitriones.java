@@ -7,16 +7,35 @@ package poo.javabnb;
 import java.io.Serializable;
 import java.time.LocalDate; //por la fecha de registro en la app del anfitrion
 import java.util.List;
+
 /**
- *
+ *Clase compuesta por todos los atributos comunes de los Anfitriones
+ * Esta clase hereda los atributos de Usuarios y los de Clientes
+ * 
  * @author eva
  */
+
 public class Anfitriones extends Clientes implements Serializable {
     
     private LocalDate fechaRegistro;
+
+    /**
+     *
+     */
     public int calificacion;
 
     //constructor
+
+    /**
+     *
+     * @param DNI
+     * @param nombre
+     * @param telefono
+     * @param correo
+     * @param clave
+     * @param fechaRegistro
+     * @param calificacion
+     */
 
     public Anfitriones(String DNI, String nombre, String telefono, String correo, String clave, LocalDate fechaRegistro, int calificacion) {
         super(DNI, nombre, telefono, correo, clave);
@@ -24,8 +43,9 @@ public class Anfitriones extends Clientes implements Serializable {
         this.calificacion = calificacion;
     }
 
-    
-
+    /**
+     *
+     */
     public Anfitriones() {
     }
       
@@ -48,10 +68,19 @@ public class Anfitriones extends Clientes implements Serializable {
         this.fechaRegistro = fechaRegistro;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCalificacion() {
         return calificacion;
     }
 
+    /**
+     *
+     * @param resenas
+     * @param resena
+     */
     public static void agregarResena(List<Integer> resenas, int resena) {
         if (resena >= 0 && resena <= 5) {
             resenas.add(resena);
@@ -61,6 +90,12 @@ public class Anfitriones extends Clientes implements Serializable {
     }
           
     //después se calcula la calificación, que es la media de las reseñas
+
+    /**
+     *
+     * @param resenas
+     * @return
+     */
     public static double calificacion(List<Integer> resenas) {
         if (resenas.isEmpty()) {
             throw new IllegalArgumentException("La lista de reseñas no puede estar vacía");
@@ -75,11 +110,18 @@ public class Anfitriones extends Clientes implements Serializable {
         
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean esSuperAnfitrion(){
         return this.calificacion > 4.0;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Anfitriones{"
@@ -92,6 +134,10 @@ public class Anfitriones extends Clientes implements Serializable {
                 + '}';
     }
 
+    /**
+     *
+     * @param var2
+     */
     public void setCalificacion(int var2) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

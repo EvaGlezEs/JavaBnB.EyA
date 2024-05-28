@@ -20,7 +20,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- *
+ *Esta clase sirve para almacenar, guardar, ordenar, buscar, etc los inmuebles registrados por los anfitriones en nuestra app
+ * 
  * @author Alejandro
  */
 public class UtilInmuebles implements Serializable  {
@@ -28,15 +29,19 @@ public class UtilInmuebles implements Serializable  {
     private static  ArrayList<Inmuebles> inmuebles = new ArrayList<>();
     private static  Inmuebles objinmu;
     
-    
-    
-   
-    
+    /**
+     *
+     * @param i
+     */
     public static void setInmuebles(ArrayList<Inmuebles> i) {
         inmuebles = i;
         
     }
     
+    /**
+     *
+     * @return
+     */
     public static ArrayList<Inmuebles> getInmuebles() {
         //Comparador para ordenar los inmuebles por su precio
         Comparator PrecioPerComp = new Comparator() {
@@ -52,6 +57,11 @@ public class UtilInmuebles implements Serializable  {
         Collections.sort(inmuebles, PrecioPerComp);
         return inmuebles;
     }
+
+    /**
+     *
+     * @return
+     */
     public static ArrayList<Inmuebles> getCalificacion() {
         //Comparador para ordenar los inmuebles por su precio
         Comparator PrecioPerComp = new Comparator() {
@@ -118,11 +128,12 @@ public class UtilInmuebles implements Serializable  {
         return true;
     }
     
-    
-    
-    
-    
-     public static boolean registrarInmueble(Inmuebles objinmu) {
+    /**
+     *
+     * @param objinmu
+     * @return
+     */
+    public static boolean registrarInmueble(Inmuebles objinmu) {
         if (!inmuebles.contains(objinmu)) {
             inmuebles.add(objinmu);
             return true;

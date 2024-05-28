@@ -7,7 +7,7 @@ package interfaces;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Interfaz para que los administradores inicien sesión en la app, comprueba que el correo y clave introducidos son los que debe tener un administrador
  * @author Alejandro
  */
 public class IniciarSesionAdmin extends javax.swing.JFrame {
@@ -19,10 +19,18 @@ public class IniciarSesionAdmin extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldCorreo() {
         return jTextFieldCorreo.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldClave() {
         return jTextFieldClave.getText();
     }

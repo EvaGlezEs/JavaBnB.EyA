@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ * Interfaz para que los anfitriones puedan modificar sus datos 
  * @author Alejandro
  */
 public class ModifiDatosAnfitriones extends javax.swing.JFrame {

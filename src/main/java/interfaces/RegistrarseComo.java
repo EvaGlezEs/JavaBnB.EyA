@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ * Interfaz para que el cliente elija como desea registrarse en la app
  * @author Alejandro
  */
 public class RegistrarseComo extends javax.swing.JFrame {

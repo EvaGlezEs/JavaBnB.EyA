@@ -12,7 +12,7 @@ import poo.javabnb.Inmuebles;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Interfaz para que el administrador pueda ver sus inmuebles con sus datos 
  * @author Alejandro
  */
 public class VerInmueblesAdmin extends javax.swing.JFrame {
@@ -30,59 +30,115 @@ public class VerInmueblesAdmin extends javax.swing.JFrame {
         consultarTodo();
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldTitulo(String txt) {
         this.jTextFieldTitulo.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCalle(String txt) {
         this.jTextFieldCalle.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumero(String txt) {
         this.jTextFieldNumero.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCodigoPostal(String txt) {
         this.jTextFieldCodigoPostal.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCiudad(String txt) {
         this.jTextFieldCiudad.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumHuespedes(String txt) {
         this.jTextFieldNumHuespedes.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumHabitaciones(String txt) {
         this.jTextFieldNumHabitaciones.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumCamas(String txt) {
         this.jTextFieldNumCamas.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldNumBanos(String txt) {
         this.jTextFieldNumBanos.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldTipoPropiedad(String txt) {
         this.jTextFieldTipoPropiedad.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldPrecioNoche(String txt) {
         this.jTextFieldPrecioNoche.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldCalificacion(String txt) {
         this.jTextFieldCalificacion.setText(txt);
     }
 
+    /**
+     *
+     * @param txt
+     */
     public void setJTextFieldServicios(String txt) {
         this.jTextFieldServicios.setText(txt);
     }
 
     //borra el contenido del panel
+
+    /**
+     *
+     */
     public void borrar() {
 
         setJTextFieldTitulo("");
@@ -101,11 +157,19 @@ public class VerInmueblesAdmin extends javax.swing.JFrame {
     }
 
     //activa la caja de texto dni
+
+    /**
+     *
+     */
     public void activaTitulo() {
         this.jTextFieldTitulo.setEditable(true);
     }
 
     //desactiva la caja de texto dni
+
+    /**
+     *
+     */
     public void desactivaTitulo() {
         this.jTextFieldTitulo.setEditable(false);
     }

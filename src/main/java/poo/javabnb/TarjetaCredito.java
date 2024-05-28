@@ -6,16 +6,33 @@ package poo.javabnb;
 
 import java.time.LocalDate;
 /**
- *
+ *Clase en la que guardamos los atributos de tarjeta de crédito para tener mejor acceso desde otras clases
+ * 
  * @author eva
  */
 public class TarjetaCredito {
     
+    /**
+     *
+     */
     public String nombreTitular;
+
+    /**
+     *
+     */
     public String numero;
+
+    /**
+     *
+     */
     public LocalDate fechaCaducidad;
     
-    
+    /**
+     *
+     * @param nombreTitular
+     * @param numero
+     * @param fechaCaducidad
+     */
     public TarjetaCredito(String nombreTitular, String numero, LocalDate fechaCaducidad) {
         this.nombreTitular = nombreTitular;
         this.numero = numero;

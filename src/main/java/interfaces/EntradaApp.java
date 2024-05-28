@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * Interfaz principal, es el primer acceso a la aplicación 
  * @author eva
  */
 public class EntradaApp extends javax.swing.JFrame {

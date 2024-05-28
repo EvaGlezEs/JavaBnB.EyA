@@ -7,8 +7,9 @@ import javax.swing.JOptionPane;
 import poo.javabnb.Clientes;
 import poo.javabnb.UtilClientes;
 import poo.javabnb.Anfitriones;
+
 /**
- *
+ * Interfaz para que los anfitriones inicien sesión en la app, busca en el ArrayList el correo y clave introducidos
  * @author Alejandro
  */
 public class IniciarSesionAnfi extends javax.swing.JFrame {
@@ -20,10 +21,18 @@ public class IniciarSesionAnfi extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldCorreo() {
         return jTextFieldCorreo.getText();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getJTextFieldClave() {
         return jTextFieldClave.getText();
     }

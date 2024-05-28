@@ -5,7 +5,7 @@
 package interfaces;
 
 /**
- *
+ *Interfaz que permite ver a llso clientes particulares los inmuebles que han reservado
  * @author Alejandro
  */
 public class ReservasCliParti extends javax.swing.JFrame {
