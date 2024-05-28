@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import poo.javabnb.Inmuebles;
 import poo.javabnb.UtilInmuebles;
 import poo.javabnb.Clientes;
+import poo.javabnb.Anfitrion;
 
 /**
  * Interfaz para que el anfitrión registre sus inmuebles, rellenenado los datos y subiendo una foto del mismo 
@@ -28,14 +29,14 @@ import poo.javabnb.Clientes;
  */
 public class DatosInmu extends javax.swing.JFrame {
     
-    private Clientes cli;
+    private Anfitrion anfi;
     private BufferedImage foto = null;
     /**
      * Creates new form DatosInmuebles
-     * @param cli
+     * @param anfi
      */
-    public DatosInmu(Clientes cli) {
-        this.cli = cli;
+    public DatosInmu(Anfitrion anfi) {
+        this.anfi = anfi;
         initComponents();
     }
     
@@ -374,7 +375,7 @@ public class DatosInmu extends javax.swing.JFrame {
         double calificacion = Double.parseDouble(getComboBoxCalificacion());
         String servicios = getJTextFieldServicios();
 
-        Inmuebles inmueble = new Inmuebles(titulo, calle, numero, codigoPostal, ciudad, numHuespedes, numHabitaciones, numCamas, numBanos, tipoPropiedad, precioNoche, calificacion, servicios,cli.getCorreo());
+        Inmuebles inmueble = new Inmuebles(titulo, calle, numero, codigoPostal, ciudad, numHuespedes, numHabitaciones, numCamas, numBanos, tipoPropiedad, precioNoche, calificacion, servicios,anfi.getCorreo());
         if(UtilInmuebles.registrarInmueble(inmueble)){
             JOptionPane.showMessageDialog(this, "Inmueble registrado en la app", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         } else {
