@@ -4,12 +4,15 @@
  */
 package interfaces;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.text.DateFormatter;
 
 import poo.javabnb.Clientes;
 import poo.javabnb.ClientesParticulares;
@@ -21,15 +24,18 @@ import poo.javabnb.UtilClientes;
  * @author eva
  */
 public class Registro extends javax.swing.JFrame {
- 
-    
     private Clientes cli = null;
-   
+    
+    
     /**
      * Creates new form RegistroAnfitrion
      */
     public Registro() {
-         
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d");
+        DateFormatter dateFormatter = new DateFormatter(dateFormat);
+        jFormattedTextFieldVar1 = new JFormattedTextField(dateFormatter);
+        jFormattedTextFieldVar1.setValue(new Date()); // Inicializar con la fecha actual
+        
         initComponents();
         jComboBoxTipo.setSelectedIndex(0);
     }
@@ -75,12 +81,21 @@ public class Registro extends javax.swing.JFrame {
         this.jTextFieldTelefono.setText(txt);
     }
 
+    
     public LocalDate getjFormattedTextFieldVar1() {
+    try {
         Date fecha = (Date) jFormattedTextFieldVar1.getValue();
-        Instant instant = Instant.ofEpochMilli(fecha.getTime());
-        LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
-        return localDate;
+         if (fecha == null) {
+            JOptionPane.showMessageDialog(this, "Fecha no válida o no ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+        Instant instant = fecha.toInstant();
+        return instant.atZone(ZoneId.systemDefault()).toLocalDate();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al obtener la fecha: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        return null;
     }
+}
 
     public void setjFormattedTextFieldVar1(Date d) {
         this.jFormattedTextFieldVar1.setValue(d);
@@ -119,7 +134,6 @@ public class Registro extends javax.swing.JFrame {
     // Convierte el número a texto y lo establece en jComboBoxVar5
     this.jComboBoxVar5.setSelectedItem(String.valueOf(num));
     }
-    
     
     
     
@@ -285,10 +299,24 @@ public class Registro extends javax.swing.JFrame {
         String clave = getjPasswordFieldClave();
         String telefono = getJTextFieldTelefono();
         LocalDate var1 = getjFormattedTextFieldVar1();
+        
+        // Validar fecha
+        if (var1 == null) {
+            return; // Ya se mostró el mensaje de error dentro del método getjFormattedTextFieldVar1
+        }
+        
         String var2 = getJTextFieldVar2();
         String var3 = getJTextFieldVar3();
         Boolean var4 = getjRadioButtonVar4();
         int var5 = getjComboBoxVar5();
+        
+        //Para validar los campos 
+        if (DNI.isEmpty() || nombre.isEmpty() || correo.isEmpty() || clave.isEmpty() || telefono.isEmpty() || var1 == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.", "Mensaje", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        
         if (jComboBoxTipo.getSelectedItem().equals("Cliente particular")) {
             cli = new ClientesParticulares(DNI, nombre, telefono, correo, clave, var1, var2, var3, var4);
         } else {
@@ -301,6 +329,8 @@ public class Registro extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
         }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Formato de número incorrecto en algún campo.", "Mensaje", JOptionPane.ERROR_MESSAGE);  
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
     }

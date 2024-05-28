@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.Comparator;
  *
  * @author Alejandro
  */
-public class UtilInmuebles {
+public class UtilInmuebles implements Serializable  {
      
     private static  ArrayList<Inmuebles> inmuebles = new ArrayList<>();
     private static  Inmuebles objinmu;
